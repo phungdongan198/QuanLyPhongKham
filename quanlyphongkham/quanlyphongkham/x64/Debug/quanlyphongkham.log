@@ -1,0 +1,3 @@
+﻿  quanlyphongkham.cpp
+D:\Data\HCMUTE\Lập trình HĐT\Đề tài quản lý phòng khám C++\quanlyphongkham\quanlyphongkham\quanlyphongkham.cpp(30,15): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  quanlyphongkham.vcxproj -> D:\Data\HCMUTE\Lập trình HĐT\Đề tài quản lý phòng khám C++\quanlyphongkham\x64\Debug\quanlyphongkham.exe
