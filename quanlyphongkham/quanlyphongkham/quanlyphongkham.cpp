@@ -2,137 +2,140 @@
 #include <fstream>
 #include <string>
 #include <windows.h>
+#include "BenhNhan.h"
+#include "UI.h"
+#include "ThongKe.h"
 using namespace std;
 
 /* ================= UI ================= */
-class UI {
-public:
-
-	static void setColor(int c) {
-		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), c);
-	}
-
-	static void pause() {
-		system("pause");
-	}
-
-	static void clear() {
-		system("cls");
-	}
-
-	/* căn giữa chữ */
-	static void center(string text, int color = 7) {
-
-		CONSOLE_SCREEN_BUFFER_INFO csbi;
-		GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbi);
-
-		int width = csbi.srWindow.Right - csbi.srWindow.Left + 1;
-		int padding = (width - text.length()) / 2;
-
-		setColor(color);
-
-		for (int i = 0; i < padding; i++)
-			cout << " ";
-
-		cout << text << endl;
-
-		setColor(7);
-	}
-	// chỉ set màu ko căn giữa
-	static void printColor(string text, int color) { setColor(color); cout << text; setColor(7); }
-};
+//class UI {
+//public:
+//
+//	static void setColor(int c) {
+//		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), c);
+//	}
+//
+//	static void pause() {
+//		system("pause");
+//	}
+//
+//	static void clear() {
+//		system("cls");
+//	}
+//
+//	/* căn giữa chữ */
+//	static void center(string text, int color = 7) {
+//
+//		CONSOLE_SCREEN_BUFFER_INFO csbi;
+//		GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbi);
+//
+//		int width = csbi.srWindow.Right - csbi.srWindow.Left + 1;
+//		int padding = (width - text.length()) / 2;
+//
+//		setColor(color);
+//
+//		for (int i = 0; i < padding; i++)
+//			cout << " ";
+//
+//		cout << text << endl;
+//
+//		setColor(7);
+//	}
+//	// chỉ set màu ko căn giữa
+//	static void printColor(string text, int color) { setColor(color); cout << text; setColor(7); }
+//};
 
 /* ================= BENH NHAN ================= */
-class BenhNhan {
-
-private:
-
-	string maBN, hoTen, ngaySinh, gioiTinh, dienThoai, diaChi, doiTuongKham, phongKham;
-
-public:
-
-	void nhap() {
-
-		cin.ignore();
-
-		cout << "Ma benh nhan: "; getline(cin, maBN);
-		cout << "Ho ten benh nhan: "; getline(cin, hoTen);
-		cout << "Ngay sinh: "; getline(cin, ngaySinh);
-		cout << "Gioi tinh: "; getline(cin, gioiTinh);
-		cout << "Dien thoai: "; getline(cin, dienThoai);
-		cout << "Dia chi: "; getline(cin, diaChi);
-		cout << "Doi tuong kham: "; getline(cin, doiTuongKham);
-		cout << "Phong kham: "; getline(cin, phongKham);
-	}
-
-	void luuXML() {
-
-		ofstream file("benhnhan.xml", ios::app);
-
-		file << "<BenhNhan>\n";
-		file << "<MaBN>" << maBN << "</MaBN>\n";
-		file << "<HoTen>" << hoTen << "</HoTen>\n";
-		file << "<NgaySinh>" << ngaySinh << "</NgaySinh>\n";
-		file << "<GioiTinh>" << gioiTinh << "</GioiTinh>\n";
-		file << "<DienThoai>" << dienThoai << "</DienThoai>\n";
-		file << "<DiaChi>" << diaChi << "</DiaChi>\n";
-		file << "<DoiTuongKham>" << doiTuongKham << "</DoiTuongKham>\n";
-		file << "<PhongKham>" << phongKham << "</PhongKham>\n";
-		file << "</BenhNhan>\n\n";
-
-		file.close();
-	}
-};
+//class BenhNhan {
+//
+//private:
+//
+//	string maBN, hoTen, ngaySinh, gioiTinh, dienThoai, diaChi, doiTuongKham, phongKham;
+//
+//public:
+//
+//	void nhap() {
+//
+//		cin.ignore();
+//
+//		cout << "Ma benh nhan: "; getline(cin, maBN);
+//		cout << "Ho ten benh nhan: "; getline(cin, hoTen);
+//		cout << "Ngay sinh: "; getline(cin, ngaySinh);
+//		cout << "Gioi tinh: "; getline(cin, gioiTinh);
+//		cout << "Dien thoai: "; getline(cin, dienThoai);
+//		cout << "Dia chi: "; getline(cin, diaChi);
+//		cout << "Doi tuong kham: "; getline(cin, doiTuongKham);
+//		cout << "Phong kham: "; getline(cin, phongKham);
+//	}
+//
+//	void luuXML() {
+//
+//		ofstream file("benhnhan.xml", ios::app);
+//
+//		file << "<BenhNhan>\n";
+//		file << "<MaBN>" << maBN << "</MaBN>\n";
+//		file << "<HoTen>" << hoTen << "</HoTen>\n";
+//		file << "<NgaySinh>" << ngaySinh << "</NgaySinh>\n";
+//		file << "<GioiTinh>" << gioiTinh << "</GioiTinh>\n";
+//		file << "<DienThoai>" << dienThoai << "</DienThoai>\n";
+//		file << "<DiaChi>" << diaChi << "</DiaChi>\n";
+//		file << "<DoiTuongKham>" << doiTuongKham << "</DoiTuongKham>\n";
+//		file << "<PhongKham>" << phongKham << "</PhongKham>\n";
+//		file << "</BenhNhan>\n\n";
+//
+//		file.close();
+//	}
+//};
 
 /* ================= THONG KE ================= */
-class ThongKe {
-
-public:
-
-	static void benhNhan() {
-
-		UI::clear();
-		UI::center("=== DANH SACH BENH NHAN DA KHAM ===", 10);
-
-		ifstream file("benhnhan.xml");
-
-		if (!file) {
-			cout << "Chua co du lieu!\n";
-			UI::pause();
-			return;
-		}
-
-		string line, ma, ten, sinh, phong;
-		int tong = 0;
-
-		cout << "\nMaBN | HoTen | NamSinh | PhongKham\n";
-		cout << "-------------------------------------\n";
-
-		while (getline(file, line)) {
-
-			if (line.find("<MaBN>") != string::npos)
-				ma = line.substr(6, line.find("</") - 6);
-
-			if (line.find("<HoTen>") != string::npos)
-				ten = line.substr(7, line.find("</") - 7);
-
-			if (line.find("<NgaySinh>") != string::npos)
-				sinh = line.substr(10, line.find("</") - 10);
-
-			if (line.find("<PhongKham>") != string::npos) {
-
-				phong = line.substr(11, line.find("</") - 11);
-
-				cout << ma << " | " << ten << " | " << sinh << " | " << phong << endl;
-				tong++;
-			}
-		}
-
-		cout << "\nTong so benh nhan: " << tong << endl;
-
-		UI::pause();
-	}
-};
+//class ThongKe {
+//
+//public:
+//
+//	static void benhNhan() {
+//
+//		UI::clear();
+//		UI::center("=== DANH SACH BENH NHAN DA KHAM ===", 10);
+//
+//		ifstream file("benhnhan.xml");
+//
+//		if (!file) {
+//			cout << "Chua co du lieu!\n";
+//			UI::pause();
+//			return;
+//		}
+//
+//		string line, ma, ten, sinh, phong;
+//		int tong = 0;
+//
+//		cout << "\nMaBN | HoTen | NamSinh | PhongKham\n";
+//		cout << "-------------------------------------\n";
+//
+//		while (getline(file, line)) {
+//
+//			if (line.find("<MaBN>") != string::npos)
+//				ma = line.substr(6, line.find("</") - 6);
+//
+//			if (line.find("<HoTen>") != string::npos)
+//				ten = line.substr(7, line.find("</") - 7);
+//
+//			if (line.find("<NgaySinh>") != string::npos)
+//				sinh = line.substr(10, line.find("</") - 10);
+//
+//			if (line.find("<PhongKham>") != string::npos) {
+//
+//				phong = line.substr(11, line.find("</") - 11);
+//
+//				cout << ma << " | " << ten << " | " << sinh << " | " << phong << endl;
+//				tong++;
+//			}
+//		}
+//
+//		cout << "\nTong so benh nhan: " << tong << endl;
+//
+//		UI::pause();
+//	}
+//};
 
 /* ================= XOA BENH NHAN ================= */
 void xoaBenhNhan() {
