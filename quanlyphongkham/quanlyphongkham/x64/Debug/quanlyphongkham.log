@@ -1,3 +1,4 @@
 ﻿  quanlyphongkham.cpp
-D:\Data\HCMUTE\Lập trình HĐT\Đề tài quản lý phòng khám C++\quanlyphongkham\quanlyphongkham\quanlyphongkham.cpp(30,15): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-  quanlyphongkham.vcxproj -> D:\Data\HCMUTE\Lập trình HĐT\Đề tài quản lý phòng khám C++\quanlyphongkham\x64\Debug\quanlyphongkham.exe
+D:\Data\GIT\QuanLyPhongKham\quanlyphongkham\quanlyphongkham\quanlyphongkham.cpp(30,15): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  LINK : D:\Data\GIT\QuanLyPhongKham\quanlyphongkham\x64\Debug\quanlyphongkham.exe not found or not built by the last incremental link; performing full link
+  quanlyphongkham.vcxproj -> D:\Data\GIT\QuanLyPhongKham\quanlyphongkham\x64\Debug\quanlyphongkham.exe
