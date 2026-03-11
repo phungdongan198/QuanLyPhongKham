@@ -5,6 +5,7 @@ using namespace std;
 #include <windows.h>
 #include <iostream>
 #include <fstream>
+#include "UI.h"
 class BenhNhan {
 
 private:
@@ -43,5 +44,84 @@ public:
 		file << "</BenhNhan>\n\n";
 
 		file.close();
+	}
+
+	static void xoaBenhNhan() {
+
+		UI::clear();
+		UI::center("=== XOA BENH NHAN ===", 10);
+
+		string maXoa;
+		cin.ignore();
+
+		cout << "Nhap ma benh nhan can xoa: ";
+		getline(cin, maXoa);
+
+		ifstream file("benhnhan.xml");
+		ofstream temp("temp.xml");
+
+		if (!file) {
+			cout << "Khong mo duoc file!\n";
+			UI::pause();
+			return;
+		}
+
+		string line, block;
+		bool inBlock = false, removeBlock = false;
+		int dem = 0;
+
+		while (getline(file, line)) {
+
+			if (line.find("<BenhNhan>") != string::npos) {
+				block = line + "\n";
+				inBlock = true;
+				continue;
+			}
+
+			if (inBlock) {
+
+				block += line + "\n";
+
+				if (line.find("<MaBN>") != string::npos) {
+
+					string ma = line.substr(6, line.find("</") - 6);
+
+					if (ma == maXoa) {
+						removeBlock = true;
+						dem++;
+					}
+				}
+
+				if (line.find("</BenhNhan>") != string::npos) {
+
+					inBlock = false;
+
+					if (!removeBlock)
+						temp << block;
+
+					block = "";
+					removeBlock = false;
+				}
+			}
+		}
+
+		file.close();
+		temp.close();
+
+		if (dem == 0) {
+			remove("temp.xml");
+			cout << "Khong tim thay ma benh nhan!\n";
+			UI::pause();
+			return;
+		}
+
+		if (remove("benhnhan.xml") != 0 || rename("temp.xml", "benhnhan.xml") != 0) {
+			cout << "Xoa that bai!\n";
+			UI::pause();
+			return;
+		}
+
+		cout << "Da xoa " << dem << " benh nhan!\n";
+		UI::pause();
 	}
 };

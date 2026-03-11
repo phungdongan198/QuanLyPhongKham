@@ -1,5 +1,4 @@
 #pragma once
-#pragma once
 using namespace std;
 #include <string>
 #include <windows.h>

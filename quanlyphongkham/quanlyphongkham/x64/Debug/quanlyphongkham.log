@@ -1,5 +1,2 @@
 ﻿  quanlyphongkham.cpp
-E:\DTTX\OOP\QuanLyPhongKham\quanlyphongkham\quanlyphongkham\UI.h(29,15): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-  (compiling source file 'quanlyphongkham.cpp')
-  
   quanlyphongkham.vcxproj -> E:\DTTX\OOP\QuanLyPhongKham\quanlyphongkham\x64\Debug\quanlyphongkham.exe

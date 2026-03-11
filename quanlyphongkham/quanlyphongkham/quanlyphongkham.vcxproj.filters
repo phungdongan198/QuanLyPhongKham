@@ -29,5 +29,11 @@
     <ClInclude Include="UI.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="BacSi.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PhongKham.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

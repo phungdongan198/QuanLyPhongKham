@@ -26,7 +26,7 @@ public:
 		GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbi);
 
 		int width = csbi.srWindow.Right - csbi.srWindow.Left + 1;
-		int padding = (width - text.length()) / 2;
+		int64_t padding = (width - text.length()) / 2;
 
 		setColor(color);
 
