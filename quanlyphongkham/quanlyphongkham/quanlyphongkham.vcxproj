@@ -132,6 +132,7 @@
   <ItemGroup>
     <ClInclude Include="BacSi.h" />
     <ClInclude Include="BenhNhan.h" />
+    <ClInclude Include="HeaderLiblary.h" />
     <ClInclude Include="PhongKham.h" />
     <ClInclude Include="ThongKe.h" />
     <ClInclude Include="UI.h" />
