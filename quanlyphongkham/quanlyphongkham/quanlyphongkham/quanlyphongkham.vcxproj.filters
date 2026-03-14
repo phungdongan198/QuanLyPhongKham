@@ -20,17 +20,12 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
     <ClInclude Include="BenhNhan.h">
-=======
-    <ClInclude Include="UI.h">
->>>>>>> b2625b052f4748af5716357ab6bf8642fc957fa6
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="ThongKe.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-<<<<<<< HEAD
     <ClInclude Include="UI.h">
       <Filter>Source Files</Filter>
     </ClInclude>
@@ -41,9 +36,6 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="HeaderLiblary.h">
-=======
-    <ClInclude Include="BenhNhan.h">
->>>>>>> b2625b052f4748af5716357ab6bf8642fc957fa6
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

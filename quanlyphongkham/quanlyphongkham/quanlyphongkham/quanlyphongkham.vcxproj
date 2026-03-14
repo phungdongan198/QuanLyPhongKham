@@ -130,14 +130,10 @@
     <ClCompile Include="quanlyphongkham.cpp" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
     <ClInclude Include="BacSi.h" />
     <ClInclude Include="BenhNhan.h" />
     <ClInclude Include="HeaderLiblary.h" />
     <ClInclude Include="PhongKham.h" />
-=======
-    <ClInclude Include="BenhNhan.h" />
->>>>>>> b2625b052f4748af5716357ab6bf8642fc957fa6
     <ClInclude Include="ThongKe.h" />
     <ClInclude Include="UI.h" />
   </ItemGroup>
