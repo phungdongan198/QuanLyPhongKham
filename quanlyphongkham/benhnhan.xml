@@ -1,5 +1,6 @@
 <BenhNhan>
 <MaBN>1</MaBN>
+<<<<<<< HEAD
 <HoTen>an</HoTen>
 <NgaySinh>21.2.1998</NgaySinh>
 <GioiTinh>nam</GioiTinh>
@@ -7,5 +8,14 @@
 <DiaChi>123456</DiaChi>
 <DoiTuongKham>m?t</DoiTuongKham>
 <PhongKham>m?t</PhongKham>
+=======
+<HoTen>1</HoTen>
+<NgaySinh>1</NgaySinh>
+<GioiTinh>1</GioiTinh>
+<DienThoai>1</DienThoai>
+<DiaChi>1</DiaChi>
+<DoiTuongKham>1</DoiTuongKham>
+<PhongKham>1</PhongKham>
+>>>>>>> 3fd49ca4b6f833f1b2da1332004345ec82830fde
 </BenhNhan>
 

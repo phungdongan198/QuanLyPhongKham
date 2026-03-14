@@ -2,6 +2,17 @@
 #include <fstream>
 #include <string>
 #include <windows.h>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+#include "BenhNhan.h"
+#include "UI.h"
+#include "ThongKe.h"
+#include "PhongKham.h"
+using namespace std;
+
+=======
+>>>>>>> 3fd49ca4b6f833f1b2da1332004345ec82830fde
 #include "UI.h"
 #include "BenhNhan.h"
 #include "ThongKe.h"
@@ -330,6 +341,10 @@ public:
 	}
 };
 
+<<<<<<< HEAD
+=======
+>>>>>>> b2625b052f4748af5716357ab6bf8642fc957fa6
+>>>>>>> 3fd49ca4b6f833f1b2da1332004345ec82830fde
 /* ================= MAIN ================= */
 int main() {
 

@@ -4,7 +4,10 @@ using namespace std;
 #include <windows.h>
 #include <iostream>
 #include <fstream>
+<<<<<<< HEAD
 #include <cstdint>
+=======
+>>>>>>> 3fd49ca4b6f833f1b2da1332004345ec82830fde
 class UI {
 public:
 

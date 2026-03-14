@@ -6,8 +6,11 @@ using namespace std;
 #include <fstream>
 #include "BenhNhan.h"
 #include "UI.h"
+<<<<<<< HEAD
 #include "Thuoc.h"
 #include "CanLamSang.h"
+=======
+>>>>>>> 3fd49ca4b6f833f1b2da1332004345ec82830fde
 class PhongKham {
 
 public:
@@ -50,6 +53,7 @@ public:
 
 		} while (chon != 3);
 	}
+<<<<<<< HEAD
 	void menuThuoc() {
 
     	int chon;
@@ -122,6 +126,8 @@ public:
 
 		} while (chon != 3);
 	}
+=======
+>>>>>>> 3fd49ca4b6f833f1b2da1332004345ec82830fde
 
 	void menuThongKe() {
 
@@ -176,8 +182,11 @@ public:
 			switch (chon) {
 
 			case 1: menuBenhNhan(); break;
+<<<<<<< HEAD
 			case 4: menuThuoc(); break;
 			case 5: menuCanLamSang(); break;
+=======
+>>>>>>> 3fd49ca4b6f833f1b2da1332004345ec82830fde
 			case 7: menuThongKe(); break;
 
 			case 8:
