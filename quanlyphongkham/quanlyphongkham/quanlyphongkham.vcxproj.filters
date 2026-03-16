@@ -19,24 +19,4 @@
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="BenhNhan.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ThongKe.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="UI.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="BacSi.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="PhongKham.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="HeaderLiblary.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-  </ItemGroup>
 </Project>
