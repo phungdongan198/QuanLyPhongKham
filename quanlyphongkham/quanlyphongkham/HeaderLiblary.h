@@ -9,3 +9,4 @@ using namespace std;
 #include "BenhNhan.h"
 #include "PhongKham.h"
 #include <windows.h>
+#include <vector>
