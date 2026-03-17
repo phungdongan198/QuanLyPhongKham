@@ -19,4 +19,36 @@
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="LiblaryHeader.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UI.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BenhNhan.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SystemMethod.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PhongKham.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CanLamSang.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NhapThuoc.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="banThuoc.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SystemPK.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="BacSi.h" />
+  </ItemGroup>
 </Project>

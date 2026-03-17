@@ -1,14 +1,19 @@
 ﻿#pragma once
-using namespace std;
-#include <string>
-#include <windows.h>
-#include <iostream>
-#include <fstream>
+#include "LiblaryHeader.h"
+#include <WinBase.h>
+
+/* ================= UI ================= */
 class UI {
 public:
 
 	static void setColor(int c) {
 		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), c);
+	}
+	static void printColor(string text, int color) {
+
+		setColor(color);
+		cout << text;
+		setColor(7); // trả lại màu mặc định
 	}
 
 	static void pause() {
@@ -19,14 +24,13 @@ public:
 		system("cls");
 	}
 
-	/* căn giữa chữ */
 	static void center(string text, int color = 7) {
 
 		CONSOLE_SCREEN_BUFFER_INFO csbi;
 		GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbi);
 
 		int width = csbi.srWindow.Right - csbi.srWindow.Left + 1;
-		int64_t padding = (width - text.length()) / 2;
+		int padding = (width - (int)text.length()) / 2;
 
 		setColor(color);
 
@@ -37,6 +41,6 @@ public:
 
 		setColor(7);
 	}
-	// chỉ set màu ko căn giữa
-	static void printColor(string text, int color) { setColor(color); cout << text; setColor(7); }
+
+
 };

@@ -42,7 +42,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v145</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
@@ -128,6 +128,20 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="quanlyphongkham.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="banThuoc.h" />
+    <ClInclude Include="BenhNhan.h" />
+    <ClInclude Include="CanLamSang.h" />
+    <ClInclude Include="LiblaryHeader.h" />
+    <ClInclude Include="NhapThuoc.h" />
+    <ClInclude Include="PhongKham.h" />
+    <ClInclude Include="SystemMethod.h" />
+    <ClInclude Include="SystemPK.h" />
+    <ClInclude Include="UI.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="BacSi.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,119 +1,241 @@
 #pragma once
-using namespace std;
-#include <string>
-#include <windows.h>
-#include <iostream>
-#include <fstream>
-#include "BenhNhan.h"
-#include "UI.h"
+#include "LiblaryHeader.h"
+
+/* ================= PHONG KHAM ================= */
 class PhongKham {
 
 public:
 
-	void menuBenhNhan() {
+	string ma, ten, loai;
 
-		int chon;
+	void nhap() {
 
-		do {
+		cin.ignore();
 
-			UI::clear();
-			UI::center("===== QUAN LY BENH NHAN =====", 10);
+		cout << "Ma phong: ";
+		getline(cin, ma);
 
-			cout << "\n1. Nhap thong tin benh nhan\n";
-			cout << "2. Xoa benh nhan\n";
-			UI::printColor("3. Quay lai menu chinh\n", 12);
+		cout << "Ten phong: ";
+		getline(cin, ten);
 
-			cout << "\nChon: ";
-			cin >> chon;
-
-			switch (chon) {
-
-			case 1: {
-				UI::clear();
-				UI::center("=== NHAP THONG TIN BENH NHAN ===", 10);
-
-				BenhNhan bn;
-				bn.nhap();
-				bn.luuXML();
-
-				cout << "\nNhap thanh cong!\n";
-				UI::pause();
-				break;
-			}
-
-			case 2:
-				BenhNhan::xoaBenhNhan();
-				break;
-			}
-
-		} while (chon != 3);
+		cout << "Loai phong: ";
+		getline(cin, loai);
 	}
 
-	void menuThongKe() {
+	void save() {
 
-		int chon;
+		ofstream f("phongkham.xml", ios::app);
 
-		do {
+		f << "<Phong>\n";
+		f << "<Ma>" << ma << "</Ma>\n";
+		f << "<Ten>" << ten << "</Ten>\n";
+		f << "<Loai>" << loai << "</Loai>\n";
+		f << "</Phong>\n\n";
 
-			UI::clear();
-			UI::center("===== MENU THONG KE =====", 10);
-
-			cout << "\n1. Thong ke danh sach benh nhan\n";
-			cout << "2. Danh sach phong kham\n";
-			cout << "3. Danh sach bac si\n";
-			cout << "4. Danh sach can lam sang\n";
-			cout << "5. Danh sach thuoc\n";
-			cout << "6. Quay lai menu chinh\n";
-
-			cout << "\nChon: ";
-			cin >> chon;
-
-			if (chon == 1)
-				ThongKe::benhNhan();
-			else if (chon >= 2 && chon <= 5) {
-				cout << "Chuc nang dang phat trien...\n";
-				UI::pause();
-			}
-
-		} while (chon != 6);
+		f.close();
 	}
 
-	void menuChinh() {
+	static void showPhongKham() {
 
-		int chon;
+		if (!SystemMethod::fileExist("phongkham.xml")) {
+			cout << "Khong co du lieu\n";
+			UI::pause();
+			return;
+		}
 
-		do {
+		ifstream f("phongkham.xml");
 
-			UI::clear();
-			UI::center("===== QUAN LY PHONG KHAM =====", 10);
+		string line;
+		PhongKham pk;
 
-			cout << "\n1. Nhap thong tin benh nhan kham benh\n";
-			cout << "2. Khai bao phong kham\n";
-			cout << "3. Khai bao bac si\n";
-			cout << "4. Khai bao thuoc\n";
-			cout << "5. Can lam sang\n";
-			cout << "6. Quan ly ho so da kham\n";
-			cout << "7. Thong ke\n";
-			UI::printColor("8. Thoat\n", 12);
+		vector<PhongKham> ds;
 
-			cout << "\nChon chuc nang: ";
-			cin >> chon;
+		while (getline(f, line)) {
 
-			switch (chon) {
+			if (line.find("<Ma>") != string::npos)
+				pk.ma = line.substr(4, line.find("</") - 4);
 
-			case 1: menuBenhNhan(); break;
-			case 7: menuThongKe(); break;
+			if (line.find("<Ten>") != string::npos)
+				pk.ten = line.substr(5, line.find("</") - 5);
 
-			case 8:
-				UI::clear();
-				UI::center("Thoat chuong trinh");
-				break;
+			if (line.find("<Loai>") != string::npos) {
 
-			default:
-				cout << "Chuc nang dang phat trien...\n";
-				UI::pause();
+				pk.loai = line.substr(6, line.find("</") - 6);
+
+				ds.push_back(pk);
 			}
+		}
 
-		} while (chon != 8);
+		f.close();
+
+		cout << "\n--------------------------------------------------\n";
+
+		cout << left
+			<< setw(15) << "MaPhong"
+			<< setw(25) << "TenPhong"
+			<< setw(20) << "LoaiPhong"
+			<< endl;
+
+		cout << "--------------------------------------------------\n";
+
+		for (auto& p : ds) {
+
+			cout << left
+				<< setw(15) << p.ma
+				<< setw(25) << p.ten
+				<< setw(20) << p.loai
+				<< endl;
+		}
+
+		cout << "--------------------------------------------------\n";
+
+		UI::pause();
+	}
+
+	static void searchPhongkham() {
+		int c;
+		if (!SystemMethod::fileExist("phongkham.xml")) {
+			cout << "Khong co du lieu\n";
+			UI::pause();
+			return;
+		}
+
+
+		cout << "\n===== TIM PHONG KHAM =====\n";
+		cout << "1 Tim theo ma\n";
+		cout << "2 Tim theo ten\n";
+		UI::printColor("3 Quay lai\n", 12);
+
+		cout << "Chon: ";
+		c = SystemMethod::kiemTraKyTu();
+
+
+		if (c == 3)
+			return;
+
+		cin.ignore();
+
+		string key;
+
+		if (c == 1)
+			cout << "Nhap ma phong: ";
+		else
+			cout << "Nhap ten phong: ";
+
+		getline(cin, key);
+
+		ifstream f("phongkham.xml");
+
+		string line;
+		vector<PhongKham> ds;
+		PhongKham pk;
+
+		while (getline(f, line)) {
+
+			if (line.find("<Ma>") != string::npos)
+				pk.ma = line.substr(4, line.find("</") - 4);
+
+			if (line.find("<Ten>") != string::npos)
+				pk.ten = line.substr(5, line.find("</") - 5);
+
+			if (line.find("<Loai>") != string::npos) {
+
+				pk.loai = line.substr(6, line.find("</") - 6);
+
+				bool match = false;
+
+				if (c == 1 && pk.ma == key)
+					match = true;
+
+				if (c == 2 && pk.ten.find(key) != string::npos)
+					match = true;
+
+				if (match)
+					ds.push_back(pk);
+			}
+		}
+
+		f.close();
+
+		if (ds.empty()) {
+
+			cout << "\nKhong tim thay!\n";
+			UI::pause();
+			return;
+		}
+
+		cout << "\n--------------------------------------------------\n";
+
+		cout << left
+			<< setw(15) << "MaPhong"
+			<< setw(25) << "TenPhong"
+			<< setw(20) << "LoaiPhong"
+			<< endl;
+
+		cout << "--------------------------------------------------\n";
+
+		for (auto& p : ds) {
+
+			cout << left
+				<< setw(15) << p.ma
+				<< setw(25) << p.ten
+				<< setw(20) << p.loai
+				<< endl;
+		}
+
+		cout << "--------------------------------------------------\n";
+
+		UI::pause();
+	}
+
+	static void exportExcePhongKham() {
+
+		if (!SystemMethod::fileExist("phongkham.xml")) {
+			cout << "Khong co du lieu\n";
+			UI::pause();
+			return;
+		}
+
+		ifstream f("phongkham.xml");
+		ofstream o("phongkham.csv");
+
+		string line;
+		PhongKham pk;
+
+		/* header excel */
+		o << "MaPhong,TenPhong,LoaiPhong\n";
+
+		while (getline(f, line)) {
+
+			if (line.find("<Ma>") != string::npos)
+				pk.ma = line.substr(4, line.find("</") - 4);
+
+			if (line.find("<Ten>") != string::npos)
+				pk.ten = line.substr(5, line.find("</") - 5);
+
+			if (line.find("<Loai>") != string::npos) {
+
+				pk.loai = line.substr(6, line.find("</") - 6);
+
+				o << pk.ma << ","
+					<< pk.ten << ","
+					<< pk.loai << "\n";
+			}
+		}
+
+		f.close();
+		o.close();
+
+		cout << "\nXuat Excel thanh cong: phongkham.csv\n";
+
+		char ch;
+
+		cout << "Ban co muon mo file khong? (Y/N): ";
+		cin >> ch;
+
+		if (ch == 'Y' || ch == 'y')
+			system("start phongkham.csv");
+
+		UI::pause();
 	}
 };
