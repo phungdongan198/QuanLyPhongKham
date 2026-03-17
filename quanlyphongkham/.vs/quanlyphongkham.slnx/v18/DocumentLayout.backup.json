@@ -1,10 +1,42 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Data\\HCMUTE\\L\u1EADp tr\u00ECnh H\u0110T\\\u0110\u1EC1 t\u00E0i qu\u1EA3n l\u00FD ph\u00F2ng kh\u00E1m C\u002B\u002B\\quanlyphongkham\\",
+  "WorkspaceRootPath": "D:\\Data\\GIT\\QuanLyPhongKham\\quanlyphongkham\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{00742233-C886-433C-AB12-7F7E1FF8E6B5}|quanlyphongkham\\quanlyphongkham.vcxproj|D:\\Data\\HCMUTE\\L\u1EADp tr\u00ECnh H\u0110T\\\u0110\u1EC1 t\u00E0i qu\u1EA3n l\u00FD ph\u00F2ng kh\u00E1m C\u002B\u002B\\quanlyphongkham\\quanlyphongkham\\quanlyphongkham.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{00742233-C886-433C-AB12-7F7E1FF8E6B5}|quanlyphongkham\\quanlyphongkham.vcxproj|D:\\Data\\GIT\\QuanLyPhongKham\\quanlyphongkham\\quanlyphongkham\\SystemPK.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{00742233-C886-433C-AB12-7F7E1FF8E6B5}|quanlyphongkham\\quanlyphongkham.vcxproj|solutionrelative:quanlyphongkham\\SystemPK.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00742233-C886-433C-AB12-7F7E1FF8E6B5}|quanlyphongkham\\quanlyphongkham.vcxproj|D:\\Data\\GIT\\QuanLyPhongKham\\quanlyphongkham\\quanlyphongkham\\quanlyphongkham.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{00742233-C886-433C-AB12-7F7E1FF8E6B5}|quanlyphongkham\\quanlyphongkham.vcxproj|solutionrelative:quanlyphongkham\\quanlyphongkham.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00742233-C886-433C-AB12-7F7E1FF8E6B5}|quanlyphongkham\\quanlyphongkham.vcxproj|D:\\Data\\GIT\\QuanLyPhongKham\\quanlyphongkham\\quanlyphongkham\\PhongKham.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{00742233-C886-433C-AB12-7F7E1FF8E6B5}|quanlyphongkham\\quanlyphongkham.vcxproj|solutionrelative:quanlyphongkham\\PhongKham.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00742233-C886-433C-AB12-7F7E1FF8E6B5}|quanlyphongkham\\quanlyphongkham.vcxproj|D:\\Data\\GIT\\QuanLyPhongKham\\quanlyphongkham\\quanlyphongkham\\NhapThuoc.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{00742233-C886-433C-AB12-7F7E1FF8E6B5}|quanlyphongkham\\quanlyphongkham.vcxproj|solutionrelative:quanlyphongkham\\NhapThuoc.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00742233-C886-433C-AB12-7F7E1FF8E6B5}|quanlyphongkham\\quanlyphongkham.vcxproj|D:\\Data\\GIT\\QuanLyPhongKham\\quanlyphongkham\\quanlyphongkham\\LiblaryHeader.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{00742233-C886-433C-AB12-7F7E1FF8E6B5}|quanlyphongkham\\quanlyphongkham.vcxproj|solutionrelative:quanlyphongkham\\LiblaryHeader.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00742233-C886-433C-AB12-7F7E1FF8E6B5}|quanlyphongkham\\quanlyphongkham.vcxproj|D:\\Data\\GIT\\QuanLyPhongKham\\quanlyphongkham\\quanlyphongkham\\CanLamSang.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{00742233-C886-433C-AB12-7F7E1FF8E6B5}|quanlyphongkham\\quanlyphongkham.vcxproj|solutionrelative:quanlyphongkham\\CanLamSang.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00742233-C886-433C-AB12-7F7E1FF8E6B5}|quanlyphongkham\\quanlyphongkham.vcxproj|D:\\Data\\GIT\\QuanLyPhongKham\\quanlyphongkham\\quanlyphongkham\\banThuoc.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{00742233-C886-433C-AB12-7F7E1FF8E6B5}|quanlyphongkham\\quanlyphongkham.vcxproj|solutionrelative:quanlyphongkham\\banThuoc.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00742233-C886-433C-AB12-7F7E1FF8E6B5}|quanlyphongkham\\quanlyphongkham.vcxproj|D:\\Data\\GIT\\QuanLyPhongKham\\quanlyphongkham\\quanlyphongkham\\BenhNhan.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{00742233-C886-433C-AB12-7F7E1FF8E6B5}|quanlyphongkham\\quanlyphongkham.vcxproj|solutionrelative:quanlyphongkham\\BenhNhan.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00742233-C886-433C-AB12-7F7E1FF8E6B5}|quanlyphongkham\\quanlyphongkham.vcxproj|D:\\Data\\GIT\\QuanLyPhongKham\\quanlyphongkham\\quanlyphongkham\\BacSi.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{00742233-C886-433C-AB12-7F7E1FF8E6B5}|quanlyphongkham\\quanlyphongkham.vcxproj|solutionrelative:quanlyphongkham\\BacSi.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,17 +46,121 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PhongKham.h",
+              "DocumentMoniker": "D:\\Data\\GIT\\QuanLyPhongKham\\quanlyphongkham\\quanlyphongkham\\PhongKham.h",
+              "RelativeDocumentMoniker": "quanlyphongkham\\PhongKham.h",
+              "ToolTip": "D:\\Data\\GIT\\QuanLyPhongKham\\quanlyphongkham\\quanlyphongkham\\PhongKham.h",
+              "RelativeToolTip": "quanlyphongkham\\PhongKham.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-03-17T12:37:57.479Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "NhapThuoc.h",
+              "DocumentMoniker": "D:\\Data\\GIT\\QuanLyPhongKham\\quanlyphongkham\\quanlyphongkham\\NhapThuoc.h",
+              "RelativeDocumentMoniker": "quanlyphongkham\\NhapThuoc.h",
+              "ToolTip": "D:\\Data\\GIT\\QuanLyPhongKham\\quanlyphongkham\\quanlyphongkham\\NhapThuoc.h",
+              "RelativeToolTip": "quanlyphongkham\\NhapThuoc.h",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-03-17T12:37:50.521Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "LiblaryHeader.h",
+              "DocumentMoniker": "D:\\Data\\GIT\\QuanLyPhongKham\\quanlyphongkham\\quanlyphongkham\\LiblaryHeader.h",
+              "RelativeDocumentMoniker": "quanlyphongkham\\LiblaryHeader.h",
+              "ToolTip": "D:\\Data\\GIT\\QuanLyPhongKham\\quanlyphongkham\\quanlyphongkham\\LiblaryHeader.h",
+              "RelativeToolTip": "quanlyphongkham\\LiblaryHeader.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-03-17T12:37:43.191Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CanLamSang.h",
+              "DocumentMoniker": "D:\\Data\\GIT\\QuanLyPhongKham\\quanlyphongkham\\quanlyphongkham\\CanLamSang.h",
+              "RelativeDocumentMoniker": "quanlyphongkham\\CanLamSang.h",
+              "ToolTip": "D:\\Data\\GIT\\QuanLyPhongKham\\quanlyphongkham\\quanlyphongkham\\CanLamSang.h",
+              "RelativeToolTip": "quanlyphongkham\\CanLamSang.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-03-17T12:37:20.92Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "BenhNhan.h",
+              "DocumentMoniker": "D:\\Data\\GIT\\QuanLyPhongKham\\quanlyphongkham\\quanlyphongkham\\BenhNhan.h",
+              "RelativeDocumentMoniker": "quanlyphongkham\\BenhNhan.h",
+              "ToolTip": "D:\\Data\\GIT\\QuanLyPhongKham\\quanlyphongkham\\quanlyphongkham\\BenhNhan.h",
+              "RelativeToolTip": "quanlyphongkham\\BenhNhan.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-03-17T12:36:14.102Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "BacSi.h",
+              "DocumentMoniker": "D:\\Data\\GIT\\QuanLyPhongKham\\quanlyphongkham\\quanlyphongkham\\BacSi.h",
+              "RelativeDocumentMoniker": "quanlyphongkham\\BacSi.h",
+              "ToolTip": "D:\\Data\\GIT\\QuanLyPhongKham\\quanlyphongkham\\quanlyphongkham\\BacSi.h",
+              "RelativeToolTip": "quanlyphongkham\\BacSi.h",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAADoAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-03-17T12:33:54.176Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "banThuoc.h",
+              "DocumentMoniker": "D:\\Data\\GIT\\QuanLyPhongKham\\quanlyphongkham\\quanlyphongkham\\banThuoc.h",
+              "RelativeDocumentMoniker": "quanlyphongkham\\banThuoc.h",
+              "ToolTip": "D:\\Data\\GIT\\QuanLyPhongKham\\quanlyphongkham\\quanlyphongkham\\banThuoc.h",
+              "RelativeToolTip": "quanlyphongkham\\banThuoc.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-03-17T12:27:51.535Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "SystemPK.h",
+              "DocumentMoniker": "D:\\Data\\GIT\\QuanLyPhongKham\\quanlyphongkham\\quanlyphongkham\\SystemPK.h",
+              "RelativeDocumentMoniker": "quanlyphongkham\\SystemPK.h",
+              "ToolTip": "D:\\Data\\GIT\\QuanLyPhongKham\\quanlyphongkham\\quanlyphongkham\\SystemPK.h",
+              "RelativeToolTip": "quanlyphongkham\\SystemPK.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACACAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-03-17T12:27:39.327Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "quanlyphongkham.cpp",
-              "DocumentMoniker": "D:\\Data\\HCMUTE\\L\u1EADp tr\u00ECnh H\u0110T\\\u0110\u1EC1 t\u00E0i qu\u1EA3n l\u00FD ph\u00F2ng kh\u00E1m C\u002B\u002B\\quanlyphongkham\\quanlyphongkham\\quanlyphongkham.cpp",
+              "DocumentMoniker": "D:\\Data\\GIT\\QuanLyPhongKham\\quanlyphongkham\\quanlyphongkham\\quanlyphongkham.cpp",
               "RelativeDocumentMoniker": "quanlyphongkham\\quanlyphongkham.cpp",
-              "ToolTip": "D:\\Data\\HCMUTE\\L\u1EADp tr\u00ECnh H\u0110T\\\u0110\u1EC1 t\u00E0i qu\u1EA3n l\u00FD ph\u00F2ng kh\u00E1m C\u002B\u002B\\quanlyphongkham\\quanlyphongkham\\quanlyphongkham.cpp",
+              "ToolTip": "D:\\Data\\GIT\\QuanLyPhongKham\\quanlyphongkham\\quanlyphongkham\\quanlyphongkham.cpp",
               "RelativeToolTip": "quanlyphongkham\\quanlyphongkham.cpp",
-              "ViewState": "AgIAAGoCAAAAAAAAAAAAAI0BAAACAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2026-03-07T12:34:08.089Z",
               "EditorCaption": ""

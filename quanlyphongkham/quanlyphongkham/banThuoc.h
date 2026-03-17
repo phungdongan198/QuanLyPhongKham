@@ -412,14 +412,14 @@ public:
 			f.close();
 			o.close();
 
-			cout << "\nDa xuat file thuocnhap.csv\n";
+			cout << "\nDa xuat file nhapthuoc.csv\n";
 			char ch;
 
 			cout << "Ban co muon mo file khong? (Y/N): ";
 			cin >> ch;
 
 			if (ch == 'Y' || ch == 'y')
-				system("start thuocnhap.csv");
+				system("start nhapthuoc.csv");
 		}
 
 		/* ================= XUAT THUOC BAN ================= */
@@ -433,7 +433,7 @@ public:
 			}
 
 			ifstream f("banthuoc.xml");
-			ofstream o("thuocban.csv");
+			ofstream o("banthuoc.csv");
 
 			string line;
 			banThuoc b;

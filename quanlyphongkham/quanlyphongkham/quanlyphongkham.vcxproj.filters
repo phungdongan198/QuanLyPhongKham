@@ -49,6 +49,8 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="BacSi.h" />
+    <None Include="BacSi.h">
+      <Filter>Source Files</Filter>
+    </None>
   </ItemGroup>
 </Project>
