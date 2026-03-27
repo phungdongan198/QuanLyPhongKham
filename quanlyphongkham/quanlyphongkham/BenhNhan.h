@@ -18,7 +18,7 @@ public:
 		cout << "Ma BN: ";
 		getline(cin, ma);
 
-		cout << "Ten: ";
+		cout << "Ho ten: ";
 		getline(cin, ten);
 
 		cout << "Ngay sinh: ";

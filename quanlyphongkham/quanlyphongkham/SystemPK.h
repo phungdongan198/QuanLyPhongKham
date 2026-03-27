@@ -493,7 +493,7 @@ public:
 		do {
 			UI::clear();
 			UI::center("===== THANH TOAN =====", 10);			
-			cout << "1. Nhap thu\n";
+			cout << "1. Thu tien\n";
 			cout << "2. Hoan tra\n";
 			cout << "3. Xem danh sach\n";
 			cout << "4. Tim kiem\n";

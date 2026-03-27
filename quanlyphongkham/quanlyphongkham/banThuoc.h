@@ -23,7 +23,7 @@ public:
 		cout << "Nguoi mua: ";
 		getline(cin, nguoimua);
 
-		cout << "Dai chi: ";
+		cout << "Dia chi: ";
 		getline(cin, diachi);
 
 		cout << "Dien thoai: ";
