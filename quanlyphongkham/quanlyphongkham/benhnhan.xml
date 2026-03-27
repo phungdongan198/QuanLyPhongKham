@@ -1,38 +1,5 @@
-<BenhNhan>
-<Ma>12</Ma>
-<Ten>1</Ten>
-<Sinh>1</Sinh>
-<GioiTinh>1</GioiTinh>
-<DienThoai>1</DienThoai>
-<DiaChi>1</DiaChi>
-<DoiTuong>1</DoiTuong>
-<Phong>1</Phong>
-<Ngay>16/03/2026</Ngay>
-</BenhNhan>
 
-<BenhNhan>
-<Ma>12</Ma>
-<Ten>12</Ten>
-<Sinh>12</Sinh>
-<GioiTinh>12</GioiTinh>
-<DienThoai>3</DienThoai>
-<DiaChi>2</DiaChi>
-<DoiTuong>2</DoiTuong>
-<Phong>2</Phong>
-<Ngay>16/03/2026</Ngay>
-</BenhNhan>
 
-<BenhNhan>
-<Ma>3</Ma>
-<Ten>3</Ten>
-<Sinh>3</Sinh>
-<GioiTinh>3</GioiTinh>
-<DienThoai>3</DienThoai>
-<DiaChi>3</DiaChi>
-<DoiTuong>3</DoiTuong>
-<Phong>3</Phong>
-<Ngay>16/03/2026</Ngay>
-</BenhNhan>
 
 <BenhNhan>
 <Ma>an</Ma>
@@ -46,15 +13,45 @@
 <Ngay>16/03/2026</Ngay>
 </BenhNhan>
 
+
+
 <BenhNhan>
-<Ma>435</Ma>
-<Ten>Pham Van Phong</Ten>
-<Sinh>06</Sinh>
-<GioiTinh>Nam</GioiTinh>
-<DienThoai>033265984</DienThoai>
-<DiaChi>Binh Duong</DiaChi>
-<DoiTuong>bth</DoiTuong>
+<Ma>1</Ma>
+<Ten>1</Ten>
+<Sinh>1</Sinh>
+<GioiTinh>1</GioiTinh>
+<DienThoai>1</DienThoai>
+<DiaChi>1</DiaChi>
+<DoiTuong>1</DoiTuong>
 <Phong>1</Phong>
-<Ngay>17/03/2026</Ngay>
+<Ngay>27/03/2026</Ngay>
+</BenhNhan>
+
+
+
+
+
+<BenhNhan>
+<Ma>22</Ma>
+<Ten>22</Ten>
+<Sinh>22</Sinh>
+<GioiTinh>22</GioiTinh>
+<DienThoai>22</DienThoai>
+<DiaChi>22</DiaChi>
+<DoiTuong>22</DoiTuong>
+<Phong>2</Phong>
+<Ngay>27/03/2026</Ngay>
+</BenhNhan>
+
+<BenhNhan>
+<Ma>222</Ma>
+<Ten>222</Ten>
+<Sinh>222</Sinh>
+<GioiTinh>222</GioiTinh>
+<DienThoai>222</DienThoai>
+<DiaChi>222</DiaChi>
+<DoiTuong>222</DoiTuong>
+<Phong>222</Phong>
+<Ngay>27/03/2026</Ngay>
 </BenhNhan>
 

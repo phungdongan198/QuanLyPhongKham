@@ -6,7 +6,7 @@
 #include "PhongKham.h"
 #include "CanLamSang.h"
 
-// *================ = SYSTEM PK ================ = */
+// *================= SYSTEM PK ================= */
 
 class SystemPK {
 
@@ -22,10 +22,11 @@ public:
 			UI::center("=====BENH NHAN=====", 10);
 
 			cout << "\n1 Nhap benh nhan kham benh\n";
-			cout << "2 Xem danh sach benh nhan da kham\n";
-			cout << "3 Tim benh nhan\n";
-			cout << "4 Xuat excel\n";
-			UI::printColor("5 Quay lai\n", 12);
+			cout << "2 Xoa benh nhan\n";
+			cout << "3 Xem danh sach benh nhan da kham\n";
+			cout << "4 Tim benh nhan\n";
+			cout << "5 Xuat excel\n";
+			UI::printColor("6 Quay lai\n", 12);
 
 			cout << "Chon: "; ;
 			c = SystemMethod::kiemTraKyTu();
@@ -40,24 +41,28 @@ public:
 
 				break;
 			}
-
 			case 2:
 
-				BenhNhan::showBenhNhan();
+				BenhNhan::deleteBenhNhan();
 				break;
 
 			case 3:
 
-				BenhNhan::searchBenhNhan();
+				BenhNhan::showBenhNhan();
 				break;
 
 			case 4:
+
+				BenhNhan::searchBenhNhan();
+				break;
+
+			case 5:
 
 				BenhNhan::exportExcelBenhNhan();
 				break;
 			}
 
-		} while (c != 5);
+		} while (c != 6);
 	}
 
 	void menuPhongKham() {
@@ -455,7 +460,7 @@ public:
 		do {
 
 			UI::clear();
-			UI::center("===== THONG KE =====", 10);
+			UI::center("===== THONG KE - BAO CAO=====", 10);
 
 			cout << "\n1 Thong ke so ca kham theo ngay";
 			cout << "\n2 So sanh hom nay voi hom qua";
@@ -483,6 +488,47 @@ public:
 		} while (c != 4);
 	}
 
+	void menuThuTien() {
+		int c;
+		do {
+			UI::clear();
+			UI::center("===== THANH TOAN =====", 10);			
+			cout << "1. Nhap thu\n";
+			cout << "2. Hoan tra\n";
+			cout << "3. Xem danh sach\n";
+			cout << "4. Tim kiem\n";
+			cout << "5. Xuat Excel\n";
+			UI::printColor("6 Quay lai\n", 12);
+
+			cout << "Chon: ";
+			cin >> c;
+
+			switch (c) {
+			case 1: {
+				ThuTien t;
+				t.nhapThu();
+				t.saveThu();
+				break;
+			}
+			case 2: {
+				ThuTien h;
+				h.nhapHoan();
+				h.saveHoan();
+				break;
+			}
+			case 3:
+				ThuTien::showAll();
+				break;
+			case 4:
+				ThuTien::search();
+				break;
+			case 5:
+				ThuTien::exportExcel();
+				break;
+			}
+		} while (c != 6);
+	}
+
 	void menuChinh() {
 
 		int c;
@@ -490,15 +536,16 @@ public:
 		do {
 
 			UI::clear();
-			UI::center("=====HE THONG QUAN LY PHONG KHAM=====", 10);
+			UI::center("=====HE THONG QUAN LY PHONG KHAM PAP SOFT=====", 10);
 
-			cout << "\n1 Quan ly Benh nhan";
-			cout << "\n2 Quan ly phong kham";
-			cout << "\n3 Quan ly bac si - nhan vien";
-			cout << "\n4 Quan ly can lam sang";
-			cout << "\n5 Quan ly thuoc";
-			cout << "\n6 Thong Ke";
-			UI::printColor("\n7 Thoat\n", 12);
+			cout << "\n1 Quan ly benh nhan";
+			cout << "\n2 Quan ly thuoc";
+			cout << "\n3 Quan ly thanh toan";
+			cout << "\n4 Danh muc phong kham";
+			cout << "\n5 Danh muc bac si - nhan vien";
+			cout << "\n6 Danh muc can lam sang";
+			cout << "\n7 Thong ke - bao cao";
+			UI::printColor("\n8 Ket thuc\n", 12);
 
 			cout << "\nChon: ";
 			cin >> c;
@@ -510,29 +557,30 @@ public:
 				break;
 
 			case 2: {
-
-				menuPhongKham();
+				menuThuoc();
 				break;
 			}
-
 			case 3: {
-
-				menuBacSi();
+				menuThuTien();
 				break;
 			}
 
 			case 4: {
-
-				menuCanLamSang();
+				menuPhongKham();
 				break;
 			}
 
 			case 5: {
-
-				menuThuoc();
+				menuBacSi();
 				break;
 			}
+
 			case 6: {
+				menuCanLamSang();
+				break;
+			}
+
+			case 7: {
 
 				menuThongKe();
 				break;
@@ -540,6 +588,8 @@ public:
 
 			}
 
-		} while (c != 7);
+		} while (c != 8);
+		cout << "\nXin cam on ban da su dung he thong!\n";
+		UI::pause();
 	}
 };

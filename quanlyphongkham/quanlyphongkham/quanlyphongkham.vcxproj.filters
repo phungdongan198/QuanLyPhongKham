@@ -47,6 +47,9 @@
     <ClInclude Include="SystemPK.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="ThanhToan.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="BacSi.h">

@@ -8,6 +8,7 @@
 #include "CanLamSang.h"
 #include "NhapThuoc.h"
 #include "banThuoc.h"
+#include "ThanhToan.h"
 #include "SystemPK.h"
 
 /* ================= MAIN ================= */

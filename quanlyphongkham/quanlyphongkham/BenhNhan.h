@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include "LiblaryHeader.h"
 #include "SystemMethod.h"
 
@@ -59,6 +59,99 @@ public:
 		file << "</BenhNhan>\n\n";
 
 		file.close();
+	}
+
+	static void deleteBenhNhan() {
+		
+		if (!SystemMethod::fileExist("benhnhan.xml")) {
+			cout << "Khong co du lieu\n";
+			UI::pause();
+			return;
+		}
+
+		ifstream in("benhnhan.xml");
+
+		vector<string> lines;
+		string line;
+
+		while (getline(in, line)) {
+			lines.push_back(line);
+		}
+		in.close();
+
+		
+		if (lines.empty()) {
+			cout << "Khong co du lieu\n";
+			UI::pause();
+			return;
+		}
+
+		string maXoa;
+		cout << "Nhap ma benh nhan can xoa: ";
+		cin >> maXoa;
+
+		vector<string> newLines;
+		bool found = false;
+		int count = 0;
+
+		for (int i = 0; i < lines.size(); i++) {
+			if (lines[i].find("<BenhNhan>") != string::npos) {
+				vector<string> temp;
+				bool match = false;
+
+				while (i < lines.size()) {
+					temp.push_back(lines[i]);
+
+					
+					if (lines[i].find("<Ma>") != string::npos) {
+						size_t start = lines[i].find("<Ma>") + 4;
+						size_t end = lines[i].find("</Ma>");
+
+						if (start != string::npos && end != string::npos) {
+							string ma = lines[i].substr(start, end - start);
+
+							if (ma == maXoa) {
+								match = true;
+							}
+						}
+					}
+
+					if (lines[i].find("</BenhNhan>") != string::npos)
+						break;
+
+					i++;
+				}
+
+				if (match) {
+					found = true;
+					count++;
+				}
+				else {
+					for (auto& l : temp)
+						newLines.push_back(l);
+				}
+			}
+			else {
+				newLines.push_back(lines[i]);
+			}
+		}
+
+		
+		if (!found) {
+			cout << "Khong co thong tin benh nhan!\n";
+			UI::pause();
+			return;
+		}
+
+		
+		ofstream out("benhnhan.xml");
+		for (auto& l : newLines) {
+			out << l << endl;
+		}
+		out.close();
+
+		cout << "Da xoa " << count << " benh nhan!\n";
+		UI::pause();
 	}
 
 	static void showBenhNhan() {
