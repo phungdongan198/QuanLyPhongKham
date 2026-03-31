@@ -50,6 +50,9 @@
     <ClInclude Include="ThanhToan.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="Login.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="BacSi.h">

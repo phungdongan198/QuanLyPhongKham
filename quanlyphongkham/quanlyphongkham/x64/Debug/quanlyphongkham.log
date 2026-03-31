@@ -1,2 +1,5 @@
 ﻿  quanlyphongkham.cpp
-  quanlyphongkham.vcxproj -> D:\Data\GIT\QuanLyPhongKham\quanlyphongkham\x64\Debug\quanlyphongkham.exe
+E:\DTTX\OOP\QuanLyPhongKham\quanlyphongkham\quanlyphongkham\SystemPK.h(8,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  (compiling source file 'quanlyphongkham.cpp')
+  
+  quanlyphongkham.vcxproj -> E:\DTTX\OOP\QuanLyPhongKham\quanlyphongkham\x64\Debug\quanlyphongkham.exe

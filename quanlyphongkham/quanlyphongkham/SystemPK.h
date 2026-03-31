@@ -5,6 +5,7 @@
 #include "BenhNhan.h"
 #include "PhongKham.h"
 #include "CanLamSang.h"
+#include "login.h";
 
 // *================= SYSTEM PK ================= */
 
@@ -492,7 +493,7 @@ public:
 		int c;
 		do {
 			UI::clear();
-			UI::center("===== THANH TOAN =====", 10);			
+			UI::center("===== THANH TOAN =====", 10);
 			cout << "1. Thu tien\n";
 			cout << "2. Hoan tra\n";
 			cout << "3. Xem danh sach\n";
@@ -591,5 +592,105 @@ public:
 		} while (c != 8);
 		cout << "\nXin cam on ban da su dung he thong!\n";
 		UI::pause();
+	}
+
+	void menuChinh(string role) {
+
+		int c;
+		do {
+
+			UI::clear();
+			UI::center("=====HE THONG QUAN LY PHONG KHAM PAP SOFT=====", 10);
+
+			cout << "\n1 Quan ly benh nhan";
+			if (role == "admin")
+			{
+				cout << "\n2 Quan ly thuoc";
+				cout << "\n3 Quan ly thanh toan";
+				cout << "\n4 Danh muc phong kham";
+				cout << "\n5 Danh muc bac si - nhan vien";
+				cout << "\n6 Danh muc can lam sang";
+				cout << "\n7 Thong ke - bao cao";
+			}
+			UI::printColor("\n8 Ket thuc\n", 12);
+
+			cout << "\nChon: ";
+			cin >> c;
+			if(role=="employee" && (c>=2 && c<=7))
+			{
+				c = 9;
+			}
+
+			switch (c) 
+			{
+				case 1:
+					menuBenhNhan();
+					break;
+
+				case 2: {
+					menuThuoc();
+					break;
+				}
+				case 3: {
+					menuThuTien();
+					break;
+				}
+
+				case 4: {
+					menuPhongKham();
+					break;
+				}
+
+				case 5: {
+					menuBacSi();
+					break;
+				}
+
+				case 6: {
+					menuCanLamSang();
+					break;
+				}
+
+				case 7: {
+					menuThongKe();
+					break;
+				}
+			}
+
+		} while (c != 8);
+		cout << "\nXin cam on ban da su dung he thong!\n";
+		UI::pause();
+	}
+
+	void menuDangNhap()
+	{
+		Login::CheckListAndAdd();
+		int chon = 0;
+		string username, password;
+		
+			UI::clear();
+			UI::center("=====DANG NHAP=====", 10);
+			cout << "Nhap UserName:";
+			getline(cin, username);
+			cout << "Nhap Password:";
+			getline(cin, password);
+			if(Login::CheckLogin(username, password)=="admin")
+			{
+				cout << "Dang nhap thanh cong voi vai tro Admin!\n";
+				/*UI::pause();*/
+				menuChinh("admin");
+			}
+			else if(Login::CheckLogin(username, password)=="employee")
+			{
+				cout << "Dang nhap thanh cong voi vai tro Employee!\n";
+				/*UI::pause();*/
+				menuChinh("employee");
+			}
+			else
+			{
+				cout << "Dang nhap that bai! Vui long thu lai.\n";
+				UI::pause();
+				menuDangNhap();
+			}
 	}
 };

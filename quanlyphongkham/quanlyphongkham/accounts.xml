@@ -1,0 +1,12 @@
+<Account>
+  <Username>employee</Username>
+  <Password>employee123</Password>
+  <Role>employee</Role>
+</Account>
+
+<Account>
+  <Username>admin</Username>
+  <Password>admin123</Password>
+  <Role>admin</Role>
+</Account>
+

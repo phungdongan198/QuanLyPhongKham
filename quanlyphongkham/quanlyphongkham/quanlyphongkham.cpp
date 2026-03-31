@@ -16,7 +16,8 @@ int main() {
 
 	SystemPK sys;
 
-	sys.menuChinh();
+	/*sys.menuChinh();*/
+	sys.menuDangNhap();
 
 	return 0;
 }
