@@ -128,8 +128,8 @@ public:
 
 			// Tài khoản 1: Employee
 			f << "<Account>\n";
-			f << "  <Username>employee</Username>\n";
-			f << "  <Password>employee123</Password>\n";
+			f << "  <Username>khambenh</Username>\n";
+			f << "  <Password>khambenh123</Password>\n";
 			f << "  <Role>employee</Role>\n";
 			f << "</Account>\n\n";
 

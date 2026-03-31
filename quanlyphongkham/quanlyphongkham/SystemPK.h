@@ -670,6 +670,8 @@ public:
 		
 			UI::clear();
 			UI::center("=====DANG NHAP=====", 10);
+			cout << "Tai Khoan Kham Benh: khambenh/khambenh123\n";
+			cout << "Tai Khoan Admin: admin/admin123\n";
 			cout << "Nhap UserName:";
 			getline(cin, username);
 			cout << "Nhap Password:";
