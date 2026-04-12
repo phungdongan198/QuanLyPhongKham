@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "D:\\Data\\GIT\\QuanLyPhongKham\\quanlyphongkham\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{00742233-C886-433C-AB12-7F7E1FF8E6B5}|quanlyphongkham\\quanlyphongkham.vcxproj|D:\\Data\\GIT\\QuanLyPhongKham\\quanlyphongkham\\quanlyphongkham\\quanlyphongkham.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{00742233-C886-433C-AB12-7F7E1FF8E6B5}|quanlyphongkham\\quanlyphongkham.vcxproj|solutionrelative:quanlyphongkham\\quanlyphongkham.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{00742233-C886-433C-AB12-7F7E1FF8E6B5}|quanlyphongkham\\quanlyphongkham.vcxproj|D:\\Data\\GIT\\QuanLyPhongKham\\quanlyphongkham\\quanlyphongkham\\SystemPK.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{00742233-C886-433C-AB12-7F7E1FF8E6B5}|quanlyphongkham\\quanlyphongkham.vcxproj|solutionrelative:quanlyphongkham\\SystemPK.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
@@ -13,10 +17,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{00742233-C886-433C-AB12-7F7E1FF8E6B5}|quanlyphongkham\\quanlyphongkham.vcxproj|D:\\Data\\GIT\\QuanLyPhongKham\\quanlyphongkham\\quanlyphongkham\\BacSi.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{00742233-C886-433C-AB12-7F7E1FF8E6B5}|quanlyphongkham\\quanlyphongkham.vcxproj|solutionrelative:quanlyphongkham\\BacSi.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{00742233-C886-433C-AB12-7F7E1FF8E6B5}|quanlyphongkham\\quanlyphongkham.vcxproj|D:\\Data\\GIT\\QuanLyPhongKham\\quanlyphongkham\\quanlyphongkham\\quanlyphongkham.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{00742233-C886-433C-AB12-7F7E1FF8E6B5}|quanlyphongkham\\quanlyphongkham.vcxproj|solutionrelative:quanlyphongkham\\quanlyphongkham.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{00742233-C886-433C-AB12-7F7E1FF8E6B5}|quanlyphongkham\\quanlyphongkham.vcxproj|D:\\Data\\GIT\\QuanLyPhongKham\\quanlyphongkham\\quanlyphongkham\\LuaChon.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -58,17 +58,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 199,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "SystemPK.h",
               "DocumentMoniker": "D:\\Data\\GIT\\QuanLyPhongKham\\quanlyphongkham\\quanlyphongkham\\SystemPK.h",
               "RelativeDocumentMoniker": "quanlyphongkham\\SystemPK.h",
               "ToolTip": "D:\\Data\\GIT\\QuanLyPhongKham\\quanlyphongkham\\quanlyphongkham\\SystemPK.h",
               "RelativeToolTip": "quanlyphongkham\\SystemPK.h",
-              "ViewState": "AgIAAM8CAAAAAAAAAIAwwNMCAAAuAAAAAAAAAA==",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2026-03-27T11:09:34.843Z",
               "IsPinned": true,
@@ -167,13 +167,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "quanlyphongkham.cpp",
               "DocumentMoniker": "D:\\Data\\GIT\\QuanLyPhongKham\\quanlyphongkham\\quanlyphongkham\\quanlyphongkham.cpp",
               "RelativeDocumentMoniker": "quanlyphongkham\\quanlyphongkham.cpp",
               "ToolTip": "D:\\Data\\GIT\\QuanLyPhongKham\\quanlyphongkham\\quanlyphongkham\\quanlyphongkham.cpp",
               "RelativeToolTip": "quanlyphongkham\\quanlyphongkham.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2026-03-07T12:34:08.089Z",
               "EditorCaption": ""
@@ -193,7 +193,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Login.h",
               "DocumentMoniker": "D:\\Data\\GIT\\QuanLyPhongKham\\quanlyphongkham\\quanlyphongkham\\Login.h",
               "RelativeDocumentMoniker": "quanlyphongkham\\Login.h",
@@ -206,7 +206,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "BacSi.h",
               "DocumentMoniker": "D:\\Data\\GIT\\QuanLyPhongKham\\quanlyphongkham\\quanlyphongkham\\BacSi.h",
               "RelativeDocumentMoniker": "quanlyphongkham\\BacSi.h",

@@ -17,6 +17,7 @@ class SystemPK {
 
 public:
 
+
 	string layNgayHienTai() {
 		time_t now = time(0);
 		tm ltm;
@@ -701,7 +702,7 @@ public:
 				UI::clear();
 			}
 
-			UI::center("=====HE THONG QUAN LY PHONG KHAM PAP SOFT - " + user_dangnhap + " - NGAY LAM VIEC  " + layNgayHienTai() + " =====", 10);
+			UI::center("=====HE THONG QUAN LY PHONG KHAM PAP SOFT - " + user_dangnhap + " - NGAY LAM VIEC  " + layNgayHienTai() + " - V 1.0.0 =====", 10);
 			cout << "\n1 Quan ly benh nhan";
 			if (role == "admin")
 			{

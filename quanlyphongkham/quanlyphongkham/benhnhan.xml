@@ -127,3 +127,27 @@
 <Ngay>12/04/2026</Ngay>
 </BenhNhan>
 
+<BenhNhan>
+<Ma>123</Ma>
+<Ten>dfsfds</Ten>
+<Sinh>123213</Sinh>
+<GioiTinh>Nu</GioiTinh>
+<DienThoai>tfgdg</DienThoai>
+<DiaChi>dfg</DiaChi>
+<DoiTuong>BHYT</DoiTuong>
+<Phong>an</Phong>
+<Ngay>12/04/2026</Ngay>
+</BenhNhan>
+
+<BenhNhan>
+<Ma>3421</Ma>
+<Ten>fdsf</Ten>
+<Sinh>dsf</Sinh>
+<GioiTinh>Khac</GioiTinh>
+<DienThoai>343</DienThoai>
+<DiaChi>231</DiaChi>
+<DoiTuong>Thu phi</DoiTuong>
+<Phong>an</Phong>
+<Ngay>12/04/2026</Ngay>
+</BenhNhan>
+
