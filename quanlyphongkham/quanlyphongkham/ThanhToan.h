@@ -11,10 +11,10 @@ public:
 	void nhapThu() {
 		cin.ignore();
 
-		cout << "Ma BN: "; getline(cin, ma);
-		cout << "Ten: "; getline(cin, ten);
+		cout << "Ma BN: "; ma = LuaChon::chonTuFile("Chon ma benh nhan", "benhnhan.xml", "BenhNhan", "Ma");
+		cout << "Ten: "; ten = LuaChon::chonTuFile("Chon benh nhan", "benhnhan.xml", "BenhNhan", "Ten");
 		cout << "So tien: "; getline(cin, soTien);
-		cout << "Nguoi thu: "; getline(cin, nguoiThu);
+		cout << "Nguoi thu: "; nguoiThu = LuaChon::chonTuFile("Chon nguoi thu", "bacsi.xml", "BacSi", "Ten");
 
 		ngay = SystemMethod::today();
 	}
@@ -37,10 +37,10 @@ public:
 	void nhapHoan() {
 		cin.ignore();
 
-		cout << "Ma BN: "; getline(cin, ma);
-		cout << "Ten: "; getline(cin, ten);
+		cout << "Ma BN: "; ma = LuaChon::chonTuFile("Chon ma benh nhan", "benhnhan.xml", "BenhNhan", "Ma");
+		cout << "Ten: "; ten = LuaChon::chonTuFile("Chon benh nhan", "benhnhan.xml", "BenhNhan", "Ten");
 		cout << "So tien tra: "; getline(cin, soTien);
-		cout << "Nguoi thu: "; getline(cin, nguoiThu);
+		cout << "Nguoi thu: "; nguoiThu = LuaChon::chonTuFile("Chon nguoi thu", "bacsi.xml", "BacSi", "Ten");
 		cout << "Ly do: "; getline(cin, lyDo);
 
 		ngay = SystemMethod::today();
@@ -66,7 +66,7 @@ public:
 
 		string line;
 
-		
+
 		if (SystemMethod::fileExist("thutien.xml")) {
 
 			ifstream f("thutien.xml");
@@ -121,7 +121,7 @@ public:
 			}
 		}
 
-		
+
 		if (SystemMethod::fileExist("hoantra.xml")) {
 
 			ifstream f("hoantra.xml");
@@ -262,14 +262,14 @@ public:
 
 		f.close();
 
-		
+
 		if (ds.empty()) {
 			cout << "\nKhong tim thay!\n";
 			UI::pause();
 			return;
 		}
 
-		
+
 		cout << "\n--------------------------------------------------------------------------\n";
 
 		cout << left
@@ -359,7 +359,7 @@ public:
 				h.ngay = line.substr(6, line.find("</") - 6);
 
 				o << "Hoan," << h.ma << "," << h.ten << ","
-					<< "-"<< h.soTien << ",," << h.ngay << ","
+					<< "-" << h.soTien << ",," << h.ngay << ","
 					<< h.lyDo << "\n";
 			}
 		}
@@ -374,7 +374,7 @@ public:
 		cin >> ch;
 
 		if (ch == 'Y' || ch == 'y')
-		system("start thutien_all.csv");
+			system("start thutien_all.csv");
 
 		UI::pause();
 	}

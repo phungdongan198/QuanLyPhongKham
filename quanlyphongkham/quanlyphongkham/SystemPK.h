@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include "LiblaryHeader.h"
 #include "UI.h"
 #include "SystemMethod.h"
@@ -6,12 +6,57 @@
 #include "PhongKham.h"
 #include "CanLamSang.h"
 #include "login.h";
+#include <vector>
+#include <thread>
+#include <mutex>
+#include <conio.h>
 
 // *================= SYSTEM PK ================= */
 
 class SystemPK {
 
 public:
+
+	string layNgayHienTai() {
+		time_t now = time(0);
+		tm ltm;
+		localtime_s(&ltm, &now);
+
+		string ngay = (ltm.tm_mday < 10 ? "0" : "") + to_string(ltm.tm_mday);
+		string thang = (ltm.tm_mon + 1 < 10 ? "0" : "") + to_string(ltm.tm_mon + 1);
+		string nam = to_string(1900 + ltm.tm_year);
+
+		return ngay + "/" + thang + "/" + nam;
+	}
+
+	string nhapPasswordAn() {
+		string password = "";
+		char ch;
+
+		while (true) {
+			ch = _getch();
+
+			// Enter
+			if (ch == 13) {
+				break;
+			}
+			// Backspace
+			else if (ch == 8) {
+				if (!password.empty()) {
+					password.pop_back();
+					cout << "\b \b";
+				}
+			}
+			// Ký tự bình thường
+			else if (ch >= 32 && ch <= 126) {
+				password += ch;
+				cout << '*';
+			}
+		}
+
+		cout << endl;
+		return password;
+	}
 
 	void menuBenhNhan() {
 
@@ -594,14 +639,69 @@ public:
 		UI::pause();
 	}
 
-	void menuChinh(string role) {
+	struct KetQuaFile {
+		string tenHienThi;
+		bool coDuLieu;
+	};
+
+	bool fileCoDuLieu(const string& tenFile) {
+		ifstream f(tenFile, ios::binary);
+		if (!f) return false;
+
+		f.seekg(0, ios::end);
+		return f.tellg() > 0;
+	}
+
+	void kiemTraFile(const string& tenFile, const string& tenHienThi, KetQuaFile& kq) {
+		kq.tenHienThi = tenHienThi;
+		kq.coDuLieu = fileCoDuLieu(tenFile);
+	}
+
+
+	void menuChinh(string role, string user_dangnhap, bool lanDau = true) {
 
 		int c;
+
+		UI::printColor("Dang khoi tao he thong\n", 10);
+		vector<pair<string, string>> dsFile = {
+			{"phongkham.xml", "danh sach phong kham"},
+			{"bacsi.xml", "danh sach bac si"},
+			{"canlamsang.xml", "danh sach can lam sang"},
+			{ "nhapthuoc.xml", "danh sach thuoc" }
+		};
+
+		vector<KetQuaFile> dsKetQua(dsFile.size());
+		vector<thread> dsLuong;
+
+		for (int i = 0; i < (int)dsFile.size(); i++) {
+			dsLuong.emplace_back(&SystemPK::kiemTraFile, this,
+				dsFile[i].first, dsFile[i].second, ref(dsKetQua[i]));
+		}
+
+		for (auto& luong : dsLuong) {
+			luong.join();
+		}
+
+		for (const auto& kq : dsKetQua) {
+			if (kq.coDuLieu) {
+				//UI::printColor("Xong: " + kq.tenHienThi + " da co du lieu.", 10);
+			}
+			else {
+				UI::printColor("" + kq.tenHienThi + " khong co du lieu. Vui long khai bao truoc khi làm viec .\n", 12);
+			}
+		}
+		cout << endl;
+		UI::printColor("He thong da khoi tao xong", 10);
+		cout << endl << endl;
+
+
 		do {
 
-			UI::clear();
-			UI::center("=====HE THONG QUAN LY PHONG KHAM PAP SOFT=====", 10);
+			if (!lanDau) {
+				UI::clear();
+			}
 
+			UI::center("=====HE THONG QUAN LY PHONG KHAM PAP SOFT - " + user_dangnhap + " - NGAY LAM VIEC  " + layNgayHienTai() + " =====", 10);
 			cout << "\n1 Quan ly benh nhan";
 			if (role == "admin")
 			{
@@ -610,89 +710,99 @@ public:
 				cout << "\n4 Danh muc phong kham";
 				cout << "\n5 Danh muc bac si - nhan vien";
 				cout << "\n6 Danh muc can lam sang";
-				cout << "\n7 Thong ke - bao cao";
+				cout << "\n7 Thong ke - bao cao";			
 			}
-			UI::printColor("\n8 Ket thuc\n", 12);
+			cout << "\n8 Dang nhap lai";
+			UI::printColor("\n9 Ket thuc\n", 12);
 
 			cout << "\nChon: ";
 			cin >> c;
-			if(role=="employee" && (c>=2 && c<=7))
+			cin.ignore(1000, '\n');
+
+			lanDau = false;
+
+			if (role == "employee" && (c >= 2 && c <= 7))
 			{
 				c = 9;
 			}
 
-			switch (c) 
+			switch (c)
 			{
-				case 1:
-					menuBenhNhan();
-					break;
+			case 1:
+				menuBenhNhan();
+				break;
 
-				case 2: {
-					menuThuoc();
-					break;
-				}
-				case 3: {
-					menuThuTien();
-					break;
-				}
-
-				case 4: {
-					menuPhongKham();
-					break;
-				}
-
-				case 5: {
-					menuBacSi();
-					break;
-				}
-
-				case 6: {
-					menuCanLamSang();
-					break;
-				}
-
-				case 7: {
-					menuThongKe();
-					break;
-				}
+			case 2: {
+				menuThuoc();
+				break;
+			}
+			case 3: {
+				menuThuTien();
+				break;
 			}
 
-		} while (c != 8);
+			case 4: {
+				menuPhongKham();
+				break;
+			}
+
+			case 5: {
+				menuBacSi();
+				break;
+			}
+
+			case 6: {
+				menuCanLamSang();
+				break;
+			}
+
+			case 7: {
+				menuThongKe();
+				break;
+			}
+			case 8: {
+				menuDangNhap();
+				break;
+			}
+			}
+
+		} while (c != 9);
 		cout << "\nXin cam on ban da su dung he thong!\n";
 		UI::pause();
 	}
+
 
 	void menuDangNhap()
 	{
 		Login::CheckListAndAdd();
 		int chon = 0;
 		string username, password;
-		
-			UI::clear();
-			UI::center("=====DANG NHAP=====", 10);
-			cout << "Tai Khoan Kham Benh: khambenh/khambenh123\n";
-			cout << "Tai Khoan Admin: admin/admin123\n";
-			cout << "Nhap UserName:";
-			getline(cin, username);
-			cout << "Nhap Password:";
-			getline(cin, password);
-			if(Login::CheckLogin(username, password)=="admin")
-			{
-				cout << "Dang nhap thanh cong voi vai tro Admin!\n";
-				/*UI::pause();*/
-				menuChinh("admin");
-			}
-			else if(Login::CheckLogin(username, password)=="employee")
-			{
-				cout << "Dang nhap thanh cong voi vai tro Employee!\n";
-				/*UI::pause();*/
-				menuChinh("employee");
-			}
-			else
-			{
-				cout << "Dang nhap that bai! Vui long thu lai.\n";
-				UI::pause();
-				menuDangNhap();
-			}
+
+		UI::clear();
+		UI::center("=====DANG NHAP=====", 10);
+		cout << "Tai Khoan Kham Benh: khambenh/khambenh123\n";
+		cout << "Tai Khoan Admin: admin/admin123\n";
+		cout << "Nhap UserName:";
+		getline(cin, username);
+		cout << "Nhap Password:";
+		password = nhapPasswordAn();
+		if (Login::CheckLogin(username, password) == "admin")
+		{
+			cout << "Dang nhap thanh cong voi vai tro Admin!\n";
+			/*UI::pause();*/
+			menuChinh("admin", username);
+		}
+		else if (Login::CheckLogin(username, password) == "employee")
+		{
+			cout << "Dang nhap thanh cong voi vai tro Employee!\n";
+			/*UI::pause();*/
+			menuChinh("employee", username);
+		}
+		else
+		{
+			cout << "Dang nhap that bai! Vui long thu lai.\n";
+			UI::pause();
+			menuDangNhap();
+		}
 	}
 };

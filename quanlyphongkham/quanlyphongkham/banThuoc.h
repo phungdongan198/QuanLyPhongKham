@@ -15,13 +15,41 @@ public:
 		cin.ignore();
 
 		cout << "Ma thuoc: ";
-		getline(cin, ma);
+		ma = LuaChon::chonTuFile("Chon ma thuoc", "nhapthuoc.xml", "Thuoc", "Ma");
 
 		cout << "Ten thuoc: ";
-		getline(cin, ten);
+		ten = LuaChon::chonTuFile("Chon ten thuoc", "nhapthuoc.xml", "Thuoc", "Ten");
 
-		cout << "Nguoi mua: ";
-		getline(cin, nguoimua);
+		int loaiNguoiMua;
+		while (true) {
+			cout << "Loai nguoi mua:\n";
+			cout << "1. Benh nhan mua le\n";
+			cout << "2. Benh nhan kham tu phong kham\n";
+			cout << "Chon: ";
+			cin >> loaiNguoiMua;
+
+			if (cin.fail()) {
+				cin.clear();
+				cin.ignore(1000, '\n');
+				cout << "Lua chon khong hop le. Vui long nhap lai!\n";
+				continue;
+			}
+
+			cin.ignore(1000, '\n');
+
+			if (loaiNguoiMua == 1) {
+				cout << "Nguoi mua: ";
+				getline(cin, nguoimua);
+				break;
+			}
+			else if (loaiNguoiMua == 2) {
+				nguoimua = LuaChon::chonTuFile("Chon benh nhan", "benhnhan.xml", "BenhNhan", "Ten");
+				break;
+			}
+			else {
+				cout << "Lua chon khong hop le. Vui long nhap lai!\n";
+			}
+		}
 
 		cout << "Dia chi: ";
 		getline(cin, diachi);
@@ -38,15 +66,14 @@ public:
 		cout << "Don gia: ";
 		getline(cin, dongia);
 
-		cout << "Thanh tien: ";
-		getline(cin, thanhtien);
+		thanhtien = to_string(stoi(soluong) * stoi(dongia));
+		cout << "Thanh tien: " << thanhtien << endl;
 
 		cout << "Losx: ";
 		getline(cin, lo);
 
 		cout << "Date: ";
 		getline(cin, date);
-
 
 		cout << "Ghi chu: ";
 		getline(cin, ghichu);
@@ -438,7 +465,7 @@ public:
 			string line;
 			banThuoc b;
 
-			o << "MaThuoc,TenThuoc,NguoiMua,SoLuong,DonGia,ThanhTien\n";
+			o << "Ma,TenThuoc,NguoiMua,DiaChi,DienThoai,Benh,SoLuong,DonGia,ThanhTien,Lo,Date,GhiChu,Ngay\n";
 
 			while (getline(f, line)) {
 
@@ -451,36 +478,63 @@ public:
 				if (line.find("<NguoiMua>") != string::npos)
 					b.nguoimua = line.substr(10, line.find("</") - 10);
 
+				if (line.find("<DiaChi>") != string::npos)
+					b.diachi = line.substr(8, line.find("</") - 8);
+
+				if (line.find("<DienThoai>") != string::npos)
+					b.dienthoai = line.substr(11, line.find("</") - 11);
+
+				if (line.find("<Benh>") != string::npos)
+					b.benh = line.substr(6, line.find("</") - 6);
+
 				if (line.find("<SoLuong>") != string::npos)
 					b.soluong = line.substr(9, line.find("</") - 9);
 
 				if (line.find("<DonGia>") != string::npos)
 					b.dongia = line.substr(8, line.find("</") - 8);
 
-				if (line.find("<ThanhTien>") != string::npos) {
-
+				if (line.find("<ThanhTien>") != string::npos)
 					b.thanhtien = line.substr(11, line.find("</") - 11);
+
+				if (line.find("<Lo>") != string::npos)
+					b.lo = line.substr(4, line.find("</") - 4);
+
+				if (line.find("<Date>") != string::npos)
+					b.date = line.substr(6, line.find("</") - 6);
+
+				if (line.find("<GhiChu>") != string::npos)
+					b.ghichu = line.substr(8, line.find("</") - 8);
+
+				if (line.find("<Ngay>") != string::npos) {
+					b.ngay = line.substr(6, line.find("</") - 6);
 
 					o << b.ma << ","
 						<< b.ten << ","
 						<< b.nguoimua << ","
+						<< b.diachi << ","
+						<< b.dienthoai << ","
+						<< b.benh << ","
 						<< b.soluong << ","
 						<< b.dongia << ","
-						<< b.thanhtien << "\n";
+						<< b.thanhtien << ","
+						<< b.lo << ","
+						<< b.date << ","
+						<< b.ghichu << ","
+						<< b.ngay << "\n";
 				}
 			}
 
 			f.close();
 			o.close();
 
-			cout << "\nDa xuat file thuocban.csv\n";
+			cout << "\nDa xuat file banthuoc.csv\n";
 			char ch;
 
 			cout << "Ban co muon mo file khong? (Y/N): ";
 			cin >> ch;
 
 			if (ch == 'Y' || ch == 'y')
-				system("start thuocban.csv");
+				system("start banthuoc.csv");
 		}
 
 		UI::pause();

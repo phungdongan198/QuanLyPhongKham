@@ -84,7 +84,7 @@ public:
 				account.SetRole(line.substr(start, end - start));
 			}
 
-			// 🌟 4. CHỈ PUSH VÀO LIST KHI ĐÃ ĐỌC XONG MỘT TÀI KHOẢN
+			// 4. CHỈ PUSH VÀO LIST KHI ĐÃ ĐỌC XONG MỘT TÀI KHOẢN
 			if (line.find("</Account>") != string::npos) {
 				accountList.push_back(account);
 

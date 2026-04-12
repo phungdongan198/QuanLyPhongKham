@@ -1,6 +1,10 @@
 ﻿#pragma once
 #include "LiblaryHeader.h"
 #include "SystemMethod.h"
+#include "LuaChon.h"
+#include <fstream>
+#include <vector>
+#include <string>
 
 /* ================= BENH NHAN ================= */
 class BenhNhan {
@@ -10,6 +14,7 @@ public:
 	string ma, ten, sinh, gioiTinh;
 	string dienThoai, diaChi, doiTuong;
 	string phong, ngay;
+
 
 	void nhap() {
 
@@ -25,7 +30,7 @@ public:
 		getline(cin, sinh);
 
 		cout << "Gioi tinh: ";
-		getline(cin, gioiTinh);
+		gioiTinh = LuaChon::chonTuDanhSach("Chon gioi tinh", { "Nam", "Nu","Khac" });
 
 		cout << "Dien thoai: ";
 		getline(cin, dienThoai);
@@ -34,10 +39,10 @@ public:
 		getline(cin, diaChi);
 
 		cout << "Doi tuong: ";
-		getline(cin, doiTuong);
+		doiTuong = LuaChon::chonTuDanhSach("Chon doi tuong", { "BHYT", "Thu phi","Khac" });
 
 		cout << "Phong kham: ";
-		getline(cin, phong);
+		phong = LuaChon::chonTuFile("Chon phong kham", "phongkham.xml", "Phong", "Ten");
 
 		ngay = SystemMethod::today();
 	}
@@ -62,7 +67,7 @@ public:
 	}
 
 	static void deleteBenhNhan() {
-		
+
 		if (!SystemMethod::fileExist("benhnhan.xml")) {
 			cout << "Khong co du lieu\n";
 			UI::pause();
@@ -79,7 +84,7 @@ public:
 		}
 		in.close();
 
-		
+
 		if (lines.empty()) {
 			cout << "Khong co du lieu\n";
 			UI::pause();
@@ -102,7 +107,7 @@ public:
 				while (i < lines.size()) {
 					temp.push_back(lines[i]);
 
-					
+
 					if (lines[i].find("<Ma>") != string::npos) {
 						size_t start = lines[i].find("<Ma>") + 4;
 						size_t end = lines[i].find("</Ma>");
@@ -136,14 +141,14 @@ public:
 			}
 		}
 
-		
+
 		if (!found) {
 			cout << "Khong co thong tin benh nhan!\n";
 			UI::pause();
 			return;
 		}
 
-		
+
 		ofstream out("benhnhan.xml");
 		for (auto& l : newLines) {
 			out << l << endl;
