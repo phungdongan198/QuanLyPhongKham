@@ -16,11 +16,12 @@ public:
 		role = "patient";
 	}
 
-	Login(string u, string p, string r) {
-		username = u;
+	//cách khai báo chỉ gán giá trị
+	Login(string u, string p, string r) :username(u), password(p), role(r) {}
+	/*	username = u;
 		password = p;
 		role = r;
-	}
+	}*/
 
 	string getUsername() {
 		return username;
@@ -89,7 +90,7 @@ public:
 				accountList.push_back(account);
 
 				// Reset lại account về mặc định để chuẩn bị hứng dữ liệu của account tiếp theo
-				account = Login("Unknow User", "123456", "patient");
+				account = Login("Unknow User", "123456", "employee");
 			}
 		}
 		f.close();
@@ -195,6 +196,4 @@ public:
 			login.AddHardAccount();
 		}
 	}
-
-
 };

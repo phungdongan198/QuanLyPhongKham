@@ -5,6 +5,9 @@
 #include <fstream>
 #include <vector>
 #include <string>
+#include <stdio.h>
+#include <limits>
+#include <regex>
 
 /* ================= BENH NHAN ================= */
 class BenhNhan {
@@ -15,6 +18,91 @@ public:
 	string dienThoai, diaChi, doiTuong;
 	string phong, ngay;
 
+	/*template <typename T>
+	T KiemTraKieuDuLieuSo(string thongBao)
+	{
+		T duLieu;
+		while (true)
+		{
+			cout << thongBao;
+			if (cin >> duLieu)
+			{
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				return duLieu;
+			}
+			else
+			{
+				cout << "Du lieu khong hop le! Vui long nhap lai Kieu So.\n";
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			}
+		}
+	}*/
+
+	//string NhapVaKiemTraNamSinh()
+	//{
+	//	int dd, mm, yyyy;
+	//	cout << "Nhap ngay sinh(Voi dinh dang dd / mm / yyyy) :";
+	//	scanf_s("%d/%d/%d", &dd, &mm, &yyyy);
+	//	if (cin.eof() || !cin)
+	//	{
+	//		cout << "ngay thang nam sinh ban nhap khong hop le! Vui long nhap lai theo dinh dang dd/mm/yyyy.\n";
+	//		cin.clear();
+	//		scanf_s("%*s"); // Đọc bỏ phần nhập sai
+	//		cin.ignore((numeric_limits<streamsize>::max)(), '\n');
+	//		NhapVaKiemTraNamSinh();
+	//	}
+	//	else if(mm < 1 || mm > 12 || dd < 1 || dd > 31 || yyyy < 1920 || yyyy > 2026)
+	//	{
+	//		cout << "ngay thang nam sinh ban nhap khong hop le! Vui long nhap lai theo dinh dang dd/mm/yyyy.\n";
+	//		cin.clear();
+	//		scanf_s("%*s"); // Đọc bỏ phần nhập sai
+	//		cin.ignore((numeric_limits<streamsize>::max)(), '\n');
+	//		NhapVaKiemTraNamSinh();
+	//	}
+	//	else
+	//	{
+	//		char buffer[11];
+	//		sprintf_s(buffer, "%02d/%02d/%04d", dd, mm, yyyy);
+	//		return string(buffer);
+	//	}
+	//	
+	//}
+	string NhapVaKiemTraNamSinh() {
+		int dd, mm, yyyy;
+		char slash1, slash2;
+
+		while (true) {
+			cout << "Nhap ngay sinh (Voi dinh dang dd / mm / yyyy): ";
+
+			// Đọc dữ liệu theo định dạng dd / mm / yyyy
+			if (cin >> dd >> slash1 >> mm >> slash2 >> yyyy && slash1 == '/' && slash2 == '/') {
+
+				// Kiểm tra tính hợp lệ của ngày tháng (logic cơ bản)
+				if (mm >= 1 && mm <= 12 && dd >= 1 && dd <= 31 && yyyy >= 1920 && yyyy <= 2026) {
+					char buffer[11];
+					sprintf_s(buffer, "%02d/%02d/%04d", dd, mm, yyyy);
+					return string(buffer); // Thoát hàm và trả về kết quả
+				}
+			}
+
+			// Nếu nhập sai định dạng hoặc sai logic ngày tháng
+			cout << "Ngay thang nam sinh ban nhap khong hop le! Vui long nhap lai.\n";
+			cin.clear(); // Xóa trạng thái lỗi
+			cin.ignore((numeric_limits<streamsize>::max)(), '\n'); // Xóa sạch bộ đệm cho đến khi gặp dòng mới
+		}
+	}
+
+	bool KiemTraSoDienThoai(const string& sdt) {
+		// Regex này kiểm tra:
+		// ^0: Bắt đầu bằng số 0
+		// [35789]: Chữ số thứ hai thường là 3, 5, 7, 8, 9 (các đầu số nhà mạng VN)
+		// [0-9]{8}: 8 chữ số tiếp theo là bất kỳ số nào từ 0-9
+		// $: Kết thúc chuỗi
+		const regex pattern("^0[35789][0-9]{8}$");
+
+		return regex_match(sdt, pattern);
+	}
 
 	void nhap() {
 
@@ -26,14 +114,21 @@ public:
 		cout << "Ho ten: ";
 		getline(cin, ten);
 
-		cout << "Ngay sinh: ";
-		getline(cin, sinh);
+		sinh = NhapVaKiemTraNamSinh();
 
 		cout << "Gioi tinh: ";
 		gioiTinh = LuaChon::chonTuDanhSach("Chon gioi tinh", { "Nam", "Nu","Khac" });
 
-		cout << "Dien thoai: ";
-		getline(cin, dienThoai);
+		//Kiểm tra nhập số điện thoại hợp lệ
+		while (true)
+		{
+			cout << "Dien thoai: ";
+			getline(cin, dienThoai);
+			if (KiemTraSoDienThoai(dienThoai))
+				break;
+			else
+				cout << "So dien thoai khong hop le! Vui long nhap lai.\n";
+		}
 
 		cout << "Dia chi: ";
 		getline(cin, diaChi);
