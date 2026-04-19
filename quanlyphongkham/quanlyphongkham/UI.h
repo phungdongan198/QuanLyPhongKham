@@ -2,7 +2,7 @@
 #include "LiblaryHeader.h"
 #include <WinBase.h>
 
-/* ================= UI ================= */
+
 class UI {
 public:
 

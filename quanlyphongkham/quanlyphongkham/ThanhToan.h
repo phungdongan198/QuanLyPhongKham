@@ -1,7 +1,8 @@
 ﻿#pragma once
 #include "LiblaryHeader.h"
+#include "Helper.h"
 
-/* ================= THANH TOAN ================= */
+
 
 class ThuTien {
 public:
@@ -11,10 +12,18 @@ public:
 	void nhapThu() {
 		cin.ignore();
 
-		cout << "Ma BN: "; ma = LuaChon::chonTuFile("Chon ma benh nhan", "benhnhan.xml", "BenhNhan", "Ma");
-		cout << "Ten: "; ten = LuaChon::chonTuFile("Chon benh nhan", "benhnhan.xml", "BenhNhan", "Ten");
+		ten = Helper::chonTuFile(
+			"Ten BN",
+			"khambenh.xml",
+			"KhamBenh",
+			"Ten",
+			"Ma",
+			ma
+		);
+		cout << "Ma benh nhan: " << ma << endl;
+
 		cout << "So tien: "; getline(cin, soTien);
-		cout << "Nguoi thu: "; nguoiThu = LuaChon::chonTuFile("Chon nguoi thu", "bacsi.xml", "BacSi", "Ten");
+        nguoiThu = Helper::chonTuFile("Chon nguoi thu", "bacsi.xml", "BacSi", "Ten");
 
 		ngay = SystemMethod::today();
 	}
@@ -37,10 +46,17 @@ public:
 	void nhapHoan() {
 		cin.ignore();
 
-		cout << "Ma BN: "; ma = LuaChon::chonTuFile("Chon ma benh nhan", "benhnhan.xml", "BenhNhan", "Ma");
-		cout << "Ten: "; ten = LuaChon::chonTuFile("Chon benh nhan", "benhnhan.xml", "BenhNhan", "Ten");
+		ten = Helper::chonTuFile(
+			"Ten BN",
+			"khambenh.xml",
+			"KhamBenh",
+			"Ten",
+			"Ma",
+			ma
+		);
+		cout << "Ma benh nhan: " << ma << endl;
 		cout << "So tien tra: "; getline(cin, soTien);
-		cout << "Nguoi thu: "; nguoiThu = LuaChon::chonTuFile("Chon nguoi thu", "bacsi.xml", "BacSi", "Ten");
+	    nguoiThu = Helper::chonTuFile("Chon nguoi thu", "bacsi.xml", "BacSi", "Ten");
 		cout << "Ly do: "; getline(cin, lyDo);
 
 		ngay = SystemMethod::today();

@@ -2,8 +2,9 @@
 #include "SystemMethod.h"
 #include "LiblaryHeader.h"
 #include "banThuoc.h"
+#include "Helper.h"
 
-/* ================= BAN THUOC ================= */
+
 class banThuoc {
 
 public:
@@ -13,12 +14,6 @@ public:
 	void ban() {
 
 		cin.ignore();
-
-		cout << "Ma thuoc: ";
-		ma = LuaChon::chonTuFile("Chon ma thuoc", "nhapthuoc.xml", "Thuoc", "Ma");
-
-		cout << "Ten thuoc: ";
-		ten = LuaChon::chonTuFile("Chon ten thuoc", "nhapthuoc.xml", "Thuoc", "Ten");
 
 		int loaiNguoiMua;
 		while (true) {
@@ -43,13 +38,25 @@ public:
 				break;
 			}
 			else if (loaiNguoiMua == 2) {
-				nguoimua = LuaChon::chonTuFile("Chon benh nhan", "benhnhan.xml", "BenhNhan", "Ten");
+				nguoimua = Helper::chonTuFile("Chon benh nhan", "khambenh.xml", "KhamBenh", "Ten");
 				break;
 			}
 			else {
 				cout << "Lua chon khong hop le. Vui long nhap lai!\n";
 			}
 		}
+
+
+		ten = Helper::chonTuFile(
+			"Ten thuoc",
+			"nhapthuoc.xml",
+			"Thuoc",
+			"Ten",
+			"Ma",
+			ma
+		);
+		cout << "Ma thuoc: " << ma << endl;
+	
 
 		cout << "Dia chi: ";
 		getline(cin, diachi);
@@ -108,7 +115,7 @@ public:
 		f.close();
 	}
 
-	/* ================= XEM FILE ================= */
+	
 	static void showTonKho() {
 
 		UI::clear();
@@ -263,8 +270,8 @@ public:
 		int chon;
 
 		cout << "\n===== TIM THUOC =====\n";
-		cout << "1 Tim theo ma\n";
-		cout << "2 Tim theo ten\n";
+		cout << "1 Tim theo ma (tuyet doi)\n";
+		cout << "2 Tim theo ten (tuong doi)\n";
 		UI::printColor("3 Quay lai\n", 12);
 
 		cout << "Chon: ";
@@ -284,7 +291,7 @@ public:
 
 		getline(cin, key);
 
-		ifstream f("thuoc.xml");
+		ifstream f("nhapthuoc.xml");
 
 		string line;
 		nhapThuoc t;

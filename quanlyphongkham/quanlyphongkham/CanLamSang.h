@@ -1,7 +1,8 @@
 #pragma once
 #include "LiblaryHeader.h"
+#include "Helper.h"
 
-/* ================= CAN LAM SANG ================= */
+
 class CanLamSang {
 
 public:
@@ -12,8 +13,12 @@ public:
 
 		cin.ignore();
 
-		cout << "Ma dich vu: ";
-		getline(cin, ma);
+		ma = Helper::nhapMaKhongTrung(
+			"Ma DV",
+			"canlamsang.xml",
+			"CLS",
+			"Ma"
+		);
 
 		cout << "Ten dich vu: ";
 		getline(cin, ten);

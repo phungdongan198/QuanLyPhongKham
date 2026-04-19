@@ -53,7 +53,10 @@
     <ClInclude Include="Login.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="LuaChon.h">
+    <ClInclude Include="Helper.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="QuanLy.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

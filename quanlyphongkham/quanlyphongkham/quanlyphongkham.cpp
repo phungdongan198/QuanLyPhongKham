@@ -11,7 +11,7 @@
 #include "ThanhToan.h"
 #include "SystemPK.h"
 
-/* ================= MAIN ================= */
+
 
 int main() {
 	SystemPK sys;

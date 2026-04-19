@@ -1,19 +1,25 @@
-#pragma once
+﻿#pragma once
 #include "LiblaryHeader.h"
+#include "Helper.h"
+#include "QuanLy.h"
 
-/* ================= BAC SI ================= */
-class BacSi {
+// tính kế thừa
+class BacSi : public DoiTuongQuanLy {
 
 public:
 
 	string ma, ten, sinh, chungChi, chuyenMon;
-
-	void nhap() {
+	// đa hình
+	void nhap() override {
 
 		cin.ignore();
 
-		cout << "Ma bac si - nhan vien: ";
-		getline(cin, ma);
+		ma = Helper::nhapMaKhongTrung(
+			"Ma BS - NV: ",
+			"bacsi.xml",
+			"BacSi",
+			"Ma"
+		);
 
 		cout << "Ten: ";
 		getline(cin, ten);
@@ -28,7 +34,7 @@ public:
 		getline(cin, chuyenMon);
 	}
 
-	void save() {
+	void save() override {
 
 		ofstream f("bacsi.xml", ios::app);
 
@@ -41,6 +47,18 @@ public:
 		f << "</BacSi>\n\n";
 
 		f.close();
+	}
+
+	// nạp chồng toán tử
+	friend ostream& operator<<(ostream& out, const BacSi& bs) {
+		out << left
+			<< setw(10) << bs.ma
+			<< setw(25) << bs.ten
+			<< setw(15) << bs.sinh
+			<< setw(20) << bs.chungChi
+			<< setw(20) << bs.chuyenMon;
+
+		return out;
 	}
 
 public:
@@ -108,19 +126,23 @@ public:
 		cout << "-----------------------------------------------------------------------\n";
 
 		for (auto& b : ds) {
-
-			cout << left
-				<< setw(10) << b.ma
-				<< setw(20) << b.ten
-				<< setw(15) << b.sinh
-				<< setw(15) << b.chungChi
-				<< setw(20) << b.chuyenMon
-				<< endl;
+			
+			cout << b << endl;
 		}
 
 		cout << "-----------------------------------------------------------------------\n";
 
 		UI::pause();
+	}
+
+	void hienThi() override {
+		cout << left
+			<< setw(10) << ma
+			<< setw(25) << ten
+			<< setw(15) << sinh
+			<< setw(20) << chungChi
+			<< setw(20) << chuyenMon
+			<< endl;
 	}
 
 	static void searchBacSi() {

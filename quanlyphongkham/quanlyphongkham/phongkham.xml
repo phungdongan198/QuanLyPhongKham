@@ -1,6 +1,12 @@
 <Phong>
 <Ma>12</Ma>
-<Ten>an</Ten>
-<Loai>kh m b?nh</Loai>
+<Ten>phong 1</Ten>
+<Loai>kham noi</Loai>
+</Phong>
+
+<Phong>
+<Ma>pk2</Ma>
+<Ten>phong 2</Ten>
+<Loai>dfs</Loai>
 </Phong>
 

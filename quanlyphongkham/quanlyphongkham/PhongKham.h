@@ -1,7 +1,8 @@
 #pragma once
 #include "LiblaryHeader.h"
+#include "Helper.h"
 
-/* ================= PHONG KHAM ================= */
+
 class PhongKham {
 
 public:
@@ -11,9 +12,13 @@ public:
 	void nhap() {
 
 		cin.ignore();
-
-		cout << "Ma phong: ";
-		getline(cin, ma);
+	
+		ma = Helper::nhapMaKhongTrung(
+			"Ma pk",
+			"phongkham.xml",
+			"Phong",
+			"Ma"
+		);
 
 		cout << "Ten phong: ";
 		getline(cin, ten);

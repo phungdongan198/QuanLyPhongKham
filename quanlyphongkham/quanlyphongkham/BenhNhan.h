@@ -1,22 +1,24 @@
 ﻿#pragma once
 #include "LiblaryHeader.h"
 #include "SystemMethod.h"
-#include "LuaChon.h"
+#include "Helper.h"
 #include <fstream>
 #include <vector>
 #include <string>
 #include <stdio.h>
 #include <limits>
 #include <regex>
+#include "QuanLy.h"
 
-/* ================= BENH NHAN ================= */
-class BenhNhan {
+
+class BenhNhan : public DoiTuongQuanLy {
 
 public:
-
+	// phần nhập đk
 	string ma, ten, sinh, gioiTinh;
 	string dienThoai, diaChi, doiTuong;
-	string phong, ngay;
+	string phong, trangthai, ngay, noidungkham, cls;
+
 
 	/*template <typename T>
 	T KiemTraKieuDuLieuSo(string thongBao)
@@ -104,12 +106,93 @@ public:
 		return regex_match(sdt, pattern);
 	}
 
-	void nhap() {
+	string layGiaTriTag(const string& block, const string& tag) {
+		string openTag = "<" + tag + ">";
+		string closeTag = "</" + tag + ">";
+
+		size_t start = block.find(openTag);
+		size_t end = block.find(closeTag);
+
+		if (start == string::npos || end == string::npos) {
+			return "";
+		}
+
+		start += openTag.length();
+		return block.substr(start, end - start);
+	}
+
+	void capNhatTinhTrangBenhNhan(const string& maCanTim) {
+		ifstream fileIn("benhnhan.xml");
+
+		if (!fileIn.is_open()) {
+			cout << "Khong mo duoc file benhnhan.xml!\n";
+			return;
+		}
+
+		string line;
+		string noiDungMoi = "";
+		string block = "";
+		bool dangDocBenhNhan = false;
+
+		while (getline(fileIn, line)) {
+			if (line.find("<BenhNhan>") != string::npos) {
+				dangDocBenhNhan = true;
+				block = line + "\n";
+			}
+			else if (dangDocBenhNhan) {
+				block += line + "\n";
+
+				if (line.find("</BenhNhan>") != string::npos) {
+					string maTrongFile = layGiaTriTag(block, "Ma");
+
+					if (maTrongFile == maCanTim) {
+						size_t start = block.find("<TrangThai>");
+						size_t end = block.find("</TrangThai>");
+
+						if (start != string::npos && end != string::npos) {
+							end += string("</TrangThai>").length();
+
+							block.replace(
+								start,
+								end - start,
+								"<TrangThai>Dakham</TrangThai>"
+							);
+						}
+					}
+
+					noiDungMoi += block;
+					block = "";
+					dangDocBenhNhan = false;
+				}
+			}
+			else {
+				noiDungMoi += line + "\n";
+			}
+		}
+
+		fileIn.close();
+
+		ofstream fileOut("benhnhan.xml");
+
+		if (!fileOut.is_open()) {
+			cout << "Khong ghi duoc file benhnhan.xml!\n";
+			return;
+		}
+
+		fileOut << noiDungMoi;
+		fileOut.close();
+	}
+
+	void nhapDangKy() {
 
 		cin.ignore();
 
-		cout << "Ma BN: ";
-		getline(cin, ma);
+		ma = Helper::nhapMaKhongTrung(
+			"Nhap ma benh nhan: ",
+			"benhnhan.xml",
+			"BenhNhan",
+			"Ma"
+		);
 
 		cout << "Ho ten: ";
 		getline(cin, ten);
@@ -117,7 +200,7 @@ public:
 		sinh = NhapVaKiemTraNamSinh();
 
 		cout << "Gioi tinh: ";
-		gioiTinh = LuaChon::chonTuDanhSach("Chon gioi tinh", { "Nam", "Nu","Khac" });
+		gioiTinh = Helper::chonTuDanhSach("Chon gioi tinh", { "Nam", "Nu","Khac" });
 
 		//Kiểm tra nhập số điện thoại hợp lệ
 		while (true)
@@ -134,15 +217,17 @@ public:
 		getline(cin, diaChi);
 
 		cout << "Doi tuong: ";
-		doiTuong = LuaChon::chonTuDanhSach("Chon doi tuong", { "BHYT", "Thu phi","Khac" });
+		doiTuong = Helper::chonTuDanhSach("Chon doi tuong", { "BHYT", "Thu phi","Khac" });
 
 		cout << "Phong kham: ";
-		phong = LuaChon::chonTuFile("Chon phong kham", "phongkham.xml", "Phong", "Ten");
+		phong = Helper::chonTuFile("Chon phong kham", "phongkham.xml", "Phong", "Ten");
+
+		trangthai = "Moi";
 
 		ngay = SystemMethod::today();
 	}
 
-	void save() {
+	void saveDangKy() {
 
 		ofstream file("benhnhan.xml", ios::app);
 
@@ -155,11 +240,63 @@ public:
 		file << "<DiaChi>" << diaChi << "</DiaChi>\n";
 		file << "<DoiTuong>" << doiTuong << "</DoiTuong>\n";
 		file << "<Phong>" << phong << "</Phong>\n";
+		file << "<TrangThai>" << trangthai << "</TrangThai>\n";
 		file << "<Ngay>" << ngay << "</Ngay>\n";
 		file << "</BenhNhan>\n\n";
 
 		file.close();
 	}
+
+	void nhap() override {
+		nhapDangKy();
+	}
+
+	void save() override {
+		saveDangKy();
+	}
+
+	void nhapKhamBenh() {
+
+		cin.ignore();
+
+		ten = Helper::chonTuFile(
+			"Chon ten",
+			"benhnhan.xml",
+			"BenhNhan",
+			"Ten",
+			"Ma",
+			ma
+		);
+		cout << "Ma benh nhan: " << ma << endl;
+
+		cout << "Noi dung kham: ";
+		getline(cin, noidungkham);
+
+		cls = Helper::chonTuFile(
+			"Chon dich vu",
+			"canlamsang.xml",
+			"CLS",
+			"Ten"
+		);
+
+		ngay = SystemMethod::today();
+	}
+
+	void saveKhamBenh() {
+
+		ofstream file("khambenh.xml", ios::app);
+
+		file << "<KhamBenh>\n";
+		file << "<Ma>" << ma << "</Ma>\n";
+		file << "<Ten>" << ten << "</Ten>\n";
+		file << "<Noidungkham>" << noidungkham << "</Noidungkham>\n";
+		file << "<DichVu>" << cls << "</DichVu>\n";
+		file << "<Ngay>" << ngay << "</Ngay>\n";
+		file << "</KhamBenh>\n\n";
+		file.close();
+		capNhatTinhTrangBenhNhan(ma);
+	}
+
 
 	static void deleteBenhNhan() {
 
@@ -179,40 +316,62 @@ public:
 		}
 		in.close();
 
-
 		if (lines.empty()) {
 			cout << "Khong co du lieu\n";
 			UI::pause();
 			return;
 		}
 
+		string ten;
 		string maXoa;
-		cout << "Nhap ma benh nhan can xoa: ";
-		cin >> maXoa;
+
+		cout << "Chon benh nhan can xoa: ";
+
+		ten = Helper::chonTuFile(
+			"Chon ten:",
+			"benhnhan.xml",
+			"BenhNhan",
+			"Ten",
+			"Ma",
+			maXoa
+		);
+
 
 		vector<string> newLines;
 		bool found = false;
+		bool daKham = false;
 		int count = 0;
 
 		for (int i = 0; i < lines.size(); i++) {
 			if (lines[i].find("<BenhNhan>") != string::npos) {
 				vector<string> temp;
 				bool match = false;
+				string trangthai = "";
 
 				while (i < lines.size()) {
 					temp.push_back(lines[i]);
 
-
 					if (lines[i].find("<Ma>") != string::npos) {
-						size_t start = lines[i].find("<Ma>") + 4;
+						size_t start = lines[i].find("<Ma>");
 						size_t end = lines[i].find("</Ma>");
 
 						if (start != string::npos && end != string::npos) {
+							start += string("<Ma>").length();
 							string ma = lines[i].substr(start, end - start);
 
 							if (ma == maXoa) {
 								match = true;
 							}
+						}
+					}
+
+					if (lines[i].find("<TrangThai>") != string::npos) {
+						size_t start = lines[i].find("<TrangThai>");
+						size_t end = lines[i].find("</TrangThai>");
+
+						if (start != string::npos && end != string::npos) {
+							start += string("<TrangThai>").length();
+							trangthai = lines[i].substr(start, end - start);
 						}
 					}
 
@@ -224,7 +383,17 @@ public:
 
 				if (match) {
 					found = true;
-					count++;
+
+					if (trangthai == "Moi") {
+						count++;
+						// Không đưa temp vào newLines => xóa bệnh nhân
+					}
+					else {
+						daKham = true;
+
+						for (auto& l : temp)
+							newLines.push_back(l);
+					}
 				}
 				else {
 					for (auto& l : temp)
@@ -236,13 +405,17 @@ public:
 			}
 		}
 
-
 		if (!found) {
 			cout << "Khong co thong tin benh nhan!\n";
 			UI::pause();
 			return;
 		}
 
+		if (daKham && count == 0) {
+			cout << "Benh nhan da kham, khong the xoa!\n";
+			UI::pause();
+			return;
+		}
 
 		ofstream out("benhnhan.xml");
 		for (auto& l : newLines) {
@@ -250,9 +423,25 @@ public:
 		}
 		out.close();
 
-		cout << "Da xoa " << count << " benh nhan!\n";
+		cout << "Da xoa benh nhan: " << ten << endl;
+		cout << "Ma benh nhan: " << maXoa << endl;
+
 		UI::pause();
 	}
+
+	// nạp chồng toán tử
+	friend ostream& operator<<(ostream& out, const BenhNhan& bn) {
+		out << left
+			<< setw(10) << bn.ma
+			<< setw(20) << bn.ten
+			<< setw(15) << bn.sinh
+			<< setw(15) << bn.phong
+			<< setw(15) << bn.ngay
+			<< setw(15) << bn.trangthai;
+
+		return out;
+	}
+
 
 	static void showBenhNhan() {
 
@@ -283,6 +472,9 @@ public:
 			if (line.find("<Phong>") != string::npos)
 				bn.phong = line.substr(7, line.find("</") - 7);
 
+			if (line.find("<TrangThai>") != string::npos)
+				bn.trangthai = line.substr(11, line.find("</") - 11);
+
 			if (line.find("<Ngay>") != string::npos) {
 
 				bn.ngay = line.substr(6, line.find("</") - 6);
@@ -301,23 +493,29 @@ public:
 			<< setw(15) << "NgaySinh"
 			<< setw(15) << "Phong"
 			<< setw(15) << "NgayKham"
+			<< setw(15) << "TrangThai"
 			<< endl;
 
 		cout << "--------------------------------------------------------------------------------\n";
 
 		for (auto& b : ds) {
 
-			cout << left
-				<< setw(10) << b.ma
-				<< setw(20) << b.ten
-				<< setw(15) << b.sinh
-				<< setw(15) << b.phong
-				<< setw(15) << b.ngay
-				<< endl;
+			cout << b << endl;
 		}
 
 		cout << "--------------------------------------------------------------------------------\n";
 		UI::pause();
+	}
+
+	void hienThi() override {
+		cout << left
+			<< setw(10) << ma
+			<< setw(20) << ten
+			<< setw(15) << sinh
+			<< setw(15) << phong
+			<< setw(15) << ngay
+			<< setw(15) << trangthai
+			<< endl;
 	}
 
 	static void searchBenhNhan() {

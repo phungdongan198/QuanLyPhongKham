@@ -7,7 +7,7 @@ class banThuoc;
 
 class SystemMethod {
 public:
-	/* ================= DATE ================= */
+	// ngày thang shiện tại
 	static string today() {
 
 		time_t now = time(0);   // tạo biến now
@@ -25,7 +25,7 @@ public:
 		return string(buf);
 	}
 
-	/* ================= XML HELPER ================= */
+	// XML HELPER 
 	static bool fileExist(string name) {
 
 		ifstream f(name);
