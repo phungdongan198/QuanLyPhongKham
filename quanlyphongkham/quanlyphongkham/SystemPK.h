@@ -325,8 +325,8 @@ public:
 			UI::center("=====KHO THUOC=====", 10);
 
 			cout << "\n1 Nhap thuoc\n";
-			cout << "2 Ban thuoc\n";
-			cout << "3 Xem ton kho\n";
+			cout << "2 Xuat thuoc\n";
+			cout << "3 Xem nhap xuat\n";
 			cout << "4 Tim thuoc\n";
 			cout << "5 Xuat excel\n";
 			UI::printColor("6 Quay lai\n", 12);
@@ -692,7 +692,7 @@ public:
 			}
 			cout << "\n8 Dang nhap lai";
 			UI::printColor("\n9 Ket thuc\n", 12);
-			c=SystemMethod::nhapSo<int>("Moi ban chon:");
+			c = SystemMethod::nhapSo<int>("Moi ban chon:");
 			lanDau = false;
 
 			if (role == "employee" && (c >= 2 && c <= 7))

@@ -228,8 +228,13 @@ public:
 	}
 
 	void saveDangKy() {
+		bool fileMoi = !SystemMethod::fileExist("benhnhan.xml");
 
 		ofstream file("benhnhan.xml", ios::app);
+
+		if (fileMoi) {
+			file << "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
+		}
 
 		file << "<BenhNhan>\n";
 		file << "<Ma>" << ma << "</Ma>\n";
@@ -284,7 +289,13 @@ public:
 
 	void saveKhamBenh() {
 
+		bool fileMoi = !SystemMethod::fileExist("khambenh.xml");
+
 		ofstream file("khambenh.xml", ios::app);
+
+		if (fileMoi) {
+			file << "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
+		}
 
 		file << "<KhamBenh>\n";
 		file << "<Ma>" << ma << "</Ma>\n";

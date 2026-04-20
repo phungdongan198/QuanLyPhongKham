@@ -10,7 +10,6 @@ public:
 	string ma, ten, gia, lo, date, soLuong, ghiChu;
 
 
-
 	void nhap() {
 
 		cin.ignore();

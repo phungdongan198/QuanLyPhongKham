@@ -78,3 +78,23 @@
 <GhiChu>Thuoc Thu nghiem</GhiChu>
 </Thuoc>
 
+<Thuoc>
+<Ma>thuoc1</Ma>
+<Ten>thuoc an</Ten>
+<Gia>2000</Gia>
+<Lo>losx123</Lo>
+<Date>20/05/2028</Date>
+<SoLuong>100</SoLuong>
+<GhiChu>sdf</GhiChu>
+</Thuoc>
+
+<Thuoc>
+<Ma>t10</Ma>
+<Ten>dfs…</Ten>
+<Gia>10000</Gia>
+<Lo>dfsdfds</Lo>
+<Date>23/10/2026</Date>
+<SoLuong>20</SoLuong>
+<GhiChu>12123</GhiChu>
+</Thuoc>
+

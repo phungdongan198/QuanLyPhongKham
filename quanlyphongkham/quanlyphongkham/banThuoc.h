@@ -10,7 +10,7 @@ class banThuoc {
 public:
 
 	string ma, ten, nguoimua, diachi, dienthoai, benh, soluong, dongia, thanhtien, lo, date, ghichu, ngay;
-
+	vector<string> thongTinThuoc;
 	void ban() {
 
 		cin.ignore();
@@ -52,11 +52,21 @@ public:
 			"nhapthuoc.xml",
 			"Thuoc",
 			"Ten",
-			"Ma",
-			ma
+			{ "Ma", "Gia", "Lo", "Date" },
+			thongTinThuoc
 		);
+		ma = thongTinThuoc[0];
+		dongia = thongTinThuoc[1];
+		lo = thongTinThuoc[2];
+		date = thongTinThuoc[3];
 		cout << "Ma thuoc: " << ma << endl;
-	
+		cout << "Lo:  " << lo << endl;
+		cout << "Date: " << date << endl;
+		soluong = std::to_string(nhapSo<int>("Nhap so luong xuat: "));
+		cout << "Don gia: " << dongia << endl;
+		thanhtien = to_string(stoi(soluong) * stoi(dongia));
+		cout << "Thanh tien: " << thanhtien << endl;
+
 		cout << "Dia chi: ";
 		getline(cin, diachi);
 
@@ -65,32 +75,7 @@ public:
 
 		cout << "Ten benh: ";
 		getline(cin, benh);
-
-		soluong= std::to_string(nhapSo<int>("Nhap so luong ban: "));
-
-		//cout << "Don gia: ";
-		while (true)
-		{
-			int donGia = nhapSo<int>("Nhap Don Gia (Phai lon hon 1000: ");
-			if (donGia > 1000)
-			{
-				dongia = std::to_string(donGia);
-				break;
-			}
-			else
-			{
-				cout << "Gia tien phai tu 1000 tro len! Vui long nhap lai.\n";
-			}
-		}
-
-		thanhtien = to_string(stoi(soluong) * stoi(dongia));
-		cout << "Thanh tien: " << thanhtien << endl;
-
-		cout << "Losx: ";
-		getline(cin, lo);
-
-		cout << "Date: ";
-		getline(cin, date);
+	
 
 		cout << "Ghi chu: ";
 		getline(cin, ghichu);
@@ -221,7 +206,7 @@ public:
 				<< setw(10) << "Ma"
 				<< setw(20) << "TenThuoc"
 				<< setw(20) << "NguoiMua"
-				<< setw(10) << "SoLuongBan"
+				<< setw(10) << "SoLuong"
 				<< setw(10) << "DonGia"
 				<< setw(10) << "ThanhTien"
 				<< endl;

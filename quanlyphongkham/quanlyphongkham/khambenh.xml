@@ -1,15 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <KhamBenh>
 <Ma>bn2</Ma>
-<Ten>benh nhan 2</Ten>
-<Noidungkham>dau bung</Noidungkham>
-<DichVu>x quang</DichVu>
-<Ngay>19/04/2026</Ngay>
-</KhamBenh>
-
-<KhamBenh>
-<Ma>bn2</Ma>
-<Ten>benh nhan 2</Ten>
-<Noidungkham>Kham Dau Dau</Noidungkham>
+<Ten>phạm văn phong</Ten>
+<Noidungkham>khám bệnh đau bụng</Noidungkham>
 <DichVu>x quang</DichVu>
 <Ngay>20/04/2026</Ngay>
 </KhamBenh>

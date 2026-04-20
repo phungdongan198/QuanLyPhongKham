@@ -1,28 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BenhNhan>
+<Ma>bn1</Ma>
+<Ten>đông ánh</Ten>
+<Sinh>18/10/1998</Sinh>
+<GioiTinh>Nam</GioiTinh>
+<DienThoai>0987675332</DienThoai>
+<DiaChi>hồ chí minh</DiaChi>
+<DoiTuong>BHYT</DoiTuong>
+<Phong>phong 1</Phong>
+<TrangThai>Moi</TrangThai>
+<Ngay>20/04/2026</Ngay>
+</BenhNhan>
 
 <BenhNhan>
 <Ma>bn2</Ma>
-<Ten>benh nhan 2</Ten>
-<Sinh>12/12/2000</Sinh>
+<Ten>phạm văn phong</Ten>
+<Sinh>18/10/1998</Sinh>
 <GioiTinh>Nam</GioiTinh>
 <DienThoai>0987654321</DienThoai>
-<DiaChi>�ds</DiaChi>
+<DiaChi>địa chỉ ở đâu</DiaChi>
 <DoiTuong>BHYT</DoiTuong>
-<Phong>phong 2</Phong>
+<Phong>phong 1</Phong>
 <TrangThai>Dakham</TrangThai>
-<Ngay>19/04/2026</Ngay>
-</BenhNhan>
-
-
-<BenhNhan>
-<Ma>435</Ma>
-<Ten>Pham Van phong</Ten>
-<Sinh>06/09/2004</Sinh>
-<GioiTinh>Nam</GioiTinh>
-<DienThoai>0333002951</DienThoai>
-<DiaChi>Binh Duong</DiaChi>
-<DoiTuong>Thu phi</DoiTuong>
-<Phong>phong 2</Phong>
-<TrangThai>Moi</TrangThai>
 <Ngay>20/04/2026</Ngay>
 </BenhNhan>
 
