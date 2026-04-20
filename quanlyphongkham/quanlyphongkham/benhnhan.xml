@@ -12,3 +12,17 @@
 <Ngay>19/04/2026</Ngay>
 </BenhNhan>
 
+
+<BenhNhan>
+<Ma>435</Ma>
+<Ten>Pham Van phong</Ten>
+<Sinh>06/09/2004</Sinh>
+<GioiTinh>Nam</GioiTinh>
+<DienThoai>0333002951</DienThoai>
+<DiaChi>Binh Duong</DiaChi>
+<DoiTuong>Thu phi</DoiTuong>
+<Phong>phong 2</Phong>
+<TrangThai>Moi</TrangThai>
+<Ngay>20/04/2026</Ngay>
+</BenhNhan>
+

@@ -561,7 +561,7 @@ public:
 			UI::printColor("6 Quay lai\n", 12);
 
 			cout << "Chon: ";
-			cin >> c;
+			c = SystemMethod::kiemTraKyTu();
 
 			switch (c) {
 			case 1: {
@@ -692,11 +692,7 @@ public:
 			}
 			cout << "\n8 Dang nhap lai";
 			UI::printColor("\n9 Ket thuc\n", 12);
-
-			cout << "\nChon: ";
-			cin >> c;
-			cin.ignore(1000, '\n');
-
+			c=SystemMethod::nhapSo<int>("Moi ban chon:");
 			lanDau = false;
 
 			if (role == "employee" && (c >= 2 && c <= 7))

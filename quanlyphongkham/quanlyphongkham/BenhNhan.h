@@ -297,7 +297,6 @@ public:
 		capNhatTinhTrangBenhNhan(ma);
 	}
 
-
 	static void deleteBenhNhan() {
 
 		if (!SystemMethod::fileExist("benhnhan.xml")) {
@@ -441,7 +440,6 @@ public:
 
 		return out;
 	}
-
 
 	static void showBenhNhan() {
 

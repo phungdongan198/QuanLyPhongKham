@@ -57,7 +57,6 @@ public:
 		);
 		cout << "Ma thuoc: " << ma << endl;
 	
-
 		cout << "Dia chi: ";
 		getline(cin, diachi);
 
@@ -67,11 +66,22 @@ public:
 		cout << "Ten benh: ";
 		getline(cin, benh);
 
-		cout << "So luong: ";
-		getline(cin, soluong);
+		soluong= std::to_string(nhapSo<int>("Nhap so luong ban: "));
 
-		cout << "Don gia: ";
-		getline(cin, dongia);
+		//cout << "Don gia: ";
+		while (true)
+		{
+			int donGia = nhapSo<int>("Nhap Don Gia (Phai lon hon 1000: ");
+			if (donGia > 1000)
+			{
+				dongia = std::to_string(donGia);
+				break;
+			}
+			else
+			{
+				cout << "Gia tien phai tu 1000 tro len! Vui long nhap lai.\n";
+			}
+		}
 
 		thanhtien = to_string(stoi(soluong) * stoi(dongia));
 		cout << "Thanh tien: " << thanhtien << endl;
@@ -115,7 +125,6 @@ public:
 		f.close();
 	}
 
-	
 	static void showTonKho() {
 
 		UI::clear();
@@ -545,5 +554,25 @@ public:
 		}
 
 		UI::pause();
+	}
+
+	//=========================== CÁC HÀM KIỂM TRA CHO Bán THUỐC ===========================
+	template <typename T>
+	T nhapSo(string thongBao) {
+		T value;
+		while (true) {
+			cout << thongBao;
+			if (cin >> value) {
+				// Nhập thành công, dọn dẹp bộ đệm đến hết dòng để tránh trôi lệnh sau
+				cin.clear();
+				cin.ignore((numeric_limits<streamsize>::max)(), '\n');
+				return value;
+			}
+			else {
+				cout << "Loi vui long nhap so.\n";
+				cin.clear();
+				cin.ignore((numeric_limits<streamsize>::max)(), '\n');
+			}
+		}
 	}
 };

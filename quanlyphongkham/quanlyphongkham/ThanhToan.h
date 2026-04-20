@@ -21,8 +21,22 @@ public:
 			ma
 		);
 		cout << "Ma benh nhan: " << ma << endl;
+ 
+		//Nhập số tiền
+		while (true)
+		{
+			int tienThu = nhapSo<int>("Nhap So tien (Phai lon hon 1000: ");
+			if (tienThu > 1000)
+			{
+				soTien = std::to_string(tienThu);
+				break;
+			}
+			else
+			{
+				cout << "Gia tien phai tu 1000 tro len! Vui long nhap lai.\n";
+			}
+		}
 
-		cout << "So tien: "; getline(cin, soTien);
         nguoiThu = Helper::chonTuFile("Chon nguoi thu", "bacsi.xml", "BacSi", "Ten");
 
 		ngay = SystemMethod::today();
@@ -42,7 +56,6 @@ public:
 		f.close();
 	}
 
-
 	void nhapHoan() {
 		cin.ignore();
 
@@ -55,7 +68,21 @@ public:
 			ma
 		);
 		cout << "Ma benh nhan: " << ma << endl;
-		cout << "So tien tra: "; getline(cin, soTien);
+		//Nhập số tiền hoàn
+		while (true)
+		{
+			int tienHoan = nhapSo<int>("Nhap So tien hoan (Phai lon hon 1000: ");
+			if (tienHoan > 1000)
+			{
+				soTien = std::to_string(tienHoan);
+				break;
+			}
+			else
+			{
+				cout << "Gia tien phai tu 1000 tro len! Vui long nhap lai.\n";
+			}
+		}
+
 	    nguoiThu = Helper::chonTuFile("Chon nguoi thu", "bacsi.xml", "BacSi", "Ten");
 		cout << "Ly do: "; getline(cin, lyDo);
 
@@ -77,11 +104,9 @@ public:
 		f.close();
 	}
 
-
 	static void showAll() {
 
 		string line;
-
 
 		if (SystemMethod::fileExist("thutien.xml")) {
 
@@ -207,7 +232,6 @@ public:
 		UI::pause();
 	}
 
-
 	static void search() {
 
 		int c;
@@ -313,7 +337,6 @@ public:
 		UI::pause();
 	}
 
-
 	static void exportExcel() {
 
 		ofstream o("thutien_all.csv");
@@ -393,5 +416,24 @@ public:
 			system("start thutien_all.csv");
 
 		UI::pause();
+	}
+
+	template <typename T>
+	T nhapSo(string thongBao) {
+		T value;
+		while (true) {
+			cout << thongBao;
+			if (cin >> value) {
+				// Nhập thành công, dọn dẹp bộ đệm đến hết dòng để tránh trôi lệnh sau
+				cin.clear();
+				cin.ignore((numeric_limits<streamsize>::max)(), '\n');
+				return value;
+			}
+			else {
+				cout << "Loi vui long nhap so.\n";
+				cin.clear();
+				cin.ignore((numeric_limits<streamsize>::max)(), '\n');
+			}
+		}
 	}
 };
