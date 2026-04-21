@@ -1,6 +1,7 @@
 #pragma once
 #include "LiblaryHeader.h"
 #include "Helper.h"
+#include "SystemMethod.h"
 
 
 class CanLamSang {
@@ -23,8 +24,9 @@ public:
 		cout << "Ten dich vu: ";
 		getline(cin, ten);
 
-		cout << "Don gia: ";
-		getline(cin, gia);
+		//cout << "Don gia: ";
+		//getline(cin, gia);
+		gia = std::to_string(nhapSo<int>("Nhap Don gia: "));
 
 		cout << "Ghi chu: ";
 		getline(cin, ghiChu);
@@ -137,7 +139,7 @@ public:
 			cout << "Nhap ten dich vu: ";
 
 		getline(cin, key);
-
+		string lowerKey = SystemMethod::toLower(key);
 		ifstream f("canlamsang.xml");
 
 		string line;
@@ -161,10 +163,10 @@ public:
 
 				bool match = false;
 
-				if (chon == 1 && cls.ma == key)
+				if (chon == 1 && SystemMethod::toLower(cls.ma) == key)
 					match = true;
 
-				if (chon == 2 && cls.ten.find(key) != string::npos)
+				if (chon == 2 && SystemMethod::toLower(cls.ten).find(key) != string::npos)
 					match = true;
 
 				if (match)
@@ -259,5 +261,24 @@ public:
 			system("start canlamsang.csv");
 
 		UI::pause();
+	}
+
+	template <typename T>
+	static T nhapSo(string thongBao) {
+		T value;
+		while (true) {
+			cout << thongBao;
+			if (cin >> value) {
+				// Nhập thành công, dọn dẹp bộ đệm đến hết dòng để tránh trôi lệnh sau
+				cin.clear();
+				cin.ignore((numeric_limits<streamsize>::max)(), '\n');
+				return value;
+			}
+			else {
+				cout << "Loi vui long nhap so.\n";
+				cin.clear();
+				cin.ignore((numeric_limits<streamsize>::max)(), '\n');
+			}
+		}
 	}
 };

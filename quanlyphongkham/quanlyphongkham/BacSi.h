@@ -2,6 +2,8 @@
 #include "LiblaryHeader.h"
 #include "Helper.h"
 #include "QuanLy.h"
+#include "SystemMethod.h"
+
 
 // tính kế thừa
 class BacSi : public DoiTuongQuanLy {
@@ -24,8 +26,7 @@ public:
 		cout << "Ten: ";
 		getline(cin, ten);
 
-		cout << "Ngay sinh: ";
-		getline(cin, sinh);
+		sinh = NhapVaKiemTraNamSinh();
 
 		cout << "Chung chi: ";
 		getline(cin, chungChi);
@@ -176,6 +177,7 @@ public:
 			cout << "Nhap ten bac si: ";
 
 		getline(cin, key);
+		string lowerKey = SystemMethod::toLower(key);
 
 		ifstream f("bacsi.xml");
 
@@ -204,10 +206,11 @@ public:
 
 				bool match = false;
 
-				if (chon == 1 && bs.ma == key)
+				if (chon == 1 && SystemMethod::toLower(bs.ma) == key)
+				{
 					match = true;
-
-				if (chon == 2 && bs.ten.find(key) != string::npos)
+				}
+				if (chon == 2 && SystemMethod::toLower(bs.ten).find(key) != string::npos)
 					match = true;
 
 				if (match)
@@ -308,5 +311,32 @@ public:
 			system("start bacsi.csv");
 
 		UI::pause();
+	}
+
+	string NhapVaKiemTraNamSinh() {
+		int dd, mm, yyyy;
+		char slash1, slash2;
+
+		while (true) {
+			cout << "Nhap ngay sinh (Voi dinh dang dd / mm / yyyy): ";
+
+			// Đọc dữ liệu theo định dạng dd / mm / yyyy
+			if (cin >> dd >> slash1 >> mm >> slash2 >> yyyy && slash1 == '/' && slash2 == '/') {
+
+				// Kiểm tra tính hợp lệ của ngày tháng (logic cơ bản)
+				if (mm >= 1 && mm <= 12 && dd >= 1 && dd <= 31 && yyyy >= 1920 && yyyy <= 2026) {
+					char buffer[11];
+					sprintf_s(buffer, "%02d/%02d/%04d", dd, mm, yyyy);
+					cin.clear();
+					cin.ignore((numeric_limits<streamsize>::max)(), '\n');
+					return string(buffer); // Thoát hàm và trả về kết quả
+				}
+			}
+
+			// Nếu nhập sai định dạng hoặc sai logic ngày tháng
+			cout << "Ngay thang nam sinh ban nhap khong hop le! Vui long nhap lai.\n";
+			cin.clear(); // Xóa trạng thái lỗi
+			cin.ignore((numeric_limits<streamsize>::max)(), '\n'); // Xóa sạch bộ đệm cho đến khi gặp dòng mới
+		}
 	}
 };

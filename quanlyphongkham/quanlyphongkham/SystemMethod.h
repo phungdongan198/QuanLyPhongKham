@@ -115,4 +115,12 @@ public:
 			}
 		}
 	}
+
+	// Trong file SystemMethod.h
+	static string toLower(string s) {
+		for (char& c : s) {
+			c = (char)tolower((unsigned char)c);
+		}
+		return s;
+	}
 };

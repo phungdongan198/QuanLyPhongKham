@@ -2,12 +2,9 @@
 #include "LiblaryHeader.h"
 #include "Helper.h"
 
-
-
 class ThuTien {
 public:
 	string ma, ten, soTien, nguoiThu, lyDo, ngay;
-
 
 	void nhapThu() {
 		cin.ignore();
@@ -25,15 +22,15 @@ public:
 		//Nhập số tiền
 		while (true)
 		{
-			int tienThu = nhapSo<int>("Nhap So tien (Phai lon hon 1000: ");
-			if (tienThu > 1000)
+			int tienThu = nhapSo<int>("Nhap So tien: ");
+			if (tienThu > 100)
 			{
 				soTien = std::to_string(tienThu);
 				break;
 			}
 			else
 			{
-				cout << "Gia tien phai tu 1000 tro len! Vui long nhap lai.\n";
+				cout << "Gia tien phai tu 100 tro len! Vui long nhap lai.\n";
 			}
 		}
 
@@ -71,15 +68,15 @@ public:
 		//Nhập số tiền hoàn
 		while (true)
 		{
-			int tienHoan = nhapSo<int>("Nhap So tien hoan (Phai lon hon 1000: ");
-			if (tienHoan > 1000)
+			int tienHoan = nhapSo<int>("Nhap So tien hoan: ");
+			if (tienHoan >= 100)
 			{
 				soTien = std::to_string(tienHoan);
 				break;
 			}
 			else
 			{
-				cout << "Gia tien phai tu 1000 tro len! Vui long nhap lai.\n";
+				cout << "Gia tien phai tu 100 tro len! Vui long nhap lai.\n";
 			}
 		}
 
@@ -140,7 +137,6 @@ public:
 			f.close();
 
 			cout << "\n================= DANH SACH THU =================\n";
-
 			cout << left
 				<< setw(10) << "Ma"
 				<< setw(20) << "Ten"
@@ -148,9 +144,7 @@ public:
 				<< setw(20) << "NguoiThu"
 				<< setw(15) << "Ngay"
 				<< endl;
-
 			cout << "--------------------------------------------------------------------------------------------------\n";
-
 			for (auto& x : dsThu) {
 				cout << left
 					<< setw(10) << x.ma
@@ -162,11 +156,9 @@ public:
 			}
 		}
 
-
 		if (SystemMethod::fileExist("hoantra.xml")) {
 
 			ifstream f("hoantra.xml");
-
 			ThuTien h;
 			vector<ThuTien> dsHoan;
 
@@ -262,7 +254,7 @@ public:
 			cout << "Nhap ten can tim: ";
 
 		getline(cin, key);
-
+		string lowerKey = SystemMethod::toLower(key);
 		ifstream f("thutien.xml");
 
 		string line;
@@ -289,10 +281,10 @@ public:
 
 				bool match = false;
 
-				if (c == 1 && t.ma == key)
+				if (c == 1 && SystemMethod::toLower(t.ma) == key)
 					match = true;
 
-				if (c == 2 && t.ten.find(key) != string::npos)
+				if (c == 2 && SystemMethod::toLower(t.ten).find(key) != string::npos)
 					match = true;
 
 				if (match)

@@ -27,15 +27,15 @@ public:
 		//cout << "Don gia: ";
 		while (true)
 		{
-			int donGia = nhapSo<int>("Nhap Don Gia (Phai lon hon 1000: ");
-			if (donGia > 1000)
+			int donGia = nhapSo<int>("Nhap Don Gia: ");
+			if (donGia > 100)
 			{
 				gia = std::to_string(donGia);
 				break;
 			}
 			else
 			{
-				cout << "Gia tien phai tu 1000 tro len! Vui long nhap lai.\n";
+				cout << "Gia tien phai tu 100 tro len! Vui long nhap lai.\n";
 			}
 		}
 

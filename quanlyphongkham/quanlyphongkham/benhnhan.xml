@@ -25,3 +25,16 @@
 <Ngay>20/04/2026</Ngay>
 </BenhNhan>
 
+<BenhNhan>
+<Ma>435</Ma>
+<Ten>Phạm Văn Phong</Ten>
+<Sinh>06/09/2004</Sinh>
+<GioiTinh>Nam</GioiTinh>
+<DienThoai>0333002954</DienThoai>
+<DiaChi>Bình Dương</DiaChi>
+<DoiTuong>Thu phi</DoiTuong>
+<Phong>phong 1</Phong>
+<TrangThai>Moi</TrangThai>
+<Ngay>21/04/2026</Ngay>
+</BenhNhan>
+

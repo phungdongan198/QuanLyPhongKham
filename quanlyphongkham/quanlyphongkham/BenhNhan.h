@@ -556,7 +556,7 @@ public:
 			cout << "Nhap ten can tim: ";
 
 		getline(cin, key);
-
+		string lowerKey = SystemMethod::toLower(key);
 		ifstream f("benhnhan.xml");
 
 		string line;
@@ -583,10 +583,10 @@ public:
 
 				bool match = false;
 
-				if (c == 1 && bn.ma == key)
+				if (c == 1 && SystemMethod::toLower(bn.ma) == key)
 					match = true;
 
-				if (c == 2 && bn.ten.find(key) != string::npos)
+				if (c == 2 && SystemMethod::toLower(bn.ten).find(key) != string::npos)
 					match = true;
 
 				if (match)

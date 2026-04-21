@@ -46,7 +46,6 @@ public:
 			}
 		}
 
-
 		ten = Helper::chonTuFile(
 			"Ten thuoc",
 			"nhapthuoc.xml",
@@ -70,8 +69,15 @@ public:
 		cout << "Dia chi: ";
 		getline(cin, diachi);
 
-		cout << "Dien thoai: ";
-		getline(cin, dienthoai);
+		while (true)
+		{
+			cout << "Dien thoai: ";
+			getline(cin, dienthoai);
+			if (KiemTraSoDienThoai(dienthoai))
+				break;
+			else
+				cout << "So dien thoai khong hop le! Vui long nhap lai.\n";
+		}
 
 		cout << "Ten benh: ";
 		getline(cin, benh);
@@ -284,7 +290,7 @@ public:
 			cout << "Nhap ten thuoc: ";
 
 		getline(cin, key);
-
+		string lowerKey = SystemMethod::toLower(key);
 		ifstream f("nhapthuoc.xml");
 
 		string line;
@@ -292,8 +298,8 @@ public:
 
 		vector<nhapThuoc> ds;
 
-		while (getline(f, line)) {
-
+		while (getline(f, line)) 
+		{
 			if (line.find("<Ma>") != string::npos)
 				t.ma = line.substr(4, line.find("</") - 4);
 
@@ -312,16 +318,16 @@ public:
 			if (line.find("<SoLuong>") != string::npos)
 				t.soLuong = line.substr(9, line.find("</") - 9);
 
-			if (line.find("<GhiChu>") != string::npos) {
-
+			if (line.find("<GhiChu>") != string::npos) 
+			{
 				t.ghiChu = line.substr(8, line.find("</") - 8);
 
 				bool match = false;
 
-				if (chon == 1 && t.ma == key)
+				if (chon == 1 && SystemMethod::toLower(t.ma) == key)
 					match = true;
 
-				if (chon == 2 && t.ten.find(key) != string::npos)
+				if (chon == 2 && SystemMethod::toLower(t.ten).find(key) != string::npos)
 					match = true;
 
 				if (match)
@@ -559,5 +565,16 @@ public:
 				cin.ignore((numeric_limits<streamsize>::max)(), '\n');
 			}
 		}
+	}
+
+	bool KiemTraSoDienThoai(const string& sdt) {
+		// Regex này kiểm tra:
+		// ^0: Bắt đầu bằng số 0
+		// [35789]: Chữ số thứ hai thường là 3, 5, 7, 8, 9 (các đầu số nhà mạng VN)
+		// [0-9]{8}: 8 chữ số tiếp theo là bất kỳ số nào từ 0-9
+		// $: Kết thúc chuỗi
+		const regex pattern("^0[35789][0-9]{8}$");
+
+		return regex_match(sdt, pattern);
 	}
 };

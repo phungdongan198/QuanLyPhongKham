@@ -261,10 +261,8 @@ public:
 
 			break;
 		}
-
 		return ma;
 	}
-
 
 	static string chonTuFile(
 		const string& tieuDe,
@@ -273,7 +271,8 @@ public:
 		const string& tenTheCanLay,
 		const vector<string>& dsTheLayKem,
 		vector<string>& dsGiaTriLayKem
-	) {
+							) 
+	{
 		ifstream file(tenFile);
 
 		vector<string> dsHienThi;
@@ -332,8 +331,6 @@ public:
 				break;
 			}
 		}
-
 		return daChon;
 	}
-
 };

@@ -14,7 +14,7 @@ public:
 		cin.ignore();
 	
 		ma = Helper::nhapMaKhongTrung(
-			"Ma pk",
+			"Ma pk:",
 			"phongkham.xml",
 			"Phong",
 			"Ma"
@@ -128,7 +128,7 @@ public:
 			cout << "Nhap ten phong: ";
 
 		getline(cin, key);
-
+		string lowerKey = SystemMethod::toLower(key);
 		ifstream f("phongkham.xml");
 
 		string line;
@@ -149,10 +149,10 @@ public:
 
 				bool match = false;
 
-				if (c == 1 && pk.ma == key)
+				if (c == 1 && SystemMethod::toLower(pk.ma) == key)
 					match = true;
 
-				if (c == 2 && pk.ten.find(key) != string::npos)
+				if (c == 2 && SystemMethod::toLower(pk.ten).find(key) != string::npos)
 					match = true;
 
 				if (match)
