@@ -1,24 +1,9 @@
-<BacSi>
-<Ma>nv1</Ma>
-<Ten>sadfsa</Ten>
-<Sinh>sfsadf</Sinh>
-<ChungChi>dsfds</ChungChi>
-<ChuyenMon>dsf</ChuyenMon>
-</BacSi>
-
+<?xml version="1.0" encoding="UTF-8"?>
 <BacSi>
 <Ma>435</Ma>
-<Ten>Pham Van Phong</Ten>
-<Sinh>adasdas</Sinh>
-<ChungChi>thac si</ChungChi>
-<ChuyenMon>Rang ham mat</ChuyenMon>
-</BacSi>
-
-<BacSi>
-<Ma>135</Ma>
-<Ten>Kim Huyen</Ten>
-<Sinh>06/09/2003</Sinh>
-<ChungChi>Thac Si</ChungChi>
-<ChuyenMon>Rang ham mat</ChuyenMon>
+<Ten>Phạm Văn Phong</Ten>
+<Sinh>06/09/2004</Sinh>
+<ChungChi>Cử Nhân</ChungChi>
+<ChuyenMon>Khoa Nội</ChuyenMon>
 </BacSi>
 

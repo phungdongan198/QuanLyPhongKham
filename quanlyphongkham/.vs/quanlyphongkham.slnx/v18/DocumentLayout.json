@@ -3,32 +3,28 @@
   "WorkspaceRootPath": "E:\\DTTX\\OOP\\QuanLyPhongKham\\quanlyphongkham\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{00742233-C886-433C-AB12-7F7E1FF8E6B5}|quanlyphongkham\\quanlyphongkham.vcxproj|E:\\DTTX\\OOP\\QuanLyPhongKham\\quanlyphongkham\\quanlyphongkham\\ThanhToan.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{00742233-C886-433C-AB12-7F7E1FF8E6B5}|quanlyphongkham\\quanlyphongkham.vcxproj|solutionrelative:quanlyphongkham\\ThanhToan.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{00742233-C886-433C-AB12-7F7E1FF8E6B5}|quanlyphongkham\\quanlyphongkham.vcxproj|E:\\DTTX\\OOP\\QuanLyPhongKham\\quanlyphongkham\\quanlyphongkham\\BacSi.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{00742233-C886-433C-AB12-7F7E1FF8E6B5}|quanlyphongkham\\quanlyphongkham.vcxproj|solutionrelative:quanlyphongkham\\BacSi.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{00742233-C886-433C-AB12-7F7E1FF8E6B5}|quanlyphongkham\\quanlyphongkham.vcxproj|E:\\DTTX\\OOP\\QuanLyPhongKham\\quanlyphongkham\\quanlyphongkham\\banThuoc.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{00742233-C886-433C-AB12-7F7E1FF8E6B5}|quanlyphongkham\\quanlyphongkham.vcxproj|solutionrelative:quanlyphongkham\\banThuoc.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{00742233-C886-433C-AB12-7F7E1FF8E6B5}|quanlyphongkham\\quanlyphongkham.vcxproj|E:\\DTTX\\OOP\\QuanLyPhongKham\\quanlyphongkham\\quanlyphongkham\\NhapThuoc.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{00742233-C886-433C-AB12-7F7E1FF8E6B5}|quanlyphongkham\\quanlyphongkham.vcxproj|solutionrelative:quanlyphongkham\\NhapThuoc.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{00742233-C886-433C-AB12-7F7E1FF8E6B5}|quanlyphongkham\\quanlyphongkham.vcxproj|E:\\DTTX\\OOP\\QuanLyPhongKham\\quanlyphongkham\\quanlyphongkham\\CanLamSang.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{00742233-C886-433C-AB12-7F7E1FF8E6B5}|quanlyphongkham\\quanlyphongkham.vcxproj|solutionrelative:quanlyphongkham\\CanLamSang.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{00742233-C886-433C-AB12-7F7E1FF8E6B5}|quanlyphongkham\\quanlyphongkham.vcxproj|E:\\DTTX\\OOP\\QuanLyPhongKham\\quanlyphongkham\\quanlyphongkham\\PhongKham.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{00742233-C886-433C-AB12-7F7E1FF8E6B5}|quanlyphongkham\\quanlyphongkham.vcxproj|solutionrelative:quanlyphongkham\\PhongKham.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{00742233-C886-433C-AB12-7F7E1FF8E6B5}|quanlyphongkham\\quanlyphongkham.vcxproj|E:\\DTTX\\OOP\\QuanLyPhongKham\\quanlyphongkham\\quanlyphongkham\\BenhNhan.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{00742233-C886-433C-AB12-7F7E1FF8E6B5}|quanlyphongkham\\quanlyphongkham.vcxproj|solutionrelative:quanlyphongkham\\BenhNhan.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{00742233-C886-433C-AB12-7F7E1FF8E6B5}|quanlyphongkham\\quanlyphongkham.vcxproj|E:\\DTTX\\OOP\\QuanLyPhongKham\\quanlyphongkham\\quanlyphongkham\\NhapThuoc.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{00742233-C886-433C-AB12-7F7E1FF8E6B5}|quanlyphongkham\\quanlyphongkham.vcxproj|solutionrelative:quanlyphongkham\\NhapThuoc.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{00742233-C886-433C-AB12-7F7E1FF8E6B5}|quanlyphongkham\\quanlyphongkham.vcxproj|E:\\DTTX\\OOP\\QuanLyPhongKham\\quanlyphongkham\\quanlyphongkham\\CanLamSang.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{00742233-C886-433C-AB12-7F7E1FF8E6B5}|quanlyphongkham\\quanlyphongkham.vcxproj|solutionrelative:quanlyphongkham\\CanLamSang.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{00742233-C886-433C-AB12-7F7E1FF8E6B5}|quanlyphongkham\\quanlyphongkham.vcxproj|E:\\DTTX\\OOP\\QuanLyPhongKham\\quanlyphongkham\\quanlyphongkham\\banThuoc.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{00742233-C886-433C-AB12-7F7E1FF8E6B5}|quanlyphongkham\\quanlyphongkham.vcxproj|solutionrelative:quanlyphongkham\\banThuoc.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00742233-C886-433C-AB12-7F7E1FF8E6B5}|quanlyphongkham\\quanlyphongkham.vcxproj|E:\\DTTX\\OOP\\QuanLyPhongKham\\quanlyphongkham\\quanlyphongkham\\BenhNhan.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{00742233-C886-433C-AB12-7F7E1FF8E6B5}|quanlyphongkham\\quanlyphongkham.vcxproj|solutionrelative:quanlyphongkham\\BenhNhan.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -43,40 +39,40 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ThanhToan.h",
-              "DocumentMoniker": "E:\\DTTX\\OOP\\QuanLyPhongKham\\quanlyphongkham\\quanlyphongkham\\ThanhToan.h",
-              "RelativeDocumentMoniker": "quanlyphongkham\\ThanhToan.h",
-              "ToolTip": "E:\\DTTX\\OOP\\QuanLyPhongKham\\quanlyphongkham\\quanlyphongkham\\ThanhToan.h",
-              "RelativeToolTip": "quanlyphongkham\\ThanhToan.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-04-21T02:11:24.355Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "BacSi.h",
               "DocumentMoniker": "E:\\DTTX\\OOP\\QuanLyPhongKham\\quanlyphongkham\\quanlyphongkham\\BacSi.h",
               "RelativeDocumentMoniker": "quanlyphongkham\\BacSi.h",
               "ToolTip": "E:\\DTTX\\OOP\\QuanLyPhongKham\\quanlyphongkham\\quanlyphongkham\\BacSi.h",
               "RelativeToolTip": "quanlyphongkham\\BacSi.h",
-              "ViewState": "AgIAAEAAAAAAAAAAAAAAAJQAAAAaAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACkAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-04-21T02:10:56.368Z",
+              "WhenOpened": "2026-04-21T05:22:16.236Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CanLamSang.h",
+              "DocumentMoniker": "E:\\DTTX\\OOP\\QuanLyPhongKham\\quanlyphongkham\\quanlyphongkham\\CanLamSang.h",
+              "RelativeDocumentMoniker": "quanlyphongkham\\CanLamSang.h",
+              "ToolTip": "E:\\DTTX\\OOP\\QuanLyPhongKham\\quanlyphongkham\\quanlyphongkham\\CanLamSang.h",
+              "RelativeToolTip": "quanlyphongkham\\CanLamSang.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-04-21T05:21:11.572Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "banThuoc.h",
-              "DocumentMoniker": "E:\\DTTX\\OOP\\QuanLyPhongKham\\quanlyphongkham\\quanlyphongkham\\banThuoc.h",
-              "RelativeDocumentMoniker": "quanlyphongkham\\banThuoc.h",
-              "ToolTip": "E:\\DTTX\\OOP\\QuanLyPhongKham\\quanlyphongkham\\quanlyphongkham\\banThuoc.h",
-              "RelativeToolTip": "quanlyphongkham\\banThuoc.h",
-              "ViewState": "AgIAACsBAAAAAAAAAAAAAC0BAAADAAAAAAAAAA==",
+              "Title": "PhongKham.h",
+              "DocumentMoniker": "E:\\DTTX\\OOP\\QuanLyPhongKham\\quanlyphongkham\\quanlyphongkham\\PhongKham.h",
+              "RelativeDocumentMoniker": "quanlyphongkham\\PhongKham.h",
+              "ToolTip": "E:\\DTTX\\OOP\\QuanLyPhongKham\\quanlyphongkham\\quanlyphongkham\\PhongKham.h",
+              "RelativeToolTip": "quanlyphongkham\\PhongKham.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-04-21T02:09:53.62Z",
+              "WhenOpened": "2026-04-21T05:20:33.622Z",
               "EditorCaption": ""
             },
             {
@@ -87,35 +83,22 @@
               "RelativeDocumentMoniker": "quanlyphongkham\\NhapThuoc.h",
               "ToolTip": "E:\\DTTX\\OOP\\QuanLyPhongKham\\quanlyphongkham\\quanlyphongkham\\NhapThuoc.h",
               "RelativeToolTip": "quanlyphongkham\\NhapThuoc.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEYAAAACAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEAAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-04-21T02:09:40.001Z",
+              "WhenOpened": "2026-04-21T05:20:03.475Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "PhongKham.h",
-              "DocumentMoniker": "E:\\DTTX\\OOP\\QuanLyPhongKham\\quanlyphongkham\\quanlyphongkham\\PhongKham.h",
-              "RelativeDocumentMoniker": "quanlyphongkham\\PhongKham.h",
-              "ToolTip": "E:\\DTTX\\OOP\\QuanLyPhongKham\\quanlyphongkham\\quanlyphongkham\\PhongKham.h",
-              "RelativeToolTip": "quanlyphongkham\\PhongKham.h",
-              "ViewState": "AgIAAHwAAAAAAAAAAAAAAJIAAAAAAAAAAAAAAA==",
+              "Title": "banThuoc.h",
+              "DocumentMoniker": "E:\\DTTX\\OOP\\QuanLyPhongKham\\quanlyphongkham\\quanlyphongkham\\banThuoc.h",
+              "RelativeDocumentMoniker": "quanlyphongkham\\banThuoc.h",
+              "ToolTip": "E:\\DTTX\\OOP\\QuanLyPhongKham\\quanlyphongkham\\quanlyphongkham\\banThuoc.h",
+              "RelativeToolTip": "quanlyphongkham\\banThuoc.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGMAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-04-21T02:08:47.736Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "CanLamSang.h",
-              "DocumentMoniker": "E:\\DTTX\\OOP\\QuanLyPhongKham\\quanlyphongkham\\quanlyphongkham\\CanLamSang.h",
-              "RelativeDocumentMoniker": "quanlyphongkham\\CanLamSang.h",
-              "ToolTip": "E:\\DTTX\\OOP\\QuanLyPhongKham\\quanlyphongkham\\quanlyphongkham\\CanLamSang.h",
-              "RelativeToolTip": "quanlyphongkham\\CanLamSang.h",
-              "ViewState": "AgIAAJAAAAAAAAAAAAAAAKUAAAAyAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-04-21T02:07:50.687Z",
+              "WhenOpened": "2026-04-21T05:19:09.657Z",
               "EditorCaption": ""
             },
             {
@@ -126,7 +109,7 @@
               "RelativeDocumentMoniker": "quanlyphongkham\\BenhNhan.h",
               "ToolTip": "E:\\DTTX\\OOP\\QuanLyPhongKham\\quanlyphongkham\\quanlyphongkham\\BenhNhan.h",
               "RelativeToolTip": "quanlyphongkham\\BenhNhan.h",
-              "ViewState": "AgIAACQCAAAAAAAAAAAAAEUCAAAyAAAAAAAAAA==",
+              "ViewState": "AgIAABABAAAAAAAAAAAAACkBAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2026-04-21T02:07:31.218Z",
               "EditorCaption": ""

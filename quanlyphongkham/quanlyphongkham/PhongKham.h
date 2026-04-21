@@ -28,8 +28,12 @@ public:
 	}
 
 	void save() {
+		bool fileMoi = !SystemMethod::fileExist("phongkham.xml");
 
 		ofstream f("phongkham.xml", ios::app);
+		if (fileMoi) {
+			f << "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
+		}
 
 		f << "<Phong>\n";
 		f << "<Ma>" << ma << "</Ma>\n";

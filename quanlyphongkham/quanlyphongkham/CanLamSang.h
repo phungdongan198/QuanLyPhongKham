@@ -34,7 +34,11 @@ public:
 
 	void save() {
 
+		bool fileMoi = !SystemMethod::fileExist("canlamsang.xml");
 		ofstream f("canlamsang.xml", ios::app);
+		if (fileMoi) {
+			f << "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
+		}
 
 		f << "<CLS>\n";
 		f << "<Ma>" << ma << "</Ma>\n";

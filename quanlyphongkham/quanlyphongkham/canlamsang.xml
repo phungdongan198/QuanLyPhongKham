@@ -1,28 +1,8 @@
-<CLS>
-<Ma>dv1</Ma>
-<Ten>x quang</Ten>
-<Gia>12000</Gia>
-<GhiChu>dfds</GhiChu>
-</CLS>
-
+<?xml version="1.0" encoding="UTF-8"?>
 <CLS>
 <Ma>435</Ma>
-<Ten>Chup x-quang</Ten>
-<Gia>adas</Gia>
-<GhiChu>chup</GhiChu>
-</CLS>
-
-<CLS>
-<Ma>436</Ma>
-<Ten>Xet nghiem mau</Ten>
-<Gia>145000</Gia>
-<GhiChu>xet nghiem</GhiChu>
-</CLS>
-
-<CLS>
-<Ma>439</Ma>
-<Ten>Thu nuoc tieu</Ten>
-<Gia>160000</Gia>
-<GhiChu>pvp435</GhiChu>
+<Ten>Khám tổng quát gói PK01</Ten>
+<Gia>2000000</Gia>
+<GhiChu>Khám tổng quát gói rẻ</GhiChu>
 </CLS>
 

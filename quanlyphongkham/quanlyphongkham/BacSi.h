@@ -36,8 +36,12 @@ public:
 	}
 
 	void save() override {
+		bool fileMoi = !SystemMethod::fileExist("bacsi.xml");
 
 		ofstream f("bacsi.xml", ios::app);
+		if (fileMoi) {
+			f << "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
+		}
 
 		f << "<BacSi>\n";
 		f << "<Ma>" << ma << "</Ma>\n";
