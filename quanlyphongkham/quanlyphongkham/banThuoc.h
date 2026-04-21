@@ -7,9 +7,51 @@
 
 class banThuoc {
 
+private:
+	string ma, ten, nguoimua, diachi, dienthoai, benh, soluong, dongia, thanhtien, lo, date, ghichu, ngay;
 public:
 
-	string ma, ten, nguoimua, diachi, dienthoai, benh, soluong, dongia, thanhtien, lo, date, ghichu, ngay;
+	#pragma region các getter và setter
+	string getMa() const { return ma; }
+	void setMa(const string& val) { ma = val; }
+
+	string getTen() const { return ten; }
+	void setTen(const string& val) { ten = val; }
+
+	string getNguoiMua() const { return nguoimua; }
+	void setNguoiMua(const string& val) { nguoimua = val; }
+
+	string getDiaChi() const { return diachi; }
+	void setDiaChi(const string& val) { diachi = val; }
+
+	string getDienThoai() const { return dienthoai; }
+	void setDienThoai(const string& val) { dienthoai = val; }
+
+	string getBenh() const { return benh; }
+	void setBenh(const string& val) { benh = val; }
+
+	string getSoLuong() const { return soluong; }
+	void setSoLuong(const string& val) { soluong = val; }
+
+	string getDonGia() const { return dongia; }
+	void setDonGia(const string& val) { dongia = val; }
+
+	string getThanhTien() const { return thanhtien; }
+	void setThanhTien(const string& val) { thanhtien = val; }
+
+	string getLo() const { return lo; }
+	void setLo(const string& val) { lo = val; }
+
+	string getDate() const { return date; }
+	void setDate(const string& val) { date = val; }
+
+	string getGhiChu() const { return ghichu; }
+	void setGhiChu(const string& val) { ghichu = val; }
+
+	string getNgay() const { return ngay; }
+	void setNgay(const string& val) { ngay = val; }
+	#pragma endregion
+
 	vector<string> thongTinThuoc;
 	void ban() {
 
@@ -156,35 +198,35 @@ public:
 			while (getline(f, line)) {
 
 				if (line.find("<Ma>") != string::npos)
-					t.ma = line.substr(4, line.find("</") - 4);
+					t.setMa(line.substr(4, line.find("</") - 4));
 
 				if (line.find("<Ten>") != string::npos)
-					t.ten = line.substr(5, line.find("</") - 5);
+					t.setTen(line.substr(5, line.find("</") - 5));
 
 				if (line.find("<Gia>") != string::npos)
-					t.gia = line.substr(5, line.find("</") - 5);
+					t.setGia(line.substr(5, line.find("</") - 5));
 
 				if (line.find("<Lo>") != string::npos)
-					t.lo = line.substr(4, line.find("</") - 4);
+					t.setLo(line.substr(4, line.find("</") - 4));
 
 				if (line.find("<Date>") != string::npos)
-					t.date = line.substr(6, line.find("</") - 6);
+					t.setDate(line.substr(6, line.find("</") - 6));
 
 				if (line.find("<SoLuong>") != string::npos)
-					t.soLuong = line.substr(9, line.find("</") - 9);
+					t.setSoLuong(line.substr(9, line.find("</") - 9));
 
 				if (line.find("<GhiChu>") != string::npos) {
 
-					t.ghiChu = line.substr(8, line.find("</") - 8);
+					t.setGhiChu(line.substr(8, line.find("</") - 8));
 
 					cout << left
-						<< setw(10) << t.ma
-						<< setw(20) << t.ten
-						<< setw(10) << t.gia
-						<< setw(10) << t.soLuong
-						<< setw(10) << t.lo
-						<< setw(12) << t.date
-						<< setw(20) << t.ghiChu
+						<< setw(10) << t.getMa()
+						<< setw(20) << t.getTen()
+						<< setw(10) << t.getGia()
+						<< setw(10) << t.getSoLuong()
+						<< setw(10) << t.getLo()
+						<< setw(12) << t.getDate()
+						<< setw(20) << t.getGhiChu()
 						<< endl;
 				}
 			}
@@ -304,33 +346,33 @@ public:
 		while (getline(f, line)) 
 		{
 			if (line.find("<Ma>") != string::npos)
-				t.ma = line.substr(4, line.find("</") - 4);
+				t.setMa(line.substr(4, line.find("</") - 4));
 
 			if (line.find("<Ten>") != string::npos)
-				t.ten = line.substr(5, line.find("</") - 5);
+				t.setTen(line.substr(5, line.find("</") - 5));
 
 			if (line.find("<Gia>") != string::npos)
-				t.gia = line.substr(5, line.find("</") - 5);
+				t.setGia(line.substr(5, line.find("</") - 5));
 
 			if (line.find("<Lo>") != string::npos)
-				t.lo = line.substr(4, line.find("</") - 4);
+				t.setLo(line.substr(4, line.find("</") - 4));
 
 			if (line.find("<Date>") != string::npos)
-				t.date = line.substr(6, line.find("</") - 6);
+				t.setDate(line.substr(6, line.find("</") - 6));
 
 			if (line.find("<SoLuong>") != string::npos)
-				t.soLuong = line.substr(9, line.find("</") - 9);
+				t.setSoLuong(line.substr(9, line.find("</") - 9));
 
 			if (line.find("<GhiChu>") != string::npos) 
 			{
-				t.ghiChu = line.substr(8, line.find("</") - 8);
+				t.setGhiChu(line.substr(8, line.find("</") - 8));
 
 				bool match = false;
 
-				if (chon == 1 && SystemMethod::toLower(t.ma) == key)
+				if (chon == 1 && SystemMethod::toLower(t.getMa()) == key)
 					match = true;
 
-				if (chon == 2 && SystemMethod::toLower(t.ten).find(key) != string::npos)
+				if (chon == 2 && SystemMethod::toLower(t.getTen()).find(key) != string::npos)
 					match = true;
 
 				if (match)
@@ -364,13 +406,13 @@ public:
 		for (auto& x : ds) {
 
 			cout << left
-				<< setw(10) << x.ma
-				<< setw(20) << x.ten
-				<< setw(10) << x.gia
-				<< setw(10) << x.soLuong
-				<< setw(10) << x.lo
-				<< setw(12) << x.date
-				<< setw(20) << x.ghiChu
+				<< setw(10) << x.getMa()
+				<< setw(20) << x.getTen()
+				<< setw(10) << x.getGia()
+				<< setw(10) << x.getSoLuong()
+				<< setw(10) << x.getLo()
+				<< setw(12) << x.getDate()
+				<< setw(20) << x.getGhiChu()
 				<< endl;
 		}
 
@@ -415,34 +457,34 @@ public:
 			while (getline(f, line)) {
 
 				if (line.find("<Ma>") != string::npos)
-					t.ma = line.substr(4, line.find("</") - 4);
+					t.setMa(line.substr(4, line.find("</") - 4));
 
 				if (line.find("<Ten>") != string::npos)
-					t.ten = line.substr(5, line.find("</") - 5);
+					t.setTen(line.substr(5, line.find("</") - 5));
 
 				if (line.find("<Gia>") != string::npos)
-					t.gia = line.substr(5, line.find("</") - 5);
+					t.setGia(line.substr(5, line.find("</") - 5));
 
 				if (line.find("<Lo>") != string::npos)
-					t.lo = line.substr(4, line.find("</") - 4);
+					t.setLo(line.substr(4, line.find("</") - 4));
 
 				if (line.find("<Date>") != string::npos)
-					t.date = line.substr(6, line.find("</") - 6);
+					t.setDate(line.substr(6, line.find("</") - 6));
 
 				if (line.find("<SoLuong>") != string::npos)
-					t.soLuong = line.substr(9, line.find("</") - 9);
+					t.setSoLuong(line.substr(9, line.find("</") - 9));
 
 				if (line.find("<GhiChu>") != string::npos) {
 
-					t.ghiChu = line.substr(8, line.find("</") - 8);
+					t.setGhiChu(line.substr(8, line.find("</") - 8));
 
-					o << t.ma << ","
-						<< t.ten << ","
-						<< t.gia << ","
-						<< t.soLuong << ","
-						<< t.lo << ","
-						<< t.date << ","
-						<< t.ghiChu << "\n";
+					o << t.getMa() << ","
+						<< t.getTen() << ","
+						<< t.getGia() << ","
+						<< t.getSoLuong() << ","
+						<< t.getLo() << ","
+						<< t.getDate() << ","
+						<< t.getGhiChu() << "\n";
 				}
 			}
 

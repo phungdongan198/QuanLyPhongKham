@@ -5,10 +5,26 @@
 
 
 class CanLamSang {
+private:
+	string ma, ten, gia, ghiChu;
 
 public:
 
-	string ma, ten, gia, ghiChu;
+	#pragma region getter_&_setter
+
+	string getMa() const { return ma; }
+	void setMa(const string& val) { ma = val; }
+
+	string getTen() const { return ten; }
+	void setTen(const string& val) { ten = val; }
+
+	string getGia() const { return gia; }
+	void setGia(const string& val) { gia = val; }
+
+	string getGhiChu() const { return ghiChu; }
+	void setGhiChu(const string& val) { ghiChu = val; }
+
+	#pragma endregion
 
 	void nhap() {
 

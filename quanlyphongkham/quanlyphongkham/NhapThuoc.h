@@ -4,10 +4,35 @@
 #include "SystemMethod.h"
 
 class nhapThuoc {
+private:
+	string ma, ten, gia, lo, date, soLuong, ghiChu;
 
 public:
 
-	string ma, ten, gia, lo, date, soLuong, ghiChu;
+	#pragma region getter_&_setter
+
+	string getMa() const { return ma; }
+	void setMa(const string& val) { ma = val; }
+
+	string getTen() const { return ten; }
+	void setTen(const string& val) { ten = val; }
+
+	string getGia() const { return gia; }
+	void setGia(const string& val) { gia = val; }
+
+	string getLo() const { return lo; }
+	void setLo(const string& val) { lo = val; }
+
+	string getDate() const { return date; }
+	void setDate(const string& val) { date = val; }
+
+	string getSoLuong() const { return soLuong; }
+	void setSoLuong(const string& val) { soLuong = val; }
+
+	string getGhiChu() const { return ghiChu; }
+	void setGhiChu(const string& val) { ghiChu = val; }
+
+	#pragma endregion
 
 
 	void nhap() {

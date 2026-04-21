@@ -8,9 +8,27 @@
 // tính kế thừa
 class BacSi : public DoiTuongQuanLy {
 
-public:
-
+private:
 	string ma, ten, sinh, chungChi, chuyenMon;
+
+public:
+	#pragma region các getter và setter
+	string getMa() const { return ma; }
+	void setMa(const string& val) { ma = val; }
+
+	string getTen() const { return ten; }
+	void setTen(const string& val) { ten = val; }
+
+	string getSinh() const { return sinh; }
+	void setSinh(const string& val) { sinh = val; }
+
+	string getChungChi() const { return chungChi; }
+	void setChungChi(const string& val) { chungChi = val; }
+
+	string getChuyenMon() const { return chuyenMon; }
+	void setChuyenMon(const string& val) { chuyenMon = val; }
+	#pragma endregion
+
 	// đa hình
 	void nhap() override {
 

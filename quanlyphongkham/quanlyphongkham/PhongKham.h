@@ -4,10 +4,23 @@
 
 
 class PhongKham {
+private:
+	string ma, ten, loai;
 
 public:
 
-	string ma, ten, loai;
+	#pragma	region getter_&_setter
+
+	string getMa() const { return ma; }
+	void setMa(const string& val) { ma = val; }
+
+	string getTen() const { return ten; }
+	void setTen(const string& val) { ten = val; }
+
+	string getLoai() const { return loai; }
+	void setLoai(const string& val) { loai = val; }
+
+	#pragma endregion
 
 	void nhap() {
 
