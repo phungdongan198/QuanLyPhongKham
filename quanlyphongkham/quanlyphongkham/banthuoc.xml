@@ -30,3 +30,51 @@
 <Ngay>19/04/2026</Ngay>
 </BanThuoc>
 
+<BanThuoc>
+<Ma>t1</Ma>
+<TenThuoc>paracetamol</TenThuoc>
+<NguoiMua>benh nhan 2</NguoiMua>
+<DiaChi>sdfs</DiaChi>
+<DienThoai>213</DienThoai>
+<Benh>fdfds</Benh>
+<SoLuong>12</SoLuong>
+<DonGia>230000</DonGia>
+<ThanhTien>2760000</ThanhTien>
+<Lo>213</Lo>
+<Date>213</Date>
+<GhiChu>dfds</GhiChu>
+<Ngay>20/04/2026</Ngay>
+</BanThuoc>
+
+<BanThuoc>
+<Ma>thuoc1</Ma>
+<TenThuoc>thuoc an</TenThuoc>
+<NguoiMua>mua le</NguoiMua>
+<DiaChi>dsfsdf</DiaChi>
+<DienThoai></DienThoai>
+<Benh>dsfds</Benh>
+<SoLuong>10</SoLuong>
+<DonGia>2000</DonGia>
+<ThanhTien>20000</ThanhTien>
+<Lo>losx123</Lo>
+<Date>20/05/2028</Date>
+<GhiChu>sdfds</GhiChu>
+<Ngay>20/04/2026</Ngay>
+</BanThuoc>
+
+<BanThuoc>
+<Ma>t10</Ma>
+<TenThuoc>dfs…</TenThuoc>
+<NguoiMua>benh nhan 2</NguoiMua>
+<DiaChi>fgds</DiaChi>
+<DienThoai>dsf</DienThoai>
+<Benh>dsf</Benh>
+<SoLuong>1</SoLuong>
+<DonGia>10000</DonGia>
+<ThanhTien>10000</ThanhTien>
+<Lo>dfsdfds</Lo>
+<Date>23/10/2026</Date>
+<GhiChu>gfdgfd</GhiChu>
+<Ngay>20/04/2026</Ngay>
+</BanThuoc>
+

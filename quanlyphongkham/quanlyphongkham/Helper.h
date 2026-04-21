@@ -264,4 +264,76 @@ public:
 
 		return ma;
 	}
+
+
+	static string chonTuFile(
+		const string& tieuDe,
+		const string& tenFile,
+		const string& tenKhoi,
+		const string& tenTheCanLay,
+		const vector<string>& dsTheLayKem,
+		vector<string>& dsGiaTriLayKem
+	) {
+		ifstream file(tenFile);
+
+		vector<string> dsHienThi;
+		vector<vector<string>> dsKemTheo;
+
+		string line, block;
+		bool dangDoc = false;
+
+		while (getline(file, line)) {
+			if (line.find("<" + tenKhoi + ">") != string::npos) {
+				dangDoc = true;
+				block = line + "\n";
+			}
+			else if (dangDoc) {
+				block += line + "\n";
+
+				if (line.find("</" + tenKhoi + ">") != string::npos) {
+					string giaTriHienThi = layGiaTriTag(block, tenTheCanLay);
+
+					if (giaTriHienThi != "") {
+						dsHienThi.push_back(giaTriHienThi);
+
+						vector<string> tam;
+
+						for (string tag : dsTheLayKem) {
+							tam.push_back(layGiaTriTag(block, tag));
+						}
+
+						dsKemTheo.push_back(tam);
+					}
+
+					dangDoc = false;
+					block = "";
+				}
+			}
+		}
+
+		file.close();
+
+		if (dsHienThi.empty()) {
+			string nhapTay;
+
+			cout << "Chua co du lieu tu he thong.\n";
+			cout << "Nhap tay " << tieuDe << ": ";
+			getline(cin, nhapTay);
+
+			dsGiaTriLayKem.clear();
+			return nhapTay;
+		}
+
+		string daChon = chonTuDanhSach(tieuDe, dsHienThi);
+
+		for (int i = 0; i < dsHienThi.size(); i++) {
+			if (dsHienThi[i] == daChon) {
+				dsGiaTriLayKem = dsKemTheo[i];
+				break;
+			}
+		}
+
+		return daChon;
+	}
+
 };
