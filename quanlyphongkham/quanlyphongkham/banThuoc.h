@@ -90,11 +90,14 @@ public:
 	}
 
 	void save() {
+		bool fileMoi = !SystemMethod::fileExist("banthuoc.xml");
 
 		ofstream f("banthuoc.xml", ios::app);
+		if (fileMoi) {
+			f << "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
+		}
 
 		f << "<BanThuoc>\n";
-
 		f << "<Ma>" << ma << "</Ma>\n";
 		f << "<TenThuoc>" << ten << "</TenThuoc>\n";
 		f << "<NguoiMua>" << nguoimua << "</NguoiMua>\n";

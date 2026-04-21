@@ -54,8 +54,12 @@ public:
 	}
 
 	void save() {
+		bool fileMoi = !SystemMethod::fileExist("nhapthuoc.xml");
 
 		ofstream f("nhapthuoc.xml", ios::app);
+		if (fileMoi) {
+			f << "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
+		}
 
 		f << "<Thuoc>\n";
 		f << "<Ma>" << ma << "</Ma>\n";
