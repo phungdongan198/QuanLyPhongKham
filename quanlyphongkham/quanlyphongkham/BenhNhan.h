@@ -13,63 +13,52 @@
 
 class BenhNhan : public DoiTuongQuanLy {
 
-public:
+private:
 	// phần nhập đk
 	string ma, ten, sinh, gioiTinh;
 	string dienThoai, diaChi, doiTuong;
 	string phong, trangthai, ngay, noidungkham, cls;
 
 
-	/*template <typename T>
-	T KiemTraKieuDuLieuSo(string thongBao)
-	{
-		T duLieu;
-		while (true)
-		{
-			cout << thongBao;
-			if (cin >> duLieu)
-			{
-				cin.ignore(numeric_limits<streamsize>::max(), '\n');
-				return duLieu;
-			}
-			else
-			{
-				cout << "Du lieu khong hop le! Vui long nhap lai Kieu So.\n";
-				cin.clear();
-				cin.ignore(numeric_limits<streamsize>::max(), '\n');
-			}
-		}
-	}*/
+public:
+	#pragma region các getter và setter
+	string getMa() const { return ma; }
+	void setMa(const string& val) { ma = val; }
 
-	//string NhapVaKiemTraNamSinh()
-	//{
-	//	int dd, mm, yyyy;
-	//	cout << "Nhap ngay sinh(Voi dinh dang dd / mm / yyyy) :";
-	//	scanf_s("%d/%d/%d", &dd, &mm, &yyyy);
-	//	if (cin.eof() || !cin)
-	//	{
-	//		cout << "ngay thang nam sinh ban nhap khong hop le! Vui long nhap lai theo dinh dang dd/mm/yyyy.\n";
-	//		cin.clear();
-	//		scanf_s("%*s"); // Đọc bỏ phần nhập sai
-	//		cin.ignore((numeric_limits<streamsize>::max)(), '\n');
-	//		NhapVaKiemTraNamSinh();
-	//	}
-	//	else if(mm < 1 || mm > 12 || dd < 1 || dd > 31 || yyyy < 1920 || yyyy > 2026)
-	//	{
-	//		cout << "ngay thang nam sinh ban nhap khong hop le! Vui long nhap lai theo dinh dang dd/mm/yyyy.\n";
-	//		cin.clear();
-	//		scanf_s("%*s"); // Đọc bỏ phần nhập sai
-	//		cin.ignore((numeric_limits<streamsize>::max)(), '\n');
-	//		NhapVaKiemTraNamSinh();
-	//	}
-	//	else
-	//	{
-	//		char buffer[11];
-	//		sprintf_s(buffer, "%02d/%02d/%04d", dd, mm, yyyy);
-	//		return string(buffer);
-	//	}
-	//	
-	//}
+	string getTen() const { return ten; }
+	void setTen(const string& val) { ten = val; }
+
+	string getSinh() const { return sinh; }
+	void setSinh(const string& val) { sinh = val; }
+
+	string getGioiTinh() const { return gioiTinh; }
+	void setGioiTinh(const string& val) { gioiTinh = val; }
+
+	string getDienThoai() const { return dienThoai; }
+	void setDienThoai(const string& val) { dienThoai = val; }
+
+	string getDiaChi() const { return diaChi; }
+	void setDiaChi(const string& val) { diaChi = val; }
+
+	string getDoiTuong() const { return doiTuong; }
+	void setDoiTuong(const string& val) { doiTuong = val; }
+
+	string getPhong() const { return phong; }
+	void setPhong(const string& val) { phong = val; }
+
+	string getTrangThai() const { return trangthai; }
+	void setTrangThai(const string& val) { trangthai = val; }
+
+	string getNgay() const { return ngay; }
+	void setNgay(const string& val) { ngay = val; }
+
+	string getNoiDungKham() const { return noidungkham; }
+	void setNoiDungKham(const string& val) { noidungkham = val; }
+
+	string getCls() const { return cls; }
+	void setCls(const string& val) { cls = val; }
+#pragma endregion
+	
 	string NhapVaKiemTraNamSinh() {
 		int dd, mm, yyyy;
 		char slash1, slash2;

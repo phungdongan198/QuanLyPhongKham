@@ -3,8 +3,35 @@
 #include "Helper.h"
 
 class ThuTien {
-public:
+private:
 	string ma, ten, soTien, nguoiThu, lyDo, ngay;
+
+public:
+	#pragma region các getter và setter
+	// Getter và Setter cho Ma
+	string getMa() const { return ma; }
+	void setMa(const string& val) { ma = val; }
+
+	// Getter và Setter cho Ten (Tên phiếu hoặc Tên người nộp)
+	string getTen() const { return ten; }
+	void setTen(const string& val) { ten = val; }
+
+	// Getter và Setter cho SoTien
+	string getSoTien() const { return soTien; }
+	void setSoTien(const string& val) { soTien = val; }
+
+	// Getter và Setter cho NguoiThu
+	string getNguoiThu() const { return nguoiThu; }
+	void setNguoiThu(const string& val) { nguoiThu = val; }
+
+	// Getter và Setter cho LyDo
+	string getLyDo() const { return lyDo; }
+	void setLyDo(const string& val) { lyDo = val; }
+
+	// Getter và Setter cho Ngay
+	string getNgay() const { return ngay; }
+	void setNgay(const string& val) { ngay = val; }
+	#pragma endregion
 
 	void nhapThu() {
 		cin.ignore();

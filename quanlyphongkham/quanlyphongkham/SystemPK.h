@@ -5,7 +5,7 @@
 #include "BenhNhan.h"
 #include "PhongKham.h"
 #include "CanLamSang.h"
-#include "login.h";
+#include "login.h"
 #include <vector>
 #include <thread>
 #include <mutex>
@@ -495,14 +495,14 @@ public:
 		while (getline(f, line)) {
 
 			if (line.find("<ThanhTien>") != string::npos)
-				b.thanhtien = line.substr(11, line.find("</") - 11);
+				b.setThanhTien(line.substr(11, line.find("</") - 11));
 
 			if (line.find("<Ngay>") != string::npos) {
 
-				b.date = line.substr(6, line.find("</") - 6);
+				b.setDate(line.substr(6, line.find("</") - 6));
 
-				if (b.date == ngay)
-					tongTien += stoll(b.thanhtien);
+				if (b.getDate() == ngay)
+					tongTien += stoll(b.getThanhTien());
 			}
 		}
 
