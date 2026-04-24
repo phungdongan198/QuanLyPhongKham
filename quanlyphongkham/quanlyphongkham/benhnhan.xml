@@ -12,16 +12,30 @@
 <Ngay>21/04/2026</Ngay>
 </BenhNhan>
 
+
 <BenhNhan>
-<Ma>433</Ma>
-<Ten>Nguyễn Văn Anh</Ten>
-<Sinh>15/08/2006</Sinh>
+<Ma>430</Ma>
+<Ten>Phạm Văn Phong</Ten>
+<Sinh>06/09/2004</Sinh>
 <GioiTinh>Nam</GioiTinh>
-<DienThoai>0333002955</DienThoai>
-<DiaChi>Thủ Đức, TP HCM</DiaChi>
-<DoiTuong>Thu phi</DoiTuong>
-<Phong>Phòng VIP 2</Phong>
-<TrangThai>Moi</TrangThai>
-<Ngay>21/04/2026</Ngay>
+<DienThoai>0333002951</DienThoai>
+<DiaChi>Bình Dương</DiaChi>
+<DoiTuong>Thu phí</DoiTuong>
+<Phong>Phòng Vip 1</Phong>
+<TrangThai>Dakham</TrangThai>
+<Ngay>24/04/2026</Ngay>
+</BenhNhan>
+
+<BenhNhan>
+<Ma>431</Ma>
+<Ten>Phạm Thành Tuấn</Ten>
+<Sinh>06/09/2004</Sinh>
+<GioiTinh>Nam</GioiTinh>
+<DienThoai>0333002222</DienThoai>
+<DiaChi>Thủ đức</DiaChi>
+<DoiTuong>BHYT</DoiTuong>
+<Phong>Phòng Thường 1</Phong>
+<TrangThai>Mới</TrangThai>
+<Ngay>24/04/2026</Ngay>
 </BenhNhan>
 

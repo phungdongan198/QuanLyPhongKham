@@ -59,6 +59,9 @@
     <ClInclude Include="QuanLy.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="TiengViet.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="BacSi.h">

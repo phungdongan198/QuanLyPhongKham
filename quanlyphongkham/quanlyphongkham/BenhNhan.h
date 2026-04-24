@@ -64,7 +64,7 @@ public:
 		char slash1, slash2;
 
 		while (true) {
-			cout << "Nhap ngay sinh (Voi dinh dang dd / mm / yyyy): ";
+			cout << "Nhập ngày sinh (Với định dạng dd / mm / yyyy): ";
 
 			// Đọc dữ liệu theo định dạng dd / mm / yyyy
 			if (cin >> dd >> slash1 >> mm >> slash2 >> yyyy && slash1 == '/' && slash2 == '/') {
@@ -78,7 +78,7 @@ public:
 			}
 
 			// Nếu nhập sai định dạng hoặc sai logic ngày tháng
-			cout << "Ngay thang nam sinh ban nhap khong hop le! Vui long nhap lai.\n";
+			cout << "Ngày tháng năm sinh bạn nhập không hợp lệ! Vui lòng nhập lại.\n";
 			cin.clear(); // Xóa trạng thái lỗi
 			cin.ignore((numeric_limits<streamsize>::max)(), '\n'); // Xóa sạch bộ đệm cho đến khi gặp dòng mới
 		}
@@ -114,7 +114,7 @@ public:
 		ifstream fileIn("benhnhan.xml");
 
 		if (!fileIn.is_open()) {
-			cout << "Khong mo duoc file benhnhan.xml!\n";
+			cout << "Không mở được file benhnhan.xml!\n";
 			return;
 		}
 
@@ -164,7 +164,7 @@ public:
 		ofstream fileOut("benhnhan.xml");
 
 		if (!fileOut.is_open()) {
-			cout << "Khong ghi duoc file benhnhan.xml!\n";
+			cout << "Không ghi được file benhnhan.xml!\n";
 			return;
 		}
 
@@ -177,41 +177,41 @@ public:
 		cin.ignore();
 
 		ma = Helper::nhapMaKhongTrung(
-			"Nhap ma benh nhan: ",
+			"Nhập mã bệnh nhân: ",
 			"benhnhan.xml",
 			"BenhNhan",
 			"Ma"
 		);
 
-		cout << "Ho ten: ";
+		cout << "Họ tên: ";
 		getline(cin, ten);
 
 		sinh = NhapVaKiemTraNamSinh();
 
-		cout << "Gioi tinh: ";
-		gioiTinh = Helper::chonTuDanhSach("Chon gioi tinh", { "Nam", "Nu","Khac" });
+		cout << "Giới tính: ";
+		gioiTinh = Helper::chonTuDanhSach("Chọn giới tính", { "Nam", "Nữ","Khác" });
 
 		//Kiểm tra nhập số điện thoại hợp lệ
 		while (true)
 		{
-			cout << "Dien thoai: ";
+			cout << "Điện thoại: ";
 			getline(cin, dienThoai);
 			if (KiemTraSoDienThoai(dienThoai))
 				break;
 			else
-				cout << "So dien thoai khong hop le! Vui long nhap lai.\n";
+				cout << "Số điện thoại không hợp lệ! Vui lòng nhập lại.\n";
 		}
 
-		cout << "Dia chi: ";
+		cout << "Địa chỉ: ";
 		getline(cin, diaChi);
 
-		cout << "Doi tuong: ";
-		doiTuong = Helper::chonTuDanhSach("Chon doi tuong", { "BHYT", "Thu phi","Khac" });
+		cout << "Đối tượng: ";
+		doiTuong = Helper::chonTuDanhSach("Chọn đối tượng", { "BHYT", "Thu phí","Khác" });
 
-		cout << "Phong kham: ";
-		phong = Helper::chonTuFile("Chon phong kham", "phongkham.xml", "Phong", "Ten");
+		cout << "Phòng khám: ";
+		phong = Helper::chonTuFile("Chọn phòng khám", "phongkham.xml", "Phong", "Ten");
 
-		trangthai = "Moi";
+		trangthai = "Mới";
 
 		ngay = SystemMethod::today();
 	}
@@ -254,20 +254,20 @@ public:
 		cin.ignore();
 
 		ten = Helper::chonTuFile(
-			"Chon ten",
+			"Chọn tên",
 			"benhnhan.xml",
 			"BenhNhan",
 			"Ten",
 			"Ma",
 			ma
 		);
-		cout << "Ma benh nhan: " << ma << endl;
+		cout << "Mã bệnh nhân: " << ma << endl;
 
-		cout << "Noi dung kham: ";
+		cout << "Nội dung khám: ";
 		getline(cin, noidungkham);
 
 		cls = Helper::chonTuFile(
-			"Chon dich vu",
+			"Chọn dịch vụ",
 			"canlamsang.xml",
 			"CLS",
 			"Ten"
@@ -300,7 +300,7 @@ public:
 	static void deleteBenhNhan() {
 
 		if (!SystemMethod::fileExist("benhnhan.xml")) {
-			cout << "Khong co du lieu\n";
+			cout << "Không có dữ liệu\n";
 			UI::pause();
 			return;
 		}
@@ -316,7 +316,7 @@ public:
 		in.close();
 
 		if (lines.empty()) {
-			cout << "Khong co du lieu\n";
+			cout << "Không có dữ liệu\n";
 			UI::pause();
 			return;
 		}
@@ -324,7 +324,7 @@ public:
 		string ten;
 		string maXoa;
 
-		cout << "Chon benh nhan can xoa: ";
+		cout << "Chọn bệnh nhân cần xóa: ";
 
 		ten = Helper::chonTuFile(
 			"Chon ten:",
@@ -405,13 +405,13 @@ public:
 		}
 
 		if (!found) {
-			cout << "Khong co thong tin benh nhan!\n";
+			cout << "Không có thông tin bệnh nhân!\n";
 			UI::pause();
 			return;
 		}
 
 		if (daKham && count == 0) {
-			cout << "Benh nhan da kham, khong the xoa!\n";
+			cout << "Bệnh nhân đã khám, không thể xóa!\n";
 			UI::pause();
 			return;
 		}
@@ -422,8 +422,8 @@ public:
 		}
 		out.close();
 
-		cout << "Da xoa benh nhan: " << ten << endl;
-		cout << "Ma benh nhan: " << maXoa << endl;
+		cout << "Đã xóa bệnh nhân: " << ten << endl;
+		cout << "Mã bệnh nhân: " << maXoa << endl;
 
 		UI::pause();
 	}
@@ -444,7 +444,7 @@ public:
 	static void showBenhNhan() {
 
 		if (!SystemMethod::fileExist("benhnhan.xml")) {
-			cout << "Khong co du lieu\n";
+			cout << "Không có dữ liệu\n";
 			UI::pause();
 			return;
 		}
@@ -486,12 +486,12 @@ public:
 		cout << "\n--------------------------------------------------------------------------------\n";
 
 		cout << left
-			<< setw(10) << "MaBN"
-			<< setw(20) << "Ten"
-			<< setw(15) << "NgaySinh"
-			<< setw(15) << "Phong"
-			<< setw(15) << "NgayKham"
-			<< setw(15) << "TrangThai"
+			<< setw(10) << "Mã BN"
+			<< setw(20) << "Tên"
+			<< setw(15) << "Ngày Sinh"
+			<< setw(15) << "Phòng"
+			<< setw(15) << "Ngày Khám"
+			<< setw(15) << "Trạng Thái"
 			<< endl;
 
 		cout << "--------------------------------------------------------------------------------\n";
@@ -519,18 +519,18 @@ public:
 	static void searchBenhNhan() {
 		int c;
 		if (!SystemMethod::fileExist("benhnhan.xml")) {
-			cout << "Khong co du lieu\n";
+			cout << "Không có dữ liệu\n";
 			UI::pause();
 			return;
 		}
 
 
-		cout << "\n===== TIM KIEM BENH NHAN =====\n";
-		cout << "1. Tim theo ma (tuyet doi)\n";
-		cout << "2. Tim theo ten (tuong doi)\n";
-		UI::printColor("3 Quay lai\n", 12);
+		cout << "\n===== TÌM KIẾM BỆNH NHÂN =====\n";
+		cout << "1. Tìm theo mã (tuyệt đối)\n";
+		cout << "2. Tìm theo tên (tương đối)\n";
+		UI::printColor("3 Quay lại\n", 12);
 
-		cout << "Chon: "; ;
+		cout << "Chọn: "; ;
 		c = SystemMethod::kiemTraKyTu();
 
 		if (c == 3) return;
@@ -540,9 +540,9 @@ public:
 		string key;
 
 		if (c == 1)
-			cout << "Nhap ma benh nhan: ";
+			cout << "Nhập mã bệnh nhân: ";
 		else
-			cout << "Nhap ten can tim: ";
+			cout << "Nhập tên cần tìm: ";
 
 		getline(cin, key);
 		string lowerKey = SystemMethod::toLower(key);
@@ -587,7 +587,7 @@ public:
 
 		if (ds.empty()) {
 
-			cout << "\nKhong tim thay!\n";
+			cout << "\nKhông tìm thấy!\n";
 			UI::pause();
 			return;
 		}
@@ -595,11 +595,11 @@ public:
 		cout << "\n--------------------------------------------------------------------------------\n";
 
 		cout << left
-			<< setw(10) << "MaBN"
-			<< setw(20) << "Ten"
-			<< setw(15) << "NgaySinh"
-			<< setw(15) << "Phong"
-			<< setw(15) << "NgayKham"
+			<< setw(10) << "Mã BN"
+			<< setw(20) << "Tên"
+			<< setw(15) << "Ngày Sinh"
+			<< setw(15) << "Phòng"
+			<< setw(15) << "Ngày Khám"
 			<< endl;
 
 		cout << "--------------------------------------------------------------------------------\n";
@@ -624,7 +624,7 @@ public:
 	static void exportExcelBenhNhan() {
 
 		if (!SystemMethod::fileExist("benhnhan.xml")) {
-			cout << "Khong co du lieu\n";
+			cout << "Không có dữ liệu\n";
 			UI::pause();
 			return;
 		}
@@ -683,11 +683,11 @@ public:
 		f.close();
 		o.close();
 
-		cout << "\nXuat Excel thanh cong: benhnhan.csv\n";
+		cout << "\nXuất Excel thành công: benhnhan.csv\n";
 
 		char ch;
 
-		cout << "Ban co muon mo file khong? (Y/N): ";
+		cout << "Bạn có muốn mở file không? (Y/N): ";
 		cin >> ch;
 
 		if (ch == 'Y' || ch == 'y')

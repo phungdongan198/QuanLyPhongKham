@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BanThuoc>
+<Ma>435</Ma>
+<TenThuoc>Thuốc derma force</TenThuoc>
+<NguoiMua>Phạm phong</NguoiMua>
+<DiaChi>Bình dương</DiaChi>
+<DienThoai>0333002951</DienThoai>
+<Benh>Bạch biến</Benh>
+<SoLuong>10</SoLuong>
+<DonGia>500000</DonGia>
+<ThanhTien>5000000</ThanhTien>
+<Lo>sx2026</Lo>
+<Date>21/04/2028</Date>
+<GhiChu>bôi ngày 1 lần</GhiChu>
+<Ngay>24/04/2026</Ngay>
+</BanThuoc>
+
+<BanThuoc>
+<Ma>a</Ma>
+<TenThuoc>thuốc test 1</TenThuoc>
+<NguoiMua>phong</NguoiMua>
+<DiaChi>bình dương</DiaChi>
+<DienThoai>0333002951</DienThoai>
+<Benh>test</Benh>
+<SoLuong>1</SoLuong>
+<DonGia>500000</DonGia>
+<ThanhTien>500000</ThanhTien>
+<Lo>LX2026</Lo>
+<Date>20/04/2028</Date>
+<GhiChu>test thuốc</GhiChu>
+<Ngay>24/04/2026</Ngay>
+</BanThuoc>
+

@@ -35,21 +35,21 @@ public:
 		cin.ignore();
 
 		ma = Helper::nhapMaKhongTrung(
-			"Ma BS - NV: ",
+			"Mã BS - NV: ",
 			"bacsi.xml",
 			"BacSi",
 			"Ma"
 		);
 
-		cout << "Ten: ";
+		cout << "Tên: ";
 		getline(cin, ten);
 
 		sinh = NhapVaKiemTraNamSinh();
 
-		cout << "Chung chi: ";
+		cout << "Chứng chỉ: ";
 		getline(cin, chungChi);
 
-		cout << "Chuyen mon: ";
+		cout << "Chuyên môn: ";
 		getline(cin, chuyenMon);
 	}
 
@@ -100,7 +100,7 @@ public:
 	static void showBacSi() {
 
 		if (!SystemMethod::fileExist("bacsi.xml")) {
-			cout << "Khong co du lieu\n";
+			cout << "Không có dữ liệu\n";
 			UI::pause();
 			return;
 		}
@@ -171,19 +171,19 @@ public:
 	static void searchBacSi() {
 
 		if (!SystemMethod::fileExist("bacsi.xml")) {
-			cout << "Khong co du lieu\n";
+			cout << "Không có dữ liệu\n";
 			UI::pause();
 			return;
 		}
 
 		int chon;
 
-		cout << "\n===== TIM BAC SI =====\n";
-		cout << "1 Tim theo ma\n";
-		cout << "2 Tim theo ten\n";
-		UI::printColor("3 Quay lai\n", 12);
+		cout << "\n===== TÌM BÁC SĨ =====\n";
+		cout << "1 Tìm theo mã\n";
+		cout << "2 Tìm theo tên\n";
+		UI::printColor("3 Quay lại\n", 12);
 
-		cout << "Chon: ";
+		cout << "Chọn: ";
 		cin >> chon;
 
 		if (chon == 3)
@@ -194,9 +194,9 @@ public:
 		string key;
 
 		if (chon == 1)
-			cout << "Nhap ma bac si: ";
+			cout << "Nhập mã bác sĩ: ";
 		else
-			cout << "Nhap ten bac si: ";
+			cout << "Nhập tên bác sĩ: ";
 
 		getline(cin, key);
 		string lowerKey = SystemMethod::toLower(key);
@@ -244,7 +244,7 @@ public:
 
 		if (ds.empty()) {
 
-			cout << "Khong tim thay\n";
+			cout << "Không tìm thấy\n";
 			UI::pause();
 			return;
 		}
@@ -280,7 +280,7 @@ public:
 	static void exportExceBacSi() {
 
 		if (!SystemMethod::fileExist("bacsi.xml")) {
-			cout << "Khong co du lieu\n";
+			cout << "Không có dữ liệu\n";
 			UI::pause();
 			return;
 		}
@@ -322,11 +322,11 @@ public:
 		f.close();
 		o.close();
 
-		cout << "\nXuat Excel thanh cong: bacsi.csv\n";
+		cout << "\nXuất Excel thành công: bacsi.csv\n";
 
 		char ch;
 
-		cout << "Ban co muon mo file khong? (Y/N): ";
+		cout << "Bạn có muốn mở file không? (Y/N): ";
 		cin >> ch;
 
 		if (ch == 'Y' || ch == 'y')
@@ -340,7 +340,7 @@ public:
 		char slash1, slash2;
 
 		while (true) {
-			cout << "Nhap ngay sinh (Voi dinh dang dd / mm / yyyy): ";
+			cout << "Nhập ngày sinh (Với định dạng dd / mm / yyyy): ";
 
 			// Đọc dữ liệu theo định dạng dd / mm / yyyy
 			if (cin >> dd >> slash1 >> mm >> slash2 >> yyyy && slash1 == '/' && slash2 == '/') {
@@ -356,7 +356,7 @@ public:
 			}
 
 			// Nếu nhập sai định dạng hoặc sai logic ngày tháng
-			cout << "Ngay thang nam sinh ban nhap khong hop le! Vui long nhap lai.\n";
+			cout << "Ngày tháng năm sinh bạn nhập không hợp lệ! Vui lòng nhập lại.\n";
 			cin.clear(); // Xóa trạng thái lỗi
 			cin.ignore((numeric_limits<streamsize>::max)(), '\n'); // Xóa sạch bộ đệm cho đến khi gặp dòng mới
 		}

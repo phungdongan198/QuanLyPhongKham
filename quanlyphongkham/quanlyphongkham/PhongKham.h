@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include "LiblaryHeader.h"
 #include "Helper.h"
 
@@ -27,16 +27,16 @@ public:
 		cin.ignore();
 	
 		ma = Helper::nhapMaKhongTrung(
-			"Ma pk:",
+			"Mã phòng khám:",
 			"phongkham.xml",
 			"Phong",
 			"Ma"
 		);
 
-		cout << "Ten phong: ";
+		cout << "Tên phòng: ";
 		getline(cin, ten);
 
-		cout << "Loai phong: ";
+		cout << "Loại phòng: ";
 		getline(cin, loai);
 	}
 
@@ -60,7 +60,7 @@ public:
 	static void showPhongKham() {
 
 		if (!SystemMethod::fileExist("phongkham.xml")) {
-			cout << "Khong co du lieu\n";
+			cout << "Không có dữ liệu\n";
 			UI::pause();
 			return;
 		}
@@ -93,9 +93,9 @@ public:
 		cout << "\n--------------------------------------------------\n";
 
 		cout << left
-			<< setw(15) << "MaPhong"
-			<< setw(25) << "TenPhong"
-			<< setw(20) << "LoaiPhong"
+			<< setw(15) << "Mã Phòng"
+			<< setw(25) << "Tên Phòng"
+			<< setw(20) << "Loại Phòng"
 			<< endl;
 
 		cout << "--------------------------------------------------\n";
@@ -117,18 +117,18 @@ public:
 	static void searchPhongkham() {
 		int c;
 		if (!SystemMethod::fileExist("phongkham.xml")) {
-			cout << "Khong co du lieu\n";
+			cout << "Không có dữ liệu\n";
 			UI::pause();
 			return;
 		}
 
 
-		cout << "\n===== TIM PHONG KHAM =====\n";
-		cout << "1 Tim theo ma\n";
-		cout << "2 Tim theo ten\n";
-		UI::printColor("3 Quay lai\n", 12);
+		cout << "\n===== TÌM PHÒNG KHÁM =====\n";
+		cout << "1 Tìm theo mã\n";
+		cout << "2 Tìm theo tên\n";
+		UI::printColor("3 Quay lại\n", 12);
 
-		cout << "Chon: ";
+		cout << "Chọn: ";
 		c = SystemMethod::kiemTraKyTu();
 
 
@@ -140,9 +140,9 @@ public:
 		string key;
 
 		if (c == 1)
-			cout << "Nhap ma phong: ";
+			cout << "Nhập mã phòng: ";
 		else
-			cout << "Nhap ten phong: ";
+			cout << "Nhập tên phòng: ";
 
 		getline(cin, key);
 		string lowerKey = SystemMethod::toLower(key);
@@ -181,7 +181,7 @@ public:
 
 		if (ds.empty()) {
 
-			cout << "\nKhong tim thay!\n";
+			cout << "\nKhông tìm thấy!\n";
 			UI::pause();
 			return;
 		}
@@ -189,9 +189,9 @@ public:
 		cout << "\n--------------------------------------------------\n";
 
 		cout << left
-			<< setw(15) << "MaPhong"
-			<< setw(25) << "TenPhong"
-			<< setw(20) << "LoaiPhong"
+			<< setw(15) << "Mã Phòng"
+			<< setw(25) << "Tên Phòng"
+			<< setw(20) << "Loại Phòng"
 			<< endl;
 
 		cout << "--------------------------------------------------\n";
@@ -213,7 +213,7 @@ public:
 	static void exportExcePhongKham() {
 
 		if (!SystemMethod::fileExist("phongkham.xml")) {
-			cout << "Khong co du lieu\n";
+			cout << "Không có dữ liệu\n";
 			UI::pause();
 			return;
 		}
@@ -248,11 +248,11 @@ public:
 		f.close();
 		o.close();
 
-		cout << "\nXuat Excel thanh cong: phongkham.csv\n";
+		cout << "\nXuất Excel thành công: phongkham.csv\n";
 
 		char ch;
 
-		cout << "Ban co muon mo file khong? (Y/N): ";
+		cout << "Bạn có muốn mở file không? (Y/N): ";
 		cin >> ch;
 
 		if (ch == 'Y' || ch == 'y')

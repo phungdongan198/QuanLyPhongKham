@@ -37,19 +37,19 @@ public:
 		cin.ignore();
 
 		ten = Helper::chonTuFile(
-			"Ten BN",
+			"tên BN",
 			"khambenh.xml",
 			"KhamBenh",
 			"Ten",
 			"Ma",
 			ma
 		);
-		cout << "Ma benh nhan: " << ma << endl;
+		cout << "Mã bệnh nhân: " << ma << endl;
  
 		//Nhập số tiền
 		while (true)
 		{
-			int tienThu = nhapSo<int>("Nhap So tien: ");
+			int tienThu = nhapSo<int>("Nhập Số tiền: ");
 			if (tienThu > 100)
 			{
 				soTien = std::to_string(tienThu);
@@ -57,12 +57,11 @@ public:
 			}
 			else
 			{
-				cout << "Gia tien phai tu 100 tro len! Vui long nhap lai.\n";
+				cout << "Giá tiền phải từ 100 trở lên! Vui lòng nhập lại.\n";
 			}
 		}
 
-        nguoiThu = Helper::chonTuFile("Chon nguoi thu", "bacsi.xml", "BacSi", "Ten");
-
+        nguoiThu = Helper::chonTuFile("Chọn người thu", "bacsi.xml", "BacSi", "Ten");
 		ngay = SystemMethod::today();
 	}
 
@@ -84,18 +83,18 @@ public:
 		cin.ignore();
 
 		ten = Helper::chonTuFile(
-			"Ten BN",
+			"Tên BN",
 			"khambenh.xml",
 			"KhamBenh",
 			"Ten",
 			"Ma",
 			ma
 		);
-		cout << "Ma benh nhan: " << ma << endl;
+		cout << "Mã bệnh nhân: " << ma << endl;
 		//Nhập số tiền hoàn
 		while (true)
 		{
-			int tienHoan = nhapSo<int>("Nhap So tien hoan: ");
+			int tienHoan = nhapSo<int>("Nhập Số tiền hoàn: ");
 			if (tienHoan >= 100)
 			{
 				soTien = std::to_string(tienHoan);
@@ -103,12 +102,12 @@ public:
 			}
 			else
 			{
-				cout << "Gia tien phai tu 100 tro len! Vui long nhap lai.\n";
+				cout << "Giá tiền phải từ 100 trở lên! Vui lòng nhập lại.\n";
 			}
 		}
 
-	    nguoiThu = Helper::chonTuFile("Chon nguoi thu", "bacsi.xml", "BacSi", "Ten");
-		cout << "Ly do: "; getline(cin, lyDo);
+	    nguoiThu = Helper::chonTuFile("Chọn người thu", "bacsi.xml", "BacSi", "Ten");
+		cout << "Lý do: "; getline(cin, lyDo);
 
 		ngay = SystemMethod::today();
 	}
@@ -163,13 +162,13 @@ public:
 
 			f.close();
 
-			cout << "\n================= DANH SACH THU =================\n";
+			cout << "\n================= DANH SÁCH THU =================\n";
 			cout << left
-				<< setw(10) << "Ma"
-				<< setw(20) << "Ten"
-				<< setw(12) << "SoTien"
-				<< setw(20) << "NguoiThu"
-				<< setw(15) << "Ngay"
+				<< setw(10) << "Mã"
+				<< setw(20) << "Tên"
+				<< setw(12) << "Số Tiền"
+				<< setw(20) << "Người Thu"
+				<< setw(15) << "Ngày"
 				<< endl;
 			cout << "--------------------------------------------------------------------------------------------------\n";
 			for (auto& x : dsThu) {
@@ -216,15 +215,15 @@ public:
 
 			f.close();
 
-			cout << "\n================= DANH SACH HOAN =================\n";
+			cout << "\n================= DANH SÁCH HOÀN =================\n";
 
 			cout << left
-				<< setw(10) << "Ma"
-				<< setw(20) << "Ten"
-				<< setw(12) << "SoTien"
-				<< setw(20) << "NguoiThu"
-				<< setw(20) << "LyDo"
-				<< setw(15) << "Ngay"
+				<< setw(10) << "Mã"
+				<< setw(20) << "Tên"
+				<< setw(12) << "Số Tiền"
+				<< setw(20) << "Người Thu"
+				<< setw(20) << "Lý Do"
+				<< setw(15) << "Ngày"
 				<< endl;
 
 			cout << "--------------------------------------------------------------------------------------------------\n";
@@ -245,7 +244,7 @@ public:
 		if (!SystemMethod::fileExist("thutien.xml") &&
 			!SystemMethod::fileExist("hoantra.xml")) {
 
-			cout << "Khong co du lieu\n";
+			cout << "Không có dữ liệu\n";
 		}
 
 		UI::pause();
@@ -256,17 +255,17 @@ public:
 		int c;
 
 		if (!SystemMethod::fileExist("thutien.xml")) {
-			cout << "Khong co du lieu\n";
+			cout << "Không có dữ liệu\n";
 			UI::pause();
 			return;
 		}
 
-		cout << "\n===== TIM KIEM THU TIEN =====\n";
-		cout << "1. Tim theo ma (tuyet doi)\n";
-		cout << "2. Tim theo ten (tuong doi)\n";
-		UI::printColor("3 Quay lai\n", 12);
+		cout << "\n===== TÌM KIẾM THU TIỀN =====\n";
+		cout << "1. Tìm theo mã (tuyệt đối)\n";
+		cout << "2. Tìm theo tên (tương đối)\n";
+		UI::printColor("3 Quay lại\n", 12);
 
-		cout << "Chon: ";
+		cout << "Chọn: ";
 		c = SystemMethod::kiemTraKyTu();
 
 		if (c == 3) return;
@@ -276,9 +275,9 @@ public:
 		string key;
 
 		if (c == 1)
-			cout << "Nhap ma benh nhan: ";
+			cout << "Nhập mã bệnh nhân: ";
 		else
-			cout << "Nhap ten can tim: ";
+			cout << "Nhập tên cần tìm: ";
 
 		getline(cin, key);
 		string lowerKey = SystemMethod::toLower(key);
@@ -323,7 +322,7 @@ public:
 
 
 		if (ds.empty()) {
-			cout << "\nKhong tim thay!\n";
+			cout << "\nKhông tìm thấy!\n";
 			UI::pause();
 			return;
 		}
@@ -332,11 +331,11 @@ public:
 		cout << "\n--------------------------------------------------------------------------\n";
 
 		cout << left
-			<< setw(10) << "Ma"
-			<< setw(20) << "Ten"
-			<< setw(12) << "SoTien"
-			<< setw(20) << "NguoiThu"
-			<< setw(15) << "Ngay"
+			<< setw(10) << "Mã"
+			<< setw(20) << "Tên"
+			<< setw(12) << "Số Tiền"
+			<< setw(20) << "Người Thu"
+			<< setw(15) << "Ngày"
 			<< endl;
 
 		cout << "--------------------------------------------------------------------------\n";
@@ -425,10 +424,10 @@ public:
 		f2.close();
 		o.close();
 
-		cout << "Xuat Excel thanh cong\n";
+		cout << "Xuất Excel thành công\n";
 		char ch;
 
-		cout << "Ban co muon mo file khong? (Y/N): ";
+		cout << "Bạn có muốn mở file không? (Y/N): ";
 		cin >> ch;
 
 		if (ch == 'Y' || ch == 'y')
@@ -449,7 +448,7 @@ public:
 				return value;
 			}
 			else {
-				cout << "Loi vui long nhap so.\n";
+				cout << "Lỗi! Vui lòng nhập số.\n";
 				cin.clear();
 				cin.ignore((numeric_limits<streamsize>::max)(), '\n');
 			}

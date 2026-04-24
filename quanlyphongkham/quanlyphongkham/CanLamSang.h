@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include "LiblaryHeader.h"
 #include "Helper.h"
 #include "SystemMethod.h"
@@ -31,20 +31,20 @@ public:
 		cin.ignore();
 
 		ma = Helper::nhapMaKhongTrung(
-			"Ma DV",
+			"Mã Dịch Vụ:",
 			"canlamsang.xml",
 			"CLS",
 			"Ma"
 		);
 
-		cout << "Ten dich vu: ";
+		cout << "Tên dịch vụ: ";
 		getline(cin, ten);
 
-		//cout << "Don gia: ";
+		//cout << "Đơn giá: ";
 		//getline(cin, gia);
-		gia = std::to_string(nhapSo<int>("Nhap Don gia: "));
+		gia = std::to_string(nhapSo<int>("Nhập Đơn giá: "));
 
-		cout << "Ghi chu: ";
+		cout << "Ghi chú: ";
 		getline(cin, ghiChu);
 	}
 
@@ -69,7 +69,7 @@ public:
 	static void showCLS() {
 
 		if (!SystemMethod::fileExist("canlamsang.xml")) {
-			cout << "Khong co du lieu\n";
+			cout << "Không có dữ liệu\n";
 			UI::pause();
 			return;
 		}
@@ -105,10 +105,10 @@ public:
 		cout << "\n-------------------------------------------------------------\n";
 
 		cout << left
-			<< setw(15) << "MaDV"
-			<< setw(25) << "TenDichVu"
-			<< setw(10) << "DonGia"
-			<< setw(20) << "GhiChu"
+			<< setw(15) << "Mã DV"
+			<< setw(25) << "Tên Dịch Vụ"
+			<< setw(10) << "Đơn Giá"
+			<< setw(20) << "Ghi Chú"
 			<< endl;
 
 		cout << "-------------------------------------------------------------\n";
@@ -131,19 +131,19 @@ public:
 	static void searchCLS() {
 
 		if (!SystemMethod::fileExist("canlamsang.xml")) {
-			cout << "Khong co du lieu\n";
+			cout << "Không có dữ liệu\n";
 			UI::pause();
 			return;
 		}
 
 		int chon;
 
-		cout << "\n===== TIM CAN LAM SANG =====\n";
-		cout << "1 Tim theo ma\n";
-		cout << "2 Tim theo ten\n";
-		UI::printColor("3 Quay lai\n", 12);
+		cout << "\n===== TÌM CẬN LÂM SÀNG =====\n";
+		cout << "1 Tìm theo mã\n";
+		cout << "2 Tìm theo tên\n";
+		UI::printColor("3 Quay lại\n", 12);
 
-		cout << "Chon: ";
+		cout << "Chọn: ";
 		cin >> chon;
 
 		if (chon == 3)
@@ -154,9 +154,9 @@ public:
 		string key;
 
 		if (chon == 1)
-			cout << "Nhap ma dich vu: ";
+			cout << "Nhập mã dịch vụ: ";
 		else
-			cout << "Nhap ten dich vu: ";
+			cout << "Nhập tên dịch vụ: ";
 
 		getline(cin, key);
 		string lowerKey = SystemMethod::toLower(key);
@@ -198,7 +198,7 @@ public:
 
 		if (ds.empty()) {
 
-			cout << "Khong tim thay\n";
+			cout << "Không tìm thấy\n";
 			UI::pause();
 			return;
 		}
@@ -206,10 +206,10 @@ public:
 		cout << "\n-------------------------------------------------------------\n";
 
 		cout << left
-			<< setw(15) << "MaDV"
-			<< setw(25) << "TenDichVu"
-			<< setw(10) << "DonGia"
-			<< setw(20) << "GhiChu"
+			<< setw(15) << "Mã DV"
+			<< setw(25) << "Tên Dịch Vụ"
+			<< setw(10) << "Đơn Giá"
+			<< setw(20) << "Ghi Chú"
 			<< endl;
 
 		cout << "-------------------------------------------------------------\n";
@@ -232,7 +232,7 @@ public:
 	static void exportExceCLS() {
 
 		if (!SystemMethod::fileExist("canlamsang.xml")) {
-			cout << "Khong co du lieu\n";
+			cout << "Không có dữ liệu\n";
 			UI::pause();
 			return;
 		}
@@ -270,11 +270,11 @@ public:
 		f.close();
 		o.close();
 
-		cout << "\nXuat Excel thanh cong: canlamsang.csv\n";
+		cout << "\nXuất Excel thành công: canlamsang.csv\n";
 
 		char ch;
 
-		cout << "Ban co muon mo file khong? (Y/N): ";
+		cout << "Bạn có muốn mở file không? (Y/N): ";
 		cin >> ch;
 
 		if (ch == 'Y' || ch == 'y')
@@ -295,7 +295,7 @@ public:
 				return value;
 			}
 			else {
-				cout << "Loi vui long nhap so.\n";
+				cout << "Lỗi! Vui lòng nhập số.\n";
 				cin.clear();
 				cin.ignore((numeric_limits<streamsize>::max)(), '\n');
 			}
