@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -68,13 +68,13 @@ public:
 				cout << i + 1 << ". " << dsLuaChon[i] << endl;
 			}
 
-			cout << "Chon: ";
+			cout << "Chọn: ";
 			cin >> chon;
 
 			if (cin.fail()) {
 				cin.clear();
 				cin.ignore(1000, '\n');
-				cout << "Lua chon khong hop le. Vui long nhap lai!\n";
+				cout << "Lựa chọn không hợp lệ. Vui lòng nhập lại!\n";
 				continue;
 			}
 
@@ -84,7 +84,7 @@ public:
 				return dsLuaChon[chon - 1];
 			}
 
-			cout << "Lua chon khong hop le. Vui long nhap lai!\n";
+			cout << "Lựa chọn không hợp lệ. Vui lòng nhập lại!\n";
 		}
 	}
 
@@ -93,8 +93,8 @@ public:
 
 		if (ds.empty()) {
 			string nhapTay;
-			cout << "Chua co du lieu tu he thong.\n";
-			cout << "Nhap tay " << tieuDe << ": ";
+			cout << "Chưa có dữ liệu từ hệ thống.\n";
+			cout << "Nhập tay " << tieuDe << ": ";
 			getline(cin, nhapTay);
 			return nhapTay;
 		}
@@ -162,8 +162,8 @@ public:
 		if (dsHienThi.empty()) {
 			string nhapTay;
 
-			cout << "Chua co du lieu tu he thong.\n";
-			cout << "Nhap tay " << tieuDe << ": ";
+			cout << "Chưa có dữ liệu từ hệ thống.\n";
+			cout << "Nhập tay " << tieuDe << ": ";
 			getline(cin, nhapTay);
 
 			giaTriLayKem = "";
@@ -245,17 +245,17 @@ public:
 			getline(cin, ma);
 
 			if (ma.empty()) {
-				cout << "Ma khong duoc de trong. Vui long nhap lai!\n";
+				cout << "Mã không được để trống. Vui lòng nhập lại!\n";
 				continue;
 			}
 
 			if (coKhoangTrang(ma)) {
-				cout << "Ma khong duoc chua khoang trang. Vui long nhap lai!\n";
+				cout << "Mã không được chứa khoảng trắng. Vui lòng nhập lại!\n";
 				continue;
 			}
 
 			if (kiemTraTonTaiXML(tenFile, tenKhoi, tenTheMa, ma)) {
-				cout << "Ma da ton tai. Vui long nhap ma khac!\n";
+				cout << "Mã đã tồn tại. Vui lòng nhập mã khác!\n";
 				continue;
 			}
 
@@ -315,8 +315,8 @@ public:
 		if (dsHienThi.empty()) {
 			string nhapTay;
 
-			cout << "Chua co du lieu tu he thong.\n";
-			cout << "Nhap tay " << tieuDe << ": ";
+			cout << "Chưa có dữ liệu từ hệ thống.\n";
+			cout << "Nhập tay " << tieuDe << ": ";
 			getline(cin, nhapTay);
 
 			dsGiaTriLayKem.clear();

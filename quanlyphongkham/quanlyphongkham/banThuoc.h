@@ -53,43 +53,44 @@ public:
 	#pragma endregion
 
 	vector<string> thongTinThuoc;
+
 	void ban() {
 
 		cin.ignore();
 
 		int loaiNguoiMua;
 		while (true) {
-			cout << "Loai nguoi mua:\n";
-			cout << "1. Benh nhan mua le\n";
-			cout << "2. Benh nhan kham tu phong kham\n";
-			cout << "Chon: ";
+			cout << "Loại người mua:\n";
+			cout << "1. Bệnh nhân mua lẻ\n";
+			cout << "2. Bệnh nhân khám từ phòng khám\n";
+			cout << "Chọn: ";
 			cin >> loaiNguoiMua;
 
 			if (cin.fail()) {
 				cin.clear();
 				cin.ignore(1000, '\n');
-				cout << "Lua chon khong hop le. Vui long nhap lai!\n";
+				cout << "Lựa chọn không hợp lệ. Vui lòng nhập lại!\n";
 				continue;
 			}
 
 			cin.ignore(1000, '\n');
 
 			if (loaiNguoiMua == 1) {
-				cout << "Nguoi mua: ";
+				cout << "Người mua: ";
 				getline(cin, nguoimua);
 				break;
 			}
 			else if (loaiNguoiMua == 2) {
-				nguoimua = Helper::chonTuFile("Chon benh nhan", "khambenh.xml", "KhamBenh", "Ten");
+				nguoimua = Helper::chonTuFile("Chọn bệnh nhân", "khambenh.xml", "KhamBenh", "Ten");
 				break;
 			}
 			else {
-				cout << "Lua chon khong hop le. Vui long nhap lai!\n";
+				cout << "Lựa chọn không hợp lệ. Vui lòng nhập lại!\n";
 			}
 		}
 
 		ten = Helper::chonTuFile(
-			"Ten thuoc",
+			"Tên thuốc",
 			"nhapthuoc.xml",
 			"Thuoc",
 			"Ten",
@@ -100,32 +101,32 @@ public:
 		dongia = thongTinThuoc[1];
 		lo = thongTinThuoc[2];
 		date = thongTinThuoc[3];
-		cout << "Ma thuoc: " << ma << endl;
-		cout << "Lo:  " << lo << endl;
+		cout << "Mã thuốc: " << ma << endl;
+		cout << "Lô:  " << lo << endl;
 		cout << "Date: " << date << endl;
-		soluong = std::to_string(nhapSo<int>("Nhap so luong xuat: "));
-		cout << "Don gia: " << dongia << endl;
+		soluong = std::to_string(nhapSo<int>("Nhập số lượng xuất: "));
+		cout << "Đơn giá: " << dongia << endl;
 		thanhtien = to_string(stoi(soluong) * stoi(dongia));
-		cout << "Thanh tien: " << thanhtien << endl;
+		cout << "Thành tiền: " << thanhtien << endl;
 
-		cout << "Dia chi: ";
+		cout << "Địa chỉ: ";
 		getline(cin, diachi);
 
 		while (true)
 		{
-			cout << "Dien thoai: ";
+			cout << "Điện thoại: ";
 			getline(cin, dienthoai);
 			if (KiemTraSoDienThoai(dienthoai))
 				break;
 			else
-				cout << "So dien thoai khong hop le! Vui long nhap lai.\n";
+				cout << "Số điện thoại không hợp lệ! Vui lòng nhập lại.\n";
 		}
 
-		cout << "Ten benh: ";
+		cout << "Tên bệnh: ";
 		getline(cin, benh);
 	
 
-		cout << "Ghi chu: ";
+		cout << "Ghi chú: ";
 		getline(cin, ghichu);
 
 		ngay = SystemMethod::today();
@@ -164,15 +165,15 @@ public:
 	static void showTonKho() {
 
 		UI::clear();
-		UI::center("TON KHO THUOC", 10);
+		UI::center("TỒN KHO THUỐC", 10);
 
 		/* ================= DANH SACH THUOC DA NHAP ================= */
 
-		cout << "\n===== DANH SACH THUOC DA NHAP =====\n";
+		cout << "\n===== DANH SÁCH THUỐC ĐÃ NHẬP =====\n";
 
 		if (!SystemMethod::fileExist("nhapthuoc.xml")) {
 
-			cout << "Khong co du lieu thuoc\n";
+			cout << "Không có dữ liệu thuốc\n";
 		}
 		else {
 
@@ -184,13 +185,13 @@ public:
 			cout << "\n--------------------------------------------------------------------------\n";
 
 			cout << left
-				<< setw(10) << "Ma"
-				<< setw(20) << "TenThuoc"
-				<< setw(10) << "Gia"
-				<< setw(10) << "SoLuong"
-				<< setw(10) << "Lo"
+				<< setw(10) << "Mã"
+				<< setw(20) << "Tên thuốc"
+				<< setw(10) << "Giá"
+				<< setw(10) << "Số lượng"
+				<< setw(10) << "Lô"
 				<< setw(12) << "Date"
-				<< setw(20) << "GhiChu"
+				<< setw(20) << "Ghi chú"
 				<< endl;
 
 			cout << "--------------------------------------------------------------------------\n";
@@ -238,11 +239,11 @@ public:
 
 		/* ================= DANH SACH THUOC DA XUAT ================= */
 
-		cout << "\n===== DANH SACH THUOC DA XUAT =====\n";
+		cout << "\n===== DANH SÁCH THUỐC ĐÃ XUẤT =====\n";
 
 		if (!SystemMethod::fileExist("banthuoc.xml")) {
 
-			cout << "Khong co du lieu ban thuoc\n";
+			cout << "Không có dữ liệu bán thuốc\n";
 		}
 		else {
 
@@ -254,12 +255,12 @@ public:
 			cout << "\n--------------------------------------------------------------------------\n";
 
 			cout << left
-				<< setw(10) << "Ma"
-				<< setw(20) << "TenThuoc"
-				<< setw(20) << "NguoiMua"
-				<< setw(10) << "SoLuong"
-				<< setw(10) << "DonGia"
-				<< setw(10) << "ThanhTien"
+				<< setw(10) << "Mã"
+				<< setw(20) << "Tên thuốc"
+				<< setw(20) << "Người mua"
+				<< setw(10) << "Số lượng"
+				<< setw(10) << "Đơn giá"
+				<< setw(10) << "Thành tiền"
 				<< endl;
 
 			cout << "--------------------------------------------------------------------------\n";
@@ -307,19 +308,19 @@ public:
 	static void seachThuoc() {
 
 		if (!SystemMethod::fileExist("nhapthuoc.xml")) {
-			cout << "Khong co du lieu thuoc\n";
+			cout << "Không có dữ liệu thuốc\n";
 			UI::pause();
 			return;
 		}
 
 		int chon;
 
-		cout << "\n===== TIM THUOC =====\n";
-		cout << "1 Tim theo ma (tuyet doi)\n";
-		cout << "2 Tim theo ten (tuong doi)\n";
-		UI::printColor("3 Quay lai\n", 12);
+		cout << "\n===== TÌM THUỐC =====\n";
+		cout << "1 Tìm theo mã (tuyệt đối)\n";
+		cout << "2 Tìm theo tên (tương đối)\n";
+		UI::printColor("3 Quay lại\n", 12);
 
-		cout << "Chon: ";
+		cout << "Chọn: ";
 		cin >> chon;
 
 		if (chon == 3)
@@ -330,9 +331,9 @@ public:
 		string key;
 
 		if (chon == 1)
-			cout << "Nhap ma thuoc: ";
+			cout << "Nhập mã thuốc: ";
 		else
-			cout << "Nhap ten thuoc: ";
+			cout << "Nhập tên thuốc: ";
 
 		getline(cin, key);
 		string lowerKey = SystemMethod::toLower(key);
@@ -384,7 +385,7 @@ public:
 
 		if (ds.empty()) {
 
-			cout << "\nKhong tim thay thuoc!\n";
+			cout << "\nKhông tìm thấy thuốc!\n";
 			UI::pause();
 			return;
 		}
@@ -392,13 +393,13 @@ public:
 		cout << "\n--------------------------------------------------------------------------\n";
 
 		cout << left
-			<< setw(10) << "Ma"
-			<< setw(20) << "TenThuoc"
-			<< setw(10) << "Gia"
-			<< setw(10) << "SoLuong"
-			<< setw(10) << "Lo"
+			<< setw(10) << "Mã"
+			<< setw(20) << "Tên thuốc"
+			<< setw(10) << "Giá"
+			<< setw(10) << "Số lượng"
+			<< setw(10) << "Lô"
 			<< setw(12) << "Date"
-			<< setw(20) << "GhiChu"
+			<< setw(20) << "Ghi chú"
 			<< endl;
 
 		cout << "--------------------------------------------------------------------------\n";
@@ -425,12 +426,12 @@ public:
 
 		int chon;
 
-		cout << "\n===== XUAT EXCEL =====\n";
-		cout << "1 Xuat danh sach thuoc nhap\n";
-		cout << "2 Xuat danh sach thuoc ban\n";
-		UI::printColor("3 Quay lai\n", 12);
+		cout << "\n===== XUẤT EXCEL =====\n";
+		cout << "1 Xuất danh sách thuốc nhập\n";
+		cout << "2 Xuất danh sách thuốc bán\n";
+		UI::printColor("3 Quay lại\n", 12);
 
-		cout << "Chon: ";
+		cout << "Chọn: ";
 		cin >> chon;
 
 		if (chon == 3)
@@ -441,7 +442,7 @@ public:
 		if (chon == 1) {
 
 			if (!SystemMethod::fileExist("nhapthuoc.xml")) {
-				cout << "Khong co du lieu thuoc\n";
+				cout << "Không có dữ liệu thuốc\n";
 				UI::pause();
 				return;
 			}
@@ -491,10 +492,10 @@ public:
 			f.close();
 			o.close();
 
-			cout << "\nDa xuat file nhapthuoc.csv\n";
+			cout << "\nĐã xuất file nhapthuoc.csv\n";
 			char ch;
 
-			cout << "Ban co muon mo file khong? (Y/N): ";
+			cout << "Bạn có muốn mở file không? (Y/N): ";
 			cin >> ch;
 
 			if (ch == 'Y' || ch == 'y')
@@ -506,7 +507,7 @@ public:
 		else if (chon == 2) {
 
 			if (!SystemMethod::fileExist("banthuoc.xml")) {
-				cout << "Khong co du lieu ban thuoc\n";
+				cout << "Không có dữ liệu bán thuốc\n";
 				UI::pause();
 				return;
 			}
@@ -579,10 +580,10 @@ public:
 			f.close();
 			o.close();
 
-			cout << "\nDa xuat file banthuoc.csv\n";
+			cout << "\nĐã xuất file banthuoc.csv\n";
 			char ch;
 
-			cout << "Ban co muon mo file khong? (Y/N): ";
+			cout << "Bạn có muốn mở file không? (Y/N): ";
 			cin >> ch;
 
 			if (ch == 'Y' || ch == 'y')
@@ -605,7 +606,7 @@ public:
 				return value;
 			}
 			else {
-				cout << "Loi vui long nhap so.\n";
+				cout << "Lỗi! Vui lòng nhập số.\n";
 				cin.clear();
 				cin.ignore((numeric_limits<streamsize>::max)(), '\n');
 			}

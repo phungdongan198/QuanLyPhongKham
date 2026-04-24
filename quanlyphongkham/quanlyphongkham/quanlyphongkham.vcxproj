@@ -142,6 +142,7 @@
     <ClInclude Include="SystemMethod.h" />
     <ClInclude Include="SystemPK.h" />
     <ClInclude Include="ThanhToan.h" />
+    <ClInclude Include="TiengViet.h" />
     <ClInclude Include="UI.h" />
   </ItemGroup>
   <ItemGroup>

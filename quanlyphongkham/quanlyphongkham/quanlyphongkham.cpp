@@ -10,12 +10,16 @@
 #include "banThuoc.h"
 #include "ThanhToan.h"
 #include "SystemPK.h"
+#include "TiengViet.h"
 
 
 
 int main() {
-	SetConsoleOutputCP(CP_UTF8);
-	SetConsoleCP(CP_UTF8);
+	//SetConsoleOutputCP(CP_UTF8);
+	//SetConsoleCP(CP_UTF8);
+	setupVietnamese();
+	//SetConsoleOutputCP(65001);
+	//SetConsoleCP(65001);
 	SystemPK sys;
 	/*sys.menuChinh();*/
 	sys.menuDangNhap();

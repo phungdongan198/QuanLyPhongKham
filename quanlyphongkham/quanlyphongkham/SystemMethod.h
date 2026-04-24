@@ -44,7 +44,7 @@ public:
 			cin.clear();
 			cin.ignore(1000, '\n');
 
-			cout << "Nhap sai! Vui long nhap so: ";
+			cout << "Nhập sai! Vui lòng nhập số: ";
 		}
 	}
 
@@ -60,7 +60,7 @@ public:
 			}
 
 			// Nếu vào đến đây nghĩa là nhập sai định dạng
-			cout << "Loi: Du lieu nhap vao khong hop le. Vui long nhap lai!\n";
+			cout << "Lỗi: Dữ liệu nhập vào không hợp lệ. Vui lòng nhập lại!\n";
 			cin.clear(); // Xóa trạng thái lỗi
 			cin.ignore((numeric_limits<streamsize>::max)(), '\n');
 		}
@@ -79,7 +79,7 @@ public:
 			}
 
 			// Nếu vào đến đây nghĩa là nhập sai định dạng
-			cout << "Loi: Du lieu nhap vao khong hop le. Vui long nhap lai!\n";
+			cout << "Lỗi: Dữ liệu nhập vào không hợp lệ. Vui lòng nhập lại!\n";
 			cin.clear(); // Xóa trạng thái lỗi
 			cin.ignore((numeric_limits<streamsize>::max)(), '\n');
 		}
@@ -109,7 +109,7 @@ public:
 				return value;
 			}
 			else {
-				cout << "Loi vui long nhap so.\n";
+				cout << "Lỗi: Vui lòng nhập số.\n";
 				cin.clear();
 				cin.ignore((numeric_limits<streamsize>::max)(), '\n');
 			}

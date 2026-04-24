@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include "LiblaryHeader.h"
 #include "Helper.h"
 #include "SystemMethod.h"
@@ -40,19 +40,19 @@ public:
 		cin.ignore();
 		
 		ma = Helper::nhapMaKhongTrung(
-			"Nhap ma thuoc: ",
+			"Nhập mã thuốc: ",
 			"nhapthuoc.xml",
 			"Thuoc",
 			"Ma"
 		);
 
-		cout << "Ten thuoc: ";
+		cout << "Tên thuốc: ";
 		getline(cin, ten);
 
-		//cout << "Don gia: ";
+		//cout << "Đơn giá: ";
 		while (true)
 		{
-			int donGia = nhapSo<int>("Nhap Don Gia: ");
+			int donGia = nhapSo<int>("Nhập đơn giá: ");
 			if (donGia > 100)
 			{
 				gia = std::to_string(donGia);
@@ -60,21 +60,21 @@ public:
 			}
 			else
 			{
-				cout << "Gia tien phai tu 100 tro len! Vui long nhap lai.\n";
+				cout << "Giá tiền phải từ 100 trở lên! Vui lòng nhập lại.\n";
 			}
 		}
 
-		cout << "Lo: ";
+		cout << "Lô: ";
 		getline(cin, lo);
 		
 		//Date
         date = NhapVaKiemTraDateThuocNhap();
 
 		//So Luong
-		soLuong = std::to_string(nhapSo<int>("Nhap so luong: "));
+		soLuong = std::to_string(nhapSo<int>("Nhập số lượng: "));
 		
 
-		cout << "Ghi chu: ";
+		cout << "Ghi chú: ";
 		getline(cin, ghiChu);
 	}
 
@@ -115,7 +115,7 @@ public:
 		int curr_yyyy = now.tm_year + 1900; // tm_year tính từ 1900
 
 		while (true) {
-			cout << "Nhap Date(Dinh dang dd/mm/yyyy - Phai sau ngay "
+			cout << "Nhập Date(Định dạng dd/mm/yyyy - Phải sau ngày "
 				<< curr_dd << "/" << curr_mm << "/" << curr_yyyy << "): ";
 
 			// 2. Đọc dữ liệu
@@ -150,7 +150,7 @@ public:
 			}
 
 			// Nếu sai định dạng hoặc không sau ngày hiện tại
-			cout << "Ngay nhap vao phai LON HON ngay hien tai! Vui long nhap lai.\n";
+			cout << "Ngày nhập vào phải LỚN HƠN ngày hiện tại! Vui lòng nhập lại.\n";
 			cin.clear();
 			cin.ignore((numeric_limits<streamsize>::max)(), '\n');
 		}
@@ -168,11 +168,11 @@ public:
 					return input; // Trả về chuỗi để bạn lưu vào XML
 				}
 				else {
-					cout << "Loi: Gia tien phai tu 1000 tro len!\n";
+					cout << "Lỗi: Giá tiền phải từ 1000 trở lên!\n";
 				}
 			}
 			else {
-				cout << "Loi: Vui long chi nhap ky tu so (khong chua chu cai hay ky tu dac biet).\n";
+				cout << "Lỗi: Vui lòng chỉ nhập ký tự số (không chứa chữ cái hay ký tự đặc biệt).\n";
 			}
 
 			// Xóa bộ đệm nếu có lỗi
@@ -193,7 +193,7 @@ public:
 				return value;
 			}
 			else {
-				cout << "Loi vui long nhap so.\n";
+				cout << "Lỗi: Vui lòng nhập số.\n";
 				cin.clear();
 				cin.ignore((numeric_limits<streamsize>::max)(), '\n');
 			}

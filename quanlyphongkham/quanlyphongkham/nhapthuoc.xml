@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Thuoc>
+<Ma>435</Ma>
+<Ten>Thuốc derma force</Ten>
+<Gia>500000</Gia>
+<Lo>sx2026</Lo>
+<Date>21/04/2028</Date>
+<SoLuong>10</SoLuong>
+<GhiChu>thuốc trị bạch biến</GhiChu>
+</Thuoc>
+
+<Thuoc>
+<Ma>a</Ma>
+<Ten>thuốc test 1</Ten>
+<Gia>500000</Gia>
+<Lo>LX2026</Lo>
+<Date>20/04/2028</Date>
+<SoLuong>10</SoLuong>
+<GhiChu>thuốc test</GhiChu>
+</Thuoc>
+

@@ -1,4 +1,5 @@
-﻿// LiblaryHeader.h
+﻿#pragma execution_character_set("utf-8")
+// LiblaryHeader.h
 #pragma once
 #include <iostream>
 #include <string>

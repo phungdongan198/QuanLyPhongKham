@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include "LiblaryHeader.h"
 #include <WinBase.h>
+#include "TiengViet.h"
 
 
 class UI {
@@ -25,12 +26,11 @@ public:
 	}
 
 	static void center(string text, int color = 7) {
-
 		CONSOLE_SCREEN_BUFFER_INFO csbi;
 		GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbi);
 
 		int width = csbi.srWindow.Right - csbi.srWindow.Left + 1;
-		int padding = (width - (int)text.length()) / 2;
+		int padding = (width - utf8Length(text)) / 2; 
 
 		setColor(color);
 
