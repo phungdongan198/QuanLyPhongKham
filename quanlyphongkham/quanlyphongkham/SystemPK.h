@@ -262,8 +262,9 @@ public:
 			case 2: {
 
 				banThuoc b;
-				b.ban();
-				b.save();
+				if (b.ban()) {
+					b.save();
+				}
 				break;
 			}
 

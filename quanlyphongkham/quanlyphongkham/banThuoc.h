@@ -113,7 +113,7 @@ public:
 		return tongNhap - tongXuat;
 	}
 
-	void ban() {
+	bool ban() {
 
 		cin.ignore();
 
@@ -172,7 +172,7 @@ public:
 		if (soLuongConLai <= 0) {
 			cout << "Thuốc này đã hết hàng, không thể bán!\n";
 			UI::pause();
-			return;
+			return false;
 		}
 
 		while (true) {
@@ -225,6 +225,7 @@ public:
 		getline(cin, ghichu);
 
 		ngay = SystemMethod::today();
+		return true;
 	}
 
 	void save() {
