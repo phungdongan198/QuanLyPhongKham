@@ -1,33 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <BanThuoc>
-<Ma>435</Ma>
-<TenThuoc>Thuốc derma force</TenThuoc>
-<NguoiMua>Phạm phong</NguoiMua>
-<DiaChi>Bình dương</DiaChi>
-<DienThoai>0333002951</DienThoai>
-<Benh>Bạch biến</Benh>
-<SoLuong>10</SoLuong>
-<DonGia>500000</DonGia>
-<ThanhTien>5000000</ThanhTien>
-<Lo>sx2026</Lo>
-<Date>21/04/2028</Date>
-<GhiChu>bôi ngày 1 lần</GhiChu>
-<Ngay>24/04/2026</Ngay>
+<Ma>thuoc1</Ma>
+<TenThuoc>paracetamol 500mg</TenThuoc>
+<NguoiMua>nhập họ tên mua lẻ</NguoiMua>
+<DiaChi>dbhjgfhjds</DiaChi>
+<DienThoai>0987654321</DienThoai>
+<Benh>đau bụng</Benh>
+<SoLuong>12</SoLuong>
+<DonGia>20.000</DonGia>
+<ThanhTien>240.000</ThanhTien>
+<Lo>lô 123</Lo>
+<Date>12/12/3000</Date>
+<GhiChu>fdsfds</GhiChu>
+<Ngay>25/04/2026</Ngay>
 </BanThuoc>
 
 <BanThuoc>
-<Ma>a</Ma>
-<TenThuoc>thuốc test 1</TenThuoc>
-<NguoiMua>phong</NguoiMua>
-<DiaChi>bình dương</DiaChi>
-<DienThoai>0333002951</DienThoai>
-<Benh>test</Benh>
-<SoLuong>1</SoLuong>
-<DonGia>500000</DonGia>
-<ThanhTien>500000</ThanhTien>
-<Lo>LX2026</Lo>
-<Date>20/04/2028</Date>
-<GhiChu>test thuốc</GhiChu>
-<Ngay>24/04/2026</Ngay>
+<Ma>thuoc2</Ma>
+<TenThuoc>hapacol 50mg</TenThuoc>
+<NguoiMua>lê thị a</NguoiMua>
+<DiaChi>dfds</DiaChi>
+<DienThoai>0987654321</DienThoai>
+<Benh>dsfds</Benh>
+<SoLuong>5</SoLuong>
+<DonGia>50.000</DonGia>
+<ThanhTien>250.000</ThanhTien>
+<Lo>lô 345</Lo>
+<Date>12/12/2999</Date>
+<GhiChu>fdgfd</GhiChu>
+<Ngay>25/04/2026</Ngay>
+</BanThuoc>
+
+<BanThuoc>
+<Ma>thuoc1</Ma>
+<TenThuoc>paracetamol 500mg</TenThuoc>
+<NguoiMua>mua lẻ 2</NguoiMua>
+<DiaChi>12</DiaChi>
+<DienThoai>0987654321</DienThoai>
+<Benh>dsfd</Benh>
+<SoLuong>120</SoLuong>
+<DonGia>20.000</DonGia>
+<ThanhTien>2.400.000</ThanhTien>
+<Lo>lô 123</Lo>
+<Date>12/12/3000</Date>
+<GhiChu>dsf</GhiChu>
+<Ngay>25/04/2026</Ngay>
+</BanThuoc>
+
+<BanThuoc>
+<Ma>thuoc1</Ma>
+<TenThuoc>paracetamol 500mg</TenThuoc>
+<NguoiMua>lẻ lẻ</NguoiMua>
+<DiaChi>gfd</DiaChi>
+<DienThoai>0987654321</DienThoai>
+<Benh>bệnh bệnh </Benh>
+<SoLuong>360</SoLuong>
+<DonGia>20.000</DonGia>
+<ThanhTien>7.200.000</ThanhTien>
+<Lo>lô 123</Lo>
+<Date>12/12/3000</Date>
+<GhiChu>sfdsf</GhiChu>
+<Ngay>25/04/2026</Ngay>
 </BanThuoc>
 

@@ -9,7 +9,7 @@ private:
 
 public:
 
-	#pragma	region getter_&_setter
+#pragma	region getter_&_setter
 
 	string getMa() const { return ma; }
 	void setMa(const string& val) { ma = val; }
@@ -20,12 +20,12 @@ public:
 	string getLoai() const { return loai; }
 	void setLoai(const string& val) { loai = val; }
 
-	#pragma endregion
+#pragma endregion
 
 	void nhap() {
 
 		cin.ignore();
-	
+
 		ma = Helper::nhapMaKhongTrung(
 			"Mã phòng khám:",
 			"phongkham.xml",
@@ -90,26 +90,22 @@ public:
 
 		f.close();
 
-		cout << "\n--------------------------------------------------\n";
-
-		cout << left
-			<< setw(15) << "Mã Phòng"
-			<< setw(25) << "Tên Phòng"
-			<< setw(20) << "Loại Phòng"
-			<< endl;
-
-		cout << "--------------------------------------------------\n";
+		cout << string(120, '-') << endl;
+		Helper::inCot(cout, "Mã Phòng", 10);
+		Helper::inCot(cout, "Tên Phòng", 30);
+		Helper::inCot(cout, "Loại Phòng", 20);
+		cout << endl;
+		cout << string(120, '-') << endl;
 
 		for (auto& p : ds) {
+			Helper::inCot(cout, p.ma, 10);
+			Helper::inCot(cout, p.ten, 30);
+			Helper::inCot(cout, p.loai, 20);
+			cout << endl;
 
-			cout << left
-				<< setw(15) << p.ma
-				<< setw(25) << p.ten
-				<< setw(20) << p.loai
-				<< endl;
 		}
 
-		cout << "--------------------------------------------------\n";
+		cout << string(120, '-') << endl;
 
 		UI::pause();
 	}
@@ -186,26 +182,24 @@ public:
 			return;
 		}
 
-		cout << "\n--------------------------------------------------\n";
+		cout << string(120, '-') << endl;
 
-		cout << left
-			<< setw(15) << "Mã Phòng"
-			<< setw(25) << "Tên Phòng"
-			<< setw(20) << "Loại Phòng"
-			<< endl;
+		Helper::inCot(cout, "Mã Phòng", 10);
+		Helper::inCot(cout, "Tên Phòng", 30);
+		Helper::inCot(cout, "Loại Phòng", 20);
+		cout << endl;
 
-		cout << "--------------------------------------------------\n";
+		cout << string(120, '-') << endl;
 
 		for (auto& p : ds) {
 
-			cout << left
-				<< setw(15) << p.ma
-				<< setw(25) << p.ten
-				<< setw(20) << p.loai
-				<< endl;
+			Helper::inCot(cout, p.ma, 10);
+			Helper::inCot(cout, p.ten, 30);
+			Helper::inCot(cout, p.loai, 20);
+			cout << endl;
 		}
 
-		cout << "--------------------------------------------------\n";
+		cout << string(120, '-') << endl;
 
 		UI::pause();
 	}
@@ -219,7 +213,8 @@ public:
 		}
 
 		ifstream f("phongkham.xml");
-		ofstream o("phongkham.csv");
+		ofstream o("phongkham.csv", ios::binary);
+		o << "\xEF\xBB\xBF";
 
 		string line;
 		PhongKham pk;

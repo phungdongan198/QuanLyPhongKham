@@ -1,41 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <BenhNhan>
-<Ma>435</Ma>
-<Ten>Phạm Thị Kim Huyền</Ten>
-<Sinh>15/04/2003</Sinh>
-<GioiTinh>Nu</GioiTinh>
-<DienThoai>0333002952</DienThoai>
-<DiaChi>Đống Đa, Hà Nội</DiaChi>
-<DoiTuong>Thu phi</DoiTuong>
-<Phong>Phòng VIP 1</Phong>
-<TrangThai>Moi</TrangThai>
-<Ngay>21/04/2026</Ngay>
-</BenhNhan>
-
-
-<BenhNhan>
-<Ma>430</Ma>
-<Ten>Phạm Văn Phong</Ten>
-<Sinh>06/09/2004</Sinh>
+<Ma>bn1</Ma>
+<Ten>lê thị a</Ten>
+<Sinh>12/12/2000</Sinh>
 <GioiTinh>Nam</GioiTinh>
-<DienThoai>0333002951</DienThoai>
-<DiaChi>Bình Dương</DiaChi>
-<DoiTuong>Thu phí</DoiTuong>
-<Phong>Phòng Vip 1</Phong>
-<TrangThai>Dakham</TrangThai>
-<Ngay>24/04/2026</Ngay>
-</BenhNhan>
-
-<BenhNhan>
-<Ma>431</Ma>
-<Ten>Phạm Thành Tuấn</Ten>
-<Sinh>06/09/2004</Sinh>
-<GioiTinh>Nam</GioiTinh>
-<DienThoai>0333002222</DienThoai>
-<DiaChi>Thủ đức</DiaChi>
+<DienThoai>0967205442</DienThoai>
+<DiaChi>địa chỉ</DiaChi>
 <DoiTuong>BHYT</DoiTuong>
-<Phong>Phòng Thường 1</Phong>
-<TrangThai>Mới</TrangThai>
-<Ngay>24/04/2026</Ngay>
+<Phong>phong khám 1</Phong>
+<TrangThai>Dakham</TrangThai>
+<Ngay>25/04/2026</Ngay>
 </BenhNhan>
+
 

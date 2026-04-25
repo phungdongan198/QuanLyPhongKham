@@ -22,7 +22,7 @@ public:
 		bool coDuLieu;
 	};
 
-	#pragma region menu Chức Năng
+#pragma region menu Chức Năng
 
 	void menuBenhNhan() {
 
@@ -399,7 +399,7 @@ public:
 
 		int c;
 
-		UI::printColor("Đang khởi tạo hệ thống...\n", 10);
+		UI::printColor("Đang kiểm tra hệ thống...\n", 10);
 		vector<pair<string, string>> dsFile = {
 			{"phongkham.xml", "danh sách phòng khám"},
 			{"bacsi.xml", "danh sách bác sĩ"},
@@ -428,7 +428,7 @@ public:
 			}
 		}
 		cout << endl;
-		UI::printColor("Hệ thống đã khởi tạo xong", 10);
+		UI::printColor("Hệ thống kiểm tra tạo xong", 10);
 		cout << endl << endl;
 
 
@@ -439,16 +439,21 @@ public:
 			}
 
 			UI::center("=====HỆ THỐNG QUẢN LÝ PHÒNG KHÁM PAP SOFT - " + user_dangnhap + " - NGÀY LÀM VIỆC  " + layNgayHienTai() + " - V 1.0.0 =====", 10);
+			UI::printColor("==MENU CHÍNH==", 10);
+			UI::printColor("\n--Khám bệnh", 1);
 			cout << "\n1 Quản lý bệnh nhân";
 			if (role == "admin")
 			{
 				cout << "\n2 Quản lý thuốc";
 				cout << "\n3 Quản lý thanh toán";
+				UI::printColor("\n--Danh mục", 1);
 				cout << "\n4 Danh mục phòng khám";
 				cout << "\n5 Danh mục bác sĩ - nhân viên";
 				cout << "\n6 Danh mục cận lâm sàng";
+				UI::printColor("\n--Thống kê", 1);
 				cout << "\n7 Thống kê - báo cáo";
 			}
+			UI::printColor("\n--Tiên ích", 1);
 			cout << "\n8 Đăng nhập lại";
 			UI::printColor("\n9 Kết thúc\n", 12);
 			c = SystemMethod::nhapSo<int>("Mời bạn chọn:");
@@ -466,6 +471,7 @@ public:
 				break;
 
 			case 2: {
+				canhBaoThuoc();
 				menuThuoc();
 				break;
 			}
@@ -504,9 +510,9 @@ public:
 		UI::pause();
 	}
 
-	#pragma endregion
+#pragma endregion
 
-	#pragma region các chức năng phụ
+#pragma region các chức năng phụ
 
 	bool fileCoDuLieu(const string& tenFile) {
 		ifstream f(tenFile, ios::binary);
@@ -737,16 +743,231 @@ public:
 				b.setDate(line.substr(6, line.find("</") - 6));
 
 				if (b.getDate() == ngay)
-					tongTien += stoll(b.getThanhTien());
+					tongTien += stoll(Helper::boDauChamTien(b.getThanhTien()));
 			}
 		}
 
 		f.close();
 
-		cout << "\nTổng tiền thuốc bán ngày " << ngay << " = " << tongTien << " VND\n";
+		cout << "\nTổng tiền thuốc bán ngày " << ngay << " = " << Helper::formatTien(to_string(tongTien)) << " VND\n";
+		cout << "Bằng chữ: " << Helper::docTienBangChu(tongTien) << endl;
 
 		UI::pause();
 	}
 
-	#pragma endregion
+	long long laySoLuongDaBanTheoMa(string maCanTim) {
+		long long tongBan = 0;
+
+		// Không có file bán thuốc thì coi như chưa bán gì
+		if (!SystemMethod::fileExist("banthuoc.xml")) {
+			return 0;
+		}
+
+		ifstream f("banthuoc.xml");
+
+		string line;
+		string ma = "";
+		string soluong = "";
+
+		while (getline(f, line)) {
+
+			if (line.find("<Ma>") != string::npos)
+				ma = line.substr(4, line.find("</") - 4);
+
+			if (line.find("<SoLuong>") != string::npos) {
+				soluong = line.substr(9, line.find("</") - 9);
+
+				if (ma == maCanTim && !soluong.empty()) {
+					tongBan += stoll(Helper::boDauChamTien(soluong));
+				}
+			}
+		}
+
+		f.close();
+		return tongBan;
+	}
+
+	void canhBaoThuoc() {
+
+		// Không có file nhập thuốc thì bỏ qua luôn
+		if (!SystemMethod::fileExist("nhapthuoc.xml")) {
+			return;
+		}
+
+		ifstream f("nhapthuoc.xml");
+
+		if (!f.is_open()) {
+			return;
+		}
+
+		string line;
+
+		string ma = "";
+		string ten = "";
+		string gia = "";
+		string soluong = "";
+		string lo = "";
+		string date = "";
+		string ghichu = "";
+
+		bool coDuLieuThuoc = false;
+
+		vector<vector<string>> dsDate;
+		vector<vector<string>> dsTon;
+
+		while (getline(f, line)) {
+
+			if (line.find("<Ma>") != string::npos)
+				ma = line.substr(4, line.find("</") - 4);
+
+			if (line.find("<Ten>") != string::npos)
+				ten = line.substr(5, line.find("</") - 5);
+
+			if (line.find("<Gia>") != string::npos)
+				gia = line.substr(5, line.find("</") - 5);
+
+			if (line.find("<SoLuong>") != string::npos)
+				soluong = line.substr(9, line.find("</") - 9);
+
+			if (line.find("<Lo>") != string::npos)
+				lo = line.substr(4, line.find("</") - 4);
+
+			if (line.find("<Date>") != string::npos)
+				date = line.substr(6, line.find("</") - 6);
+
+			if (line.find("<GhiChu>") != string::npos) {
+				ghichu = line.substr(8, line.find("</") - 8);
+
+				// Nếu bản ghi thiếu dữ liệu quan trọng thì bỏ qua
+				if (ma.empty() || ten.empty() || soluong.empty() || date.empty()) {
+					continue;
+				}
+
+				coDuLieuThuoc = true;
+
+				long long ngayConLai = Helper::soNgayConLai(date);
+
+				long long slNhap = stoll(Helper::boDauChamTien(soluong));
+				long long slDaBan = laySoLuongDaBanTheoMa(ma);
+				long long slConLai = slNhap - slDaBan;
+				// trong vòng 30 ngày
+				if (ngayConLai >= 0 && ngayConLai <= 30) {
+					dsDate.push_back({
+						ma,
+						ten,
+						lo,
+						date,
+						to_string(ngayConLai) + " ngày",
+						"Gần hết date"
+						});
+				}
+				// đã sạch trơn
+				if (ngayConLai < 0) {
+					dsDate.push_back({
+						ma,
+						ten,
+						lo,
+						date,
+						"Quá " + to_string(-ngayConLai) + " ngày",
+						"Đã hết hạn"
+						});
+				}
+				// so <= 10
+				if (slConLai <= 10) {
+					dsTon.push_back({
+						ma,
+						ten,
+						Helper::formatTien(to_string(slNhap)),
+						Helper::formatTien(to_string(slDaBan)),
+						Helper::formatTien(to_string(slConLai)),
+						"Gần hết tồn"
+						});
+				}
+
+				// Reset để tránh dính dữ liệu bản ghi trước
+				ma = "";
+				ten = "";
+				gia = "";
+				soluong = "";
+				lo = "";
+				date = "";
+				ghichu = "";
+			}
+		}
+
+		f.close();
+
+		// Có file nhưng không có thuốc hợp lệ thì bỏ qua
+		if (!coDuLieuThuoc) {
+			return;
+		}
+
+		// Không có cảnh báo gì thì bỏ qua
+		if (dsDate.empty() && dsTon.empty()) {
+			return;
+		}
+
+		UI::clear();
+		UI::center("CẢNH BÁO THUỐC", 12);
+
+		if (!dsDate.empty()) {
+			UI::printColor("\n===== THUỐC GẦN HẾT DATE / ĐÃ HẾT HẠN =====\n", 14);
+
+			cout << string(115, '-') << endl;
+
+			Helper::inCot(cout, "Mã", 10);
+			Helper::inCot(cout, "Tên thuốc", 35);
+			Helper::inCot(cout, "Lô", 15);
+			Helper::inCot(cout, "Date", 15);
+			Helper::inCot(cout, "Còn/Quá", 15);
+			Helper::inCot(cout, "Trạng thái", 25);
+			cout << endl;
+
+			cout << string(115, '-') << endl;
+
+			for (auto& x : dsDate) {
+				Helper::inCot(cout, x[0], 10);
+				Helper::inCot(cout, x[1], 35);
+				Helper::inCot(cout, x[2], 15);
+				Helper::inCot(cout, x[3], 15);
+				Helper::inCot(cout, x[4], 15);
+				Helper::inCot(cout, x[5], 25);
+				cout << endl;
+			}
+
+			cout << string(115, '-') << endl;
+		}
+
+		if (!dsTon.empty()) {
+			UI::printColor("\n===== THUỐC GẦN HẾT TỒN KHO =====\n", 14);
+
+			cout << string(115, '-') << endl;
+
+			Helper::inCot(cout, "Mã", 10);
+			Helper::inCot(cout, "Tên thuốc", 35);
+			Helper::inCot(cout, "SL nhập", 15);
+			Helper::inCot(cout, "Đã bán", 15);
+			Helper::inCot(cout, "Còn lại", 15);
+			Helper::inCot(cout, "Trạng thái", 25);
+			cout << endl;
+
+			cout << string(115, '-') << endl;
+
+			for (auto& x : dsTon) {
+				Helper::inCot(cout, x[0], 10);
+				Helper::inCot(cout, x[1], 35);
+				Helper::inCot(cout, x[2], 15);
+				Helper::inCot(cout, x[3], 15);
+				Helper::inCot(cout, x[4], 15);
+				Helper::inCot(cout, x[5], 25);
+				cout << endl;
+			}
+
+			cout << string(115, '-') << endl;
+		}
+
+		UI::pause();
+	}
+
+#pragma endregion
 };

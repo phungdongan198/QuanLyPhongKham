@@ -9,7 +9,7 @@ private:
 
 public:
 
-	#pragma region getter_&_setter
+#pragma region getter_&_setter
 
 	string getMa() const { return ma; }
 	void setMa(const string& val) { ma = val; }
@@ -32,13 +32,13 @@ public:
 	string getGhiChu() const { return ghiChu; }
 	void setGhiChu(const string& val) { ghiChu = val; }
 
-	#pragma endregion
+#pragma endregion
 
 
 	void nhap() {
 
 		cin.ignore();
-		
+
 		ma = Helper::nhapMaKhongTrung(
 			"Nhập mã thuốc: ",
 			"nhapthuoc.xml",
@@ -55,7 +55,7 @@ public:
 			int donGia = nhapSo<int>("Nhập đơn giá: ");
 			if (donGia > 100)
 			{
-				gia = std::to_string(donGia);
+				gia = Helper::formatTien(std::to_string(donGia));
 				break;
 			}
 			else
@@ -66,13 +66,13 @@ public:
 
 		cout << "Lô: ";
 		getline(cin, lo);
-		
+
 		//Date
-        date = NhapVaKiemTraDateThuocNhap();
+		date = NhapVaKiemTraDateThuocNhap();
 
 		//So Luong
 		soLuong = std::to_string(nhapSo<int>("Nhập số lượng: "));
-		
+
 
 		cout << "Ghi chú: ";
 		getline(cin, ghiChu);
@@ -89,7 +89,7 @@ public:
 		f << "<Thuoc>\n";
 		f << "<Ma>" << ma << "</Ma>\n";
 		f << "<Ten>" << ten << "</Ten>\n";
-		f << "<Gia>" << gia << "</Gia>\n";
+		f << "<Gia>" << Helper::formatTien(gia) << "</Gia>\n";
 		f << "<Lo>" << lo << "</Lo>\n";
 		f << "<Date>" << date << "</Date>\n";
 		f << "<SoLuong>" << soLuong << "</SoLuong>\n";

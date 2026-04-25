@@ -4,7 +4,6 @@
 #include "QuanLy.h"
 #include "SystemMethod.h"
 
-
 // tính kế thừa
 class BacSi : public DoiTuongQuanLy {
 
@@ -12,7 +11,7 @@ private:
 	string ma, ten, sinh, chungChi, chuyenMon;
 
 public:
-	#pragma region các getter và setter
+#pragma region các getter và setter
 	string getMa() const { return ma; }
 	void setMa(const string& val) { ma = val; }
 
@@ -27,7 +26,7 @@ public:
 
 	string getChuyenMon() const { return chuyenMon; }
 	void setChuyenMon(const string& val) { chuyenMon = val; }
-	#pragma endregion
+#pragma endregion
 
 	// đa hình
 	void nhap() override {
@@ -74,12 +73,11 @@ public:
 
 	// nạp chồng toán tử
 	friend ostream& operator<<(ostream& out, const BacSi& bs) {
-		out << left
-			<< setw(10) << bs.ma
-			<< setw(25) << bs.ten
-			<< setw(15) << bs.sinh
-			<< setw(20) << bs.chungChi
-			<< setw(20) << bs.chuyenMon;
+		Helper::inCot(out, bs.ma, 10);
+		Helper::inCot(out, bs.ten, 40);
+		Helper::inCot(out, bs.sinh, 15);
+		Helper::inCot(out, bs.chungChi, 25);
+		Helper::inCot(out, bs.chuyenMon, 25);
 
 		return out;
 	}
@@ -136,36 +134,34 @@ public:
 
 		f.close();
 
-		cout << "\n-----------------------------------------------------------------------\n";
+		cout << string(120, '-') << endl;
 
-		cout << left
-			<< setw(10) << "MaBS"
-			<< setw(20) << "TenBacSi"
-			<< setw(15) << "NgaySinh"
-			<< setw(15) << "ChungChi"
-			<< setw(20) << "ChuyenMon"
-			<< endl;
+		Helper::inCot(cout, "Mã BS", 10);
+		Helper::inCot(cout, "Tên BS", 40);
+		Helper::inCot(cout, "Ngày Sinh", 15);
+		Helper::inCot(cout, "Chứng chỉ", 25);
+		Helper::inCot(cout, "Chuyên môn", 25);
+		cout << endl;
 
-		cout << "-----------------------------------------------------------------------\n";
+		cout << string(120, '-') << endl;
 
 		for (auto& b : ds) {
-			
+
 			cout << b << endl;
 		}
 
-		cout << "-----------------------------------------------------------------------\n";
+		cout << string(120, '-') << endl;
 
 		UI::pause();
 	}
 
 	void hienThi() override {
-		cout << left
-			<< setw(10) << ma
-			<< setw(25) << ten
-			<< setw(15) << sinh
-			<< setw(20) << chungChi
-			<< setw(20) << chuyenMon
-			<< endl;
+		Helper::inCot(cout, ma, 10);
+		Helper::inCot(cout, ten, 40);
+		Helper::inCot(cout, sinh, 15);
+		Helper::inCot(cout, chungChi, 25);
+		Helper::inCot(cout, chuyenMon, 15);
+		cout << endl;
 	}
 
 	static void searchBacSi() {
@@ -249,30 +245,23 @@ public:
 			return;
 		}
 
-		cout << "\n-----------------------------------------------------------------------\n";
+		cout << string(120, '-') << endl;
 
-		cout << left
-			<< setw(10) << "MaBS"
-			<< setw(20) << "TenBacSi"
-			<< setw(15) << "NgaySinh"
-			<< setw(15) << "ChungChi"
-			<< setw(20) << "ChuyenMon"
-			<< endl;
+		Helper::inCot(cout, "Mã BS", 10);
+		Helper::inCot(cout, "Tên BS", 40);
+		Helper::inCot(cout, "Ngày Sinh", 15);
+		Helper::inCot(cout, "Chứng chỉ", 25);
+		Helper::inCot(cout, "Chuyên môn", 25);
+		cout << endl;
 
-		cout << "-----------------------------------------------------------------------\n";
+		cout << string(120, '-') << endl;
 
 		for (auto& b : ds) {
 
-			cout << left
-				<< setw(10) << b.ma
-				<< setw(20) << b.ten
-				<< setw(15) << b.sinh
-				<< setw(15) << b.chungChi
-				<< setw(20) << b.chuyenMon
-				<< endl;
+			cout << b << endl;
 		}
 
-		cout << "-----------------------------------------------------------------------\n";
+		cout << string(120, '-') << endl;
 
 		UI::pause();
 	}
@@ -286,7 +275,8 @@ public:
 		}
 
 		ifstream f("bacsi.xml");
-		ofstream o("bacsi.csv");
+		ofstream o("bacsi.csv", ios::binary);
+		o << "\xEF\xBB\xBF";
 
 		string line;
 		BacSi bs;

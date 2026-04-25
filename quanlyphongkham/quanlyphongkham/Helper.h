@@ -3,6 +3,8 @@
 #include <fstream>
 #include <string>
 #include <vector>
+#include <cctype>
+#include <ctime>
 using namespace std;
 
 class Helper {
@@ -271,7 +273,7 @@ public:
 		const string& tenTheCanLay,
 		const vector<string>& dsTheLayKem,
 		vector<string>& dsGiaTriLayKem
-							) 
+	)
 	{
 		ifstream file(tenFile);
 
@@ -332,5 +334,197 @@ public:
 			}
 		}
 		return daChon;
+	}
+
+	// xử lý in côt cho đẹp hơn
+	static int doDaiUTF8(const string& s) {
+		int count = 0;
+
+		for (unsigned char c : s) {
+			if ((c & 0xC0) != 0x80) {
+				count++;
+			}
+		}
+
+		return count;
+	}
+
+	static void inCot(ostream& out, const string& s, int width) {
+		out << s;
+
+		int space = width - doDaiUTF8(s);
+		if (space > 0) {
+			out << string(space, ' ');
+		}
+	}
+
+	static string formatTien(string s) {
+		// Xóa dấu chấm cũ nếu có
+		string so = "";
+		for (char c : s) {
+			if (isdigit((unsigned char)c)) {
+				so += c;
+			}
+		}
+
+		if (so.empty()) return "0";
+
+		string kq = "";
+		int dem = 0;
+
+		for (int i = so.length() - 1; i >= 0; i--) {
+			kq = so[i] + kq;
+			dem++;
+
+			if (dem % 3 == 0 && i != 0) {
+				kq = "." + kq;
+			}
+		}
+
+		return kq;
+	}
+
+	static string boDauChamTien(string s) {
+		string kq = "";
+
+		for (char c : s) {
+			if (isdigit((unsigned char)c)) {
+				kq += c;
+			}
+		}
+
+		return kq;
+	}
+
+	static string docSo(int n) {
+		string chuSo[] = {
+			"không", "một", "hai", "ba", "bốn",
+			"năm", "sáu", "bảy", "tám", "chín"
+		};
+
+		int tram = n / 100;
+		int chuc = (n % 100) / 10;
+		int donvi = n % 10;
+
+		string kq = "";
+
+		if (tram > 0) {
+			kq += chuSo[tram] + string(" trăm");
+
+			if (chuc == 0 && donvi > 0) {
+				kq += " lẻ";
+			}
+		}
+
+		if (chuc > 1) {
+			kq += " " + chuSo[chuc] + string(" mươi");
+
+			if (donvi == 1) {
+				kq += " mốt";
+			}
+			else if (donvi == 5) {
+				kq += " lăm";
+			}
+			else if (donvi > 0) {
+				kq += " " + chuSo[donvi];
+			}
+		}
+		else if (chuc == 1) {
+			kq += " mười";
+
+			if (donvi == 5) {
+				kq += " lăm";
+			}
+			else if (donvi > 0) {
+				kq += " " + chuSo[donvi];
+			}
+		}
+		else if (donvi > 0) {
+			kq += " " + chuSo[donvi];
+		}
+
+		return kq;
+	}
+
+	static string docTienBangChu(long long soTien) {
+		if (soTien == 0) return "Không đồng";
+
+		string donVi[] = { "", " nghìn", " triệu", " tỷ" };
+
+		vector<int> nhom;
+		while (soTien > 0) {
+			nhom.push_back(soTien % 1000);
+			soTien /= 1000;
+		}
+
+		string kq = "";
+
+		for (int i = nhom.size() - 1; i >= 0; i--) {
+			if (nhom[i] != 0) {
+				string phan = docSo(nhom[i]);
+
+				if (!kq.empty()) {
+					kq += " ";
+				}
+
+				kq += phan + donVi[i];
+			}
+		}
+
+		// Viết hoa chữ cái đầu
+		if (!kq.empty()) {
+			kq[0] = toupper((unsigned char)kq[0]);
+		}
+
+		kq += " đồng";
+
+		return kq;
+	}
+
+	static string csvText(const string& s) {
+		string kq = s;
+
+		// Nếu có dấu " thì nhân đôi dấu " để CSV không lỗi
+		size_t pos = 0;
+		while ((pos = kq.find("\"", pos)) != string::npos) {
+			kq.replace(pos, 1, "\"\"");
+			pos += 2;
+		}
+
+		return "\"" + kq + "\"";
+	}
+
+	// Ép Excel hiểu là text, không tự đổi số / ngày / tiền
+	static string csvTextExcel(const string& s) {
+		string kq = s;
+
+		size_t pos = 0;
+		while ((pos = kq.find("\"", pos)) != string::npos) {
+			kq.replace(pos, 1, "\"\"");
+			pos += 2;
+		}
+
+		return "=\"" + kq + "\"";
+	}
+
+	static time_t chuyenNgaySangTime(string ngay) {
+		// định dạng dd/mm/yyyy
+		tm t = {};
+		t.tm_mday = stoi(ngay.substr(0, 2));
+		t.tm_mon = stoi(ngay.substr(3, 2)) - 1;
+		t.tm_year = stoi(ngay.substr(6, 4)) - 1900;
+		t.tm_hour = 0;
+		t.tm_min = 0;
+		t.tm_sec = 0;
+
+		return mktime(&t);
+	}
+
+	static long long soNgayConLai(string ngayHetHan) {
+		time_t hienTai = time(0);
+		time_t hetHan = chuyenNgaySangTime(ngayHetHan);
+
+		double giay = difftime(hetHan, hienTai);
+		return (long long)(giay / (60 * 60 * 24));
 	}
 };

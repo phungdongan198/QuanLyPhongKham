@@ -2,8 +2,8 @@
 #include "SystemMethod.h"
 #include "LiblaryHeader.h"
 #include "banThuoc.h"
+#include <map>
 #include "Helper.h"
-
 
 class banThuoc {
 
@@ -11,7 +11,7 @@ private:
 	string ma, ten, nguoimua, diachi, dienthoai, benh, soluong, dongia, thanhtien, lo, date, ghichu, ngay;
 public:
 
-	#pragma region các getter và setter
+#pragma region các getter và setter
 	string getMa() const { return ma; }
 	void setMa(const string& val) { ma = val; }
 
@@ -50,9 +50,68 @@ public:
 
 	string getNgay() const { return ngay; }
 	void setNgay(const string& val) { ngay = val; }
-	#pragma endregion
+#pragma endregion
 
 	vector<string> thongTinThuoc;
+
+	long long laySoLuongConLaiTheoMa(string maCanTim) {
+		long long tongNhap = 0;
+		long long tongXuat = 0;
+
+		// ================= ĐỌC FILE NHẬP THUỐC =================
+		if (SystemMethod::fileExist("nhapthuoc.xml")) {
+
+			ifstream f("nhapthuoc.xml");
+
+			string line;
+			string ma = "";
+			string soluong = "";
+
+			while (getline(f, line)) {
+
+				if (line.find("<Ma>") != string::npos)
+					ma = line.substr(4, line.find("</") - 4);
+
+				if (line.find("<SoLuong>") != string::npos) {
+					soluong = line.substr(9, line.find("</") - 9);
+
+					if (ma == maCanTim) {
+						tongNhap += stoll(Helper::boDauChamTien(soluong));
+					}
+				}
+			}
+
+			f.close();
+		}
+
+		// ================= ĐỌC FILE XUẤT / BÁN THUỐC =================
+		if (SystemMethod::fileExist("banthuoc.xml")) {
+
+			ifstream f("banthuoc.xml");
+
+			string line;
+			string ma = "";
+			string soluong = "";
+
+			while (getline(f, line)) {
+
+				if (line.find("<Ma>") != string::npos)
+					ma = line.substr(4, line.find("</") - 4);
+
+				if (line.find("<SoLuong>") != string::npos) {
+					soluong = line.substr(9, line.find("</") - 9);
+
+					if (ma == maCanTim) {
+						tongXuat += stoll(Helper::boDauChamTien(soluong));
+					}
+				}
+			}
+
+			f.close();
+		}
+
+		return tongNhap - tongXuat;
+	}
 
 	void ban() {
 
@@ -104,9 +163,45 @@ public:
 		cout << "Mã thuốc: " << ma << endl;
 		cout << "Lô:  " << lo << endl;
 		cout << "Date: " << date << endl;
-		soluong = std::to_string(nhapSo<int>("Nhập số lượng xuất: "));
+
+		long long soLuongConLai = laySoLuongConLaiTheoMa(ma);
+
+		cout << "Số lượng còn lại: "
+			<< Helper::formatTien(to_string(soLuongConLai)) << endl;
+
+		if (soLuongConLai <= 0) {
+			cout << "Thuốc này đã hết hàng, không thể bán!\n";
+			UI::pause();
+			return;
+		}
+
+		while (true) {
+
+			long long slXuat = nhapSo<long long>("Nhập số lượng xuất: ");
+
+			if (slXuat <= 0) {
+				cout << "Số lượng xuất phải lớn hơn 0. Vui lòng nhập lại!\n";
+				continue;
+			}
+
+			if (slXuat > soLuongConLai) {
+				cout << "Số lượng xuất vượt quá tồn kho!\n";
+				cout << "Hiện chỉ còn: "
+					<< Helper::formatTien(to_string(soLuongConLai)) << endl;
+				continue;
+			}
+
+			soluong = to_string(slXuat);
+			break;
+		}
+
 		cout << "Đơn giá: " << dongia << endl;
-		thanhtien = to_string(stoi(soluong) * stoi(dongia));
+
+		long long sl = stoll(soluong);
+		long long dg = stoll(Helper::boDauChamTien(dongia));
+
+		thanhtien = Helper::formatTien(to_string(sl * dg));
+
 		cout << "Thành tiền: " << thanhtien << endl;
 
 		cout << "Địa chỉ: ";
@@ -124,7 +219,7 @@ public:
 
 		cout << "Tên bệnh: ";
 		getline(cin, benh);
-	
+
 
 		cout << "Ghi chú: ";
 		getline(cin, ghichu);
@@ -139,7 +234,6 @@ public:
 		if (fileMoi) {
 			f << "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
 		}
-
 		f << "<BanThuoc>\n";
 		f << "<Ma>" << ma << "</Ma>\n";
 		f << "<TenThuoc>" << ten << "</TenThuoc>\n";
@@ -149,8 +243,8 @@ public:
 		f << "<Benh>" << benh << "</Benh>\n";
 
 		f << "<SoLuong>" << soluong << "</SoLuong>\n";
-		f << "<DonGia>" << dongia << "</DonGia>\n";
-		f << "<ThanhTien>" << thanhtien << "</ThanhTien>\n";
+		f << "<DonGia>" << Helper::formatTien(dongia) << "</DonGia>\n";
+		f << "<ThanhTien>" << Helper::formatTien(thanhtien) << "</ThanhTien>\n";
 
 		f << "<Lo>" << lo << "</Lo>\n";
 		f << "<Date>" << date << "</Date>\n";
@@ -167,6 +261,31 @@ public:
 		UI::clear();
 		UI::center("TỒN KHO THUỐC", 10);
 
+		map<string, long long> soLuongDaBan;
+
+		if (SystemMethod::fileExist("banthuoc.xml")) {
+
+			ifstream fb("banthuoc.xml");
+
+			string line;
+			string ma, soluong;
+
+			while (getline(fb, line)) {
+
+				if (line.find("<Ma>") != string::npos)
+					ma = line.substr(4, line.find("</") - 4);
+
+				if (line.find("<SoLuong>") != string::npos) {
+					soluong = line.substr(9, line.find("</") - 9);
+
+					long long sl = stoll(Helper::boDauChamTien(soluong));
+					soLuongDaBan[ma] += sl;
+				}
+			}
+
+			fb.close();
+		}
+
 		/* ================= DANH SACH THUOC DA NHAP ================= */
 
 		cout << "\n===== DANH SÁCH THUỐC ĐÃ NHẬP =====\n";
@@ -182,19 +301,21 @@ public:
 			string line;
 			nhapThuoc t;
 
-			cout << "\n--------------------------------------------------------------------------\n";
+			cout << string(120, '-') << endl;
 
-			cout << left
-				<< setw(10) << "Mã"
-				<< setw(20) << "Tên thuốc"
-				<< setw(10) << "Giá"
-				<< setw(10) << "Số lượng"
-				<< setw(10) << "Lô"
-				<< setw(12) << "Date"
-				<< setw(20) << "Ghi chú"
-				<< endl;
+			Helper::inCot(cout, "Mã thuốc", 10);
+			Helper::inCot(cout, "Tên thuốc", 35);
+			Helper::inCot(cout, "Đơn giá", 15);
+			Helper::inCot(cout, "SL nhập", 10);
+			Helper::inCot(cout, "Đã bán", 10);
+			Helper::inCot(cout, "Còn lại", 10);
+			Helper::inCot(cout, "Lô", 15);
+			Helper::inCot(cout, "Date", 15);
+			Helper::inCot(cout, "Ghi chú", 15);
+			cout << endl;
+			cout << endl;
 
-			cout << "--------------------------------------------------------------------------\n";
+			cout << string(120, '-') << endl;
 
 			while (getline(f, line)) {
 
@@ -220,21 +341,26 @@ public:
 
 					t.setGhiChu(line.substr(8, line.find("</") - 8));
 
-					cout << left
-						<< setw(10) << t.getMa()
-						<< setw(20) << t.getTen()
-						<< setw(10) << t.getGia()
-						<< setw(10) << t.getSoLuong()
-						<< setw(10) << t.getLo()
-						<< setw(12) << t.getDate()
-						<< setw(20) << t.getGhiChu()
-						<< endl;
+					long long slNhap = stoll(Helper::boDauChamTien(t.getSoLuong()));
+					long long slBan = soLuongDaBan[t.getMa()];
+					long long slConLai = slNhap - slBan;
+
+					Helper::inCot(cout, t.getMa(), 10);
+					Helper::inCot(cout, t.getTen(), 35);
+					Helper::inCot(cout, t.getGia(), 15);
+					Helper::inCot(cout, Helper::formatTien(to_string(slNhap)), 10);
+					Helper::inCot(cout, Helper::formatTien(to_string(slBan)), 10);
+					Helper::inCot(cout, Helper::formatTien(to_string(slConLai)), 10);
+					Helper::inCot(cout, t.getLo(), 15);
+					Helper::inCot(cout, t.getDate(), 15);
+					Helper::inCot(cout, t.getGhiChu(), 15);
+					cout << endl;
 				}
 			}
 
 			f.close();
 
-			cout << "--------------------------------------------------------------------------\n";
+			cout << string(120, '-') << endl;
 		}
 
 		/* ================= DANH SACH THUOC DA XUAT ================= */
@@ -252,18 +378,16 @@ public:
 			string line;
 			banThuoc b;
 
-			cout << "\n--------------------------------------------------------------------------\n";
+			cout << string(120, '-') << endl;
+			Helper::inCot(cout, "Mã thuốc", 10);
+			Helper::inCot(cout, "Tên thuốc", 30);
+			Helper::inCot(cout, "Người mua", 20);
+			Helper::inCot(cout, "Số lượng", 15);
+			Helper::inCot(cout, "Đơn giá", 15);
+			Helper::inCot(cout, "Thành tiền", 15);
+			cout << endl;
 
-			cout << left
-				<< setw(10) << "Mã"
-				<< setw(20) << "Tên thuốc"
-				<< setw(20) << "Người mua"
-				<< setw(10) << "Số lượng"
-				<< setw(10) << "Đơn giá"
-				<< setw(10) << "Thành tiền"
-				<< endl;
-
-			cout << "--------------------------------------------------------------------------\n";
+			cout << string(120, '-') << endl;
 
 			while (getline(f, line)) {
 
@@ -286,20 +410,19 @@ public:
 
 					b.thanhtien = line.substr(11, line.find("</") - 11);
 
-					cout << left
-						<< setw(10) << b.ma
-						<< setw(20) << b.ten
-						<< setw(20) << b.nguoimua
-						<< setw(10) << b.soluong
-						<< setw(10) << b.dongia
-						<< setw(10) << b.thanhtien
-						<< endl;
+					Helper::inCot(cout, b.ma, 10);
+					Helper::inCot(cout, b.ten, 30);
+					Helper::inCot(cout, b.nguoimua, 20);
+					Helper::inCot(cout, b.soluong, 15);
+					Helper::inCot(cout, b.dongia, 15);
+					Helper::inCot(cout, b.thanhtien, 15);
+					cout << endl;
 				}
 			}
 
 			f.close();
 
-			cout << "--------------------------------------------------------------------------\n";
+			cout << string(120, '-') << endl;
 		}
 
 		UI::pause();
@@ -344,7 +467,7 @@ public:
 
 		vector<nhapThuoc> ds;
 
-		while (getline(f, line)) 
+		while (getline(f, line))
 		{
 			if (line.find("<Ma>") != string::npos)
 				t.setMa(line.substr(4, line.find("</") - 4));
@@ -364,7 +487,7 @@ public:
 			if (line.find("<SoLuong>") != string::npos)
 				t.setSoLuong(line.substr(9, line.find("</") - 9));
 
-			if (line.find("<GhiChu>") != string::npos) 
+			if (line.find("<GhiChu>") != string::npos)
 			{
 				t.setGhiChu(line.substr(8, line.find("</") - 8));
 
@@ -390,34 +513,34 @@ public:
 			return;
 		}
 
-		cout << "\n--------------------------------------------------------------------------\n";
+		cout << string(120, '-') << endl;
 
-		cout << left
-			<< setw(10) << "Mã"
-			<< setw(20) << "Tên thuốc"
-			<< setw(10) << "Giá"
-			<< setw(10) << "Số lượng"
-			<< setw(10) << "Lô"
-			<< setw(12) << "Date"
-			<< setw(20) << "Ghi chú"
-			<< endl;
 
-		cout << "--------------------------------------------------------------------------\n";
+		Helper::inCot(cout, "Mã thuốc", 10);
+		Helper::inCot(cout, "Tên thuốc", 40);
+		Helper::inCot(cout, "Đơn giá", 15);
+		Helper::inCot(cout, "Số lượng", 10);
+		Helper::inCot(cout, "Lô", 15);
+		Helper::inCot(cout, "Date", 15);
+		Helper::inCot(cout, "Ghi chú", 15);
+		cout << endl;
+
+
+		cout << string(120, '-') << endl;
 
 		for (auto& x : ds) {
+			Helper::inCot(cout, x.getMa(), 10);
+			Helper::inCot(cout, x.getTen(), 40);
+			Helper::inCot(cout, x.getGia(), 15);
+			Helper::inCot(cout, x.getSoLuong(), 10);
+			Helper::inCot(cout, x.getLo(), 15);
+			Helper::inCot(cout, x.getDate(), 15);
+			Helper::inCot(cout, x.getGhiChu(), 15);
+			cout << endl;
 
-			cout << left
-				<< setw(10) << x.getMa()
-				<< setw(20) << x.getTen()
-				<< setw(10) << x.getGia()
-				<< setw(10) << x.getSoLuong()
-				<< setw(10) << x.getLo()
-				<< setw(12) << x.getDate()
-				<< setw(20) << x.getGhiChu()
-				<< endl;
 		}
 
-		cout << "--------------------------------------------------------------------------\n";
+		cout << string(120, '-') << endl;
 
 		UI::pause();
 	}
@@ -448,7 +571,8 @@ public:
 			}
 
 			ifstream f("nhapthuoc.xml");
-			ofstream o("nhapthuoc.csv");
+			ofstream o("nhapthuoc.csv", ios::binary);
+			o << "\xEF\xBB\xBF";
 
 			string line;
 			nhapThuoc t;
@@ -481,7 +605,7 @@ public:
 
 					o << t.getMa() << ","
 						<< t.getTen() << ","
-						<< t.getGia() << ","
+						<< Helper::csvTextExcel(t.getGia()) << ","
 						<< t.getSoLuong() << ","
 						<< t.getLo() << ","
 						<< t.getDate() << ","
@@ -513,7 +637,8 @@ public:
 			}
 
 			ifstream f("banthuoc.xml");
-			ofstream o("banthuoc.csv");
+			ofstream o("banthuoc.csv", ios::binary);
+			o << "\xEF\xBB\xBF";
 
 			string line;
 			banThuoc b;
@@ -568,8 +693,8 @@ public:
 						<< b.dienthoai << ","
 						<< b.benh << ","
 						<< b.soluong << ","
-						<< b.dongia << ","
-						<< b.thanhtien << ","
+						<< Helper::csvTextExcel(b.dongia) << ","
+						<< Helper::csvTextExcel(b.thanhtien) << ","
 						<< b.lo << ","
 						<< b.date << ","
 						<< b.ghichu << ","

@@ -1,21 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Thuoc>
-<Ma>435</Ma>
-<Ten>Thuốc derma force</Ten>
-<Gia>500000</Gia>
-<Lo>sx2026</Lo>
-<Date>21/04/2028</Date>
-<SoLuong>10</SoLuong>
-<GhiChu>thuốc trị bạch biến</GhiChu>
+<Ma>thuoc1</Ma>
+<Ten>paracetamol 500mg</Ten>
+<Gia>20.000</Gia>
+<Lo>lô 123</Lo>
+<Date>12/12/3000</Date>
+<SoLuong>500</SoLuong>
+<GhiChu></GhiChu>
 </Thuoc>
 
 <Thuoc>
-<Ma>a</Ma>
-<Ten>thuốc test 1</Ten>
-<Gia>500000</Gia>
-<Lo>LX2026</Lo>
-<Date>20/04/2028</Date>
-<SoLuong>10</SoLuong>
-<GhiChu>thuốc test</GhiChu>
+<Ma>thuoc2</Ma>
+<Ten>hapacol 50mg</Ten>
+<Gia>50.000</Gia>
+<Lo>lô 345</Lo>
+<Date>12/12/2999</Date>
+<SoLuong>200</SoLuong>
+<GhiChu>dsf</GhiChu>
+</Thuoc>
+
+<Thuoc>
+<Ma>t10</Ma>
+<Ten>vitamin</Ten>
+<Gia>12.000</Gia>
+<Lo>12</Lo>
+<Date>26/04/2026</Date>
+<SoLuong>20</SoLuong>
+<GhiChu>ds</GhiChu>
 </Thuoc>
 

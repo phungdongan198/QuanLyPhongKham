@@ -7,7 +7,7 @@ private:
 	string ma, ten, soTien, nguoiThu, lyDo, ngay;
 
 public:
-	#pragma region các getter và setter
+#pragma region các getter và setter
 	// Getter và Setter cho Ma
 	string getMa() const { return ma; }
 	void setMa(const string& val) { ma = val; }
@@ -31,7 +31,7 @@ public:
 	// Getter và Setter cho Ngay
 	string getNgay() const { return ngay; }
 	void setNgay(const string& val) { ngay = val; }
-	#pragma endregion
+#pragma endregion
 
 	void nhapThu() {
 		cin.ignore();
@@ -45,7 +45,7 @@ public:
 			ma
 		);
 		cout << "Mã bệnh nhân: " << ma << endl;
- 
+
 		//Nhập số tiền
 		while (true)
 		{
@@ -61,17 +61,22 @@ public:
 			}
 		}
 
-        nguoiThu = Helper::chonTuFile("Chọn người thu", "bacsi.xml", "BacSi", "Ten");
+		nguoiThu = Helper::chonTuFile("Chọn người thu", "bacsi.xml", "BacSi", "Ten");
 		ngay = SystemMethod::today();
 	}
 
 	void saveThu() {
+
+		bool fileMoi = !SystemMethod::fileExist("thutien.xml");
 		ofstream f("thutien.xml", ios::app);
+		if (fileMoi) {
+			f << "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
+		}
 
 		f << "<ThuTien>\n";
 		f << "<Ma>" << ma << "</Ma>\n";
 		f << "<Ten>" << ten << "</Ten>\n";
-		f << "<SoTien>" << soTien << "</SoTien>\n";
+		f << "<SoTien>" << Helper::formatTien(soTien) << "</SoTien>\n";
 		f << "<NguoiThu>" << nguoiThu << "</NguoiThu>\n";
 		f << "<Ngay>" << ngay << "</Ngay>\n";
 		f << "</ThuTien>\n\n";
@@ -106,19 +111,24 @@ public:
 			}
 		}
 
-	    nguoiThu = Helper::chonTuFile("Chọn người thu", "bacsi.xml", "BacSi", "Ten");
+		nguoiThu = Helper::chonTuFile("Chọn người thu", "bacsi.xml", "BacSi", "Ten");
 		cout << "Lý do: "; getline(cin, lyDo);
 
 		ngay = SystemMethod::today();
 	}
 
 	void saveHoan() {
+
+		bool fileMoi = !SystemMethod::fileExist("hoantra.xml");
 		ofstream f("hoantra.xml", ios::app);
+		if (fileMoi) {
+			f << "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
+		}
 
 		f << "<HoanTra>\n";
 		f << "<Ma>" << ma << "</Ma>\n";
 		f << "<Ten>" << ten << "</Ten>\n";
-		f << "<SoTien>" << soTien << "</SoTien>\n";
+		f << "<SoTien>" << Helper::formatTien(soTien) << "</SoTien>\n";
 		f << "<NguoiThu>" << nguoiThu << "</NguoiThu>\n";
 		f << "<LyDo>" << lyDo << "</LyDo>\n";
 		f << "<Ngay>" << ngay << "</Ngay>\n";
@@ -156,29 +166,30 @@ public:
 
 					t.ngay = line.substr(6, line.find("</") - 6);
 
-					dsThu.push_back(t); // 👉 giống benhnhan
+					dsThu.push_back(t);
 				}
 			}
 
 			f.close();
 
 			cout << "\n================= DANH SÁCH THU =================\n";
-			cout << left
-				<< setw(10) << "Mã"
-				<< setw(20) << "Tên"
-				<< setw(12) << "Số Tiền"
-				<< setw(20) << "Người Thu"
-				<< setw(15) << "Ngày"
-				<< endl;
-			cout << "--------------------------------------------------------------------------------------------------\n";
+			cout << string(120, '-') << endl;
+			Helper::inCot(cout, "Mã BN", 10);
+			Helper::inCot(cout, "Tên", 30);
+			Helper::inCot(cout, "Số tiền", 10);
+			Helper::inCot(cout, "Người thu", 30);
+			Helper::inCot(cout, "Ngày", 15);
+			cout << endl;
+
+			cout << string(120, '-') << endl;
 			for (auto& x : dsThu) {
-				cout << left
-					<< setw(10) << x.ma
-					<< setw(20) << x.ten
-					<< setw(12) << x.soTien
-					<< setw(20) << x.nguoiThu
-					<< setw(15) << x.ngay
-					<< endl;
+
+				Helper::inCot(cout, x.ma, 10);
+				Helper::inCot(cout, x.ten, 30);
+				Helper::inCot(cout, x.soTien, 10);
+				Helper::inCot(cout, x.nguoiThu, 30);
+				Helper::inCot(cout, x.ngay, 15);
+				cout << endl;
 			}
 		}
 
@@ -217,30 +228,27 @@ public:
 
 			cout << "\n================= DANH SÁCH HOÀN =================\n";
 
-			cout << left
-				<< setw(10) << "Mã"
-				<< setw(20) << "Tên"
-				<< setw(12) << "Số Tiền"
-				<< setw(20) << "Người Thu"
-				<< setw(20) << "Lý Do"
-				<< setw(15) << "Ngày"
-				<< endl;
+			Helper::inCot(cout, "Mã BN", 10);
+			Helper::inCot(cout, "Tên", 30);
+			Helper::inCot(cout, "Số tiền", 10);
+			Helper::inCot(cout, "Người thu", 30);
+			Helper::inCot(cout, "Lý do", 30);
+			Helper::inCot(cout, "Ngày", 15);
+			cout << endl;
 
-			cout << "--------------------------------------------------------------------------------------------------\n";
+			cout << string(120, '-') << endl;
 
 			for (auto& x : dsHoan) {
-				cout << left
-					<< setw(10) << x.ma
-					<< setw(20) << x.ten
-					<< setw(12) << x.soTien
-					<< setw(20) << x.nguoiThu
-					<< setw(20) << x.lyDo
-					<< setw(15) << x.ngay
-					<< endl;
+				Helper::inCot(cout, x.ma, 10);
+				Helper::inCot(cout, x.ten, 30);
+				Helper::inCot(cout, x.soTien, 10);
+				Helper::inCot(cout, x.nguoiThu, 30);
+				Helper::inCot(cout, x.lyDo, 30);
+				Helper::inCot(cout, x.ngay, 15);
+				cout << endl;
 			}
 		}
 
-		// ❌ Không có file nào
 		if (!SystemMethod::fileExist("thutien.xml") &&
 			!SystemMethod::fileExist("hoantra.xml")) {
 
@@ -328,36 +336,37 @@ public:
 		}
 
 
-		cout << "\n--------------------------------------------------------------------------\n";
+		cout << string(120, '-') << endl;
 
-		cout << left
-			<< setw(10) << "Mã"
-			<< setw(20) << "Tên"
-			<< setw(12) << "Số Tiền"
-			<< setw(20) << "Người Thu"
-			<< setw(15) << "Ngày"
-			<< endl;
 
-		cout << "--------------------------------------------------------------------------\n";
+		Helper::inCot(cout, "Mã BN", 10);
+		Helper::inCot(cout, "Tên", 30);
+		Helper::inCot(cout, "Số tiền", 15);
+		Helper::inCot(cout, "Người thu", 30);
+		Helper::inCot(cout, "Ngày thu", 15);
+		cout << endl;
+
+		cout << string(120, '-') << endl;
 
 		for (auto& x : ds) {
-			cout << left
-				<< setw(10) << x.ma
-				<< setw(20) << x.ten
-				<< setw(12) << x.soTien
-				<< setw(20) << x.nguoiThu
-				<< setw(15) << x.ngay
-				<< endl;
+
+			Helper::inCot(cout, x.ma, 10);
+			Helper::inCot(cout, x.ten, 30);
+			Helper::inCot(cout, x.soTien, 15);
+			Helper::inCot(cout, x.nguoiThu, 30);
+			Helper::inCot(cout, x.ngay, 15);
+			cout << endl;
 		}
 
-		cout << "--------------------------------------------------------------------------\n";
+		cout << string(120, '-') << endl;
 
 		UI::pause();
 	}
 
 	static void exportExcel() {
 
-		ofstream o("thutien_all.csv");
+		ofstream o("thanhtoan.csv", ios::binary);
+		o << "\xEF\xBB\xBF";
 
 		o << "Loai,Ma,Ten,SoTien,NguoiThu,Ngay,LyDo\n";
 
@@ -386,7 +395,7 @@ public:
 				t.ngay = line.substr(6, line.find("</") - 6);
 
 				o << "Thu," << t.ma << "," << t.ten << ","
-					<< t.soTien << "," << t.nguoiThu << ","
+					<< Helper::csvTextExcel(t.soTien) << "," << t.nguoiThu << ","
 					<< t.ngay << ",\n";
 			}
 		}
@@ -416,7 +425,7 @@ public:
 				h.ngay = line.substr(6, line.find("</") - 6);
 
 				o << "Hoan," << h.ma << "," << h.ten << ","
-					<< "-" << h.soTien << ",," << h.ngay << ","
+					<< "-" << Helper::csvTextExcel(h.soTien) << ",," << h.ngay << ","
 					<< h.lyDo << "\n";
 			}
 		}
@@ -431,7 +440,7 @@ public:
 		cin >> ch;
 
 		if (ch == 'Y' || ch == 'y')
-			system("start thutien_all.csv");
+			system("start thanhtoan.csv");
 
 		UI::pause();
 	}

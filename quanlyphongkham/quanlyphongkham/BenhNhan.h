@@ -21,7 +21,7 @@ private:
 
 
 public:
-	#pragma region các getter và setter
+#pragma region các getter và setter
 	string getMa() const { return ma; }
 	void setMa(const string& val) { ma = val; }
 
@@ -58,7 +58,7 @@ public:
 	string getCls() const { return cls; }
 	void setCls(const string& val) { cls = val; }
 #pragma endregion
-	
+
 	string NhapVaKiemTraNamSinh() {
 		int dd, mm, yyyy;
 		char slash1, slash2;
@@ -218,9 +218,7 @@ public:
 
 	void saveDangKy() {
 		bool fileMoi = !SystemMethod::fileExist("benhnhan.xml");
-
 		ofstream file("benhnhan.xml", ios::app);
-
 		if (fileMoi) {
 			file << "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
 		}
@@ -383,7 +381,7 @@ public:
 				if (match) {
 					found = true;
 
-					if (trangthai == "Moi") {
+					if (trangthai == "Mới") {
 						count++;
 						// Không đưa temp vào newLines => xóa bệnh nhân
 					}
@@ -427,16 +425,14 @@ public:
 
 		UI::pause();
 	}
-
 	// nạp chồng toán tử
 	friend ostream& operator<<(ostream& out, const BenhNhan& bn) {
-		out << left
-			<< setw(10) << bn.ma
-			<< setw(20) << bn.ten
-			<< setw(15) << bn.sinh
-			<< setw(15) << bn.phong
-			<< setw(15) << bn.ngay
-			<< setw(15) << bn.trangthai;
+		Helper::inCot(out, bn.ma, 10);
+		Helper::inCot(out, bn.ten, 40);
+		Helper::inCot(out, bn.sinh, 15);
+		Helper::inCot(out, bn.phong, 25);
+		Helper::inCot(out, bn.ngay, 15);
+		Helper::inCot(out, bn.trangthai, 15);
 
 		return out;
 	}
@@ -483,37 +479,34 @@ public:
 
 		f.close();
 
-		cout << "\n--------------------------------------------------------------------------------\n";
+		cout << string(120, '-') << endl;
 
-		cout << left
-			<< setw(10) << "Mã BN"
-			<< setw(20) << "Tên"
-			<< setw(15) << "Ngày Sinh"
-			<< setw(15) << "Phòng"
-			<< setw(15) << "Ngày Khám"
-			<< setw(15) << "Trạng Thái"
-			<< endl;
+		Helper::inCot(cout, "Mã BN", 10);
+		Helper::inCot(cout, "Tên", 40);
+		Helper::inCot(cout, "Ngày Sinh", 15);
+		Helper::inCot(cout, "Phòng", 25);
+		Helper::inCot(cout, "Ngày Khám", 15);
+		Helper::inCot(cout, "Trạng Thái", 15);
+		cout << endl;
 
-		cout << "--------------------------------------------------------------------------------\n";
+		cout << string(120, '-') << endl;
 
 		for (auto& b : ds) {
 
 			cout << b << endl;
 		}
-
-		cout << "--------------------------------------------------------------------------------\n";
+		cout << string(120, '-') << endl;
 		UI::pause();
 	}
 
 	void hienThi() override {
-		cout << left
-			<< setw(10) << ma
-			<< setw(20) << ten
-			<< setw(15) << sinh
-			<< setw(15) << phong
-			<< setw(15) << ngay
-			<< setw(15) << trangthai
-			<< endl;
+		Helper::inCot(cout, ma, 10);
+		Helper::inCot(cout, ten, 40);
+		Helper::inCot(cout, sinh, 15);
+		Helper::inCot(cout, phong, 25);
+		Helper::inCot(cout, ngay, 15);
+		Helper::inCot(cout, trangthai, 15);
+		cout << endl;
 	}
 
 	static void searchBenhNhan() {
@@ -566,6 +559,9 @@ public:
 			if (line.find("<Phong>") != string::npos)
 				bn.phong = line.substr(7, line.find("</") - 7);
 
+			if (line.find("<TrangThai>") != string::npos)
+				bn.trangthai = line.substr(11, line.find("</") - 11);
+
 			if (line.find("<Ngay>") != string::npos) {
 
 				bn.ngay = line.substr(6, line.find("</") - 6);
@@ -592,30 +588,24 @@ public:
 			return;
 		}
 
-		cout << "\n--------------------------------------------------------------------------------\n";
+		cout << string(120, '-') << endl;
 
-		cout << left
-			<< setw(10) << "Mã BN"
-			<< setw(20) << "Tên"
-			<< setw(15) << "Ngày Sinh"
-			<< setw(15) << "Phòng"
-			<< setw(15) << "Ngày Khám"
-			<< endl;
+		Helper::inCot(cout, "Mã BN", 10);
+		Helper::inCot(cout, "Tên", 40);
+		Helper::inCot(cout, "Ngày Sinh", 15);
+		Helper::inCot(cout, "Phòng", 25);
+		Helper::inCot(cout, "Ngày Khám", 15);
+		Helper::inCot(cout, "Trạng Thái", 15);
+		cout << endl;
 
-		cout << "--------------------------------------------------------------------------------\n";
+		cout << string(120, '-') << endl;
 
 		for (auto& b : ds) {
 
-			cout << left
-				<< setw(10) << b.ma
-				<< setw(20) << b.ten
-				<< setw(15) << b.sinh
-				<< setw(15) << b.phong
-				<< setw(15) << b.ngay
-				<< endl;
+			cout << b << endl;
 		}
 
-		cout << "--------------------------------------------------------------------------------\n";
+		cout << string(120, '-') << endl;
 		UI::pause();
 
 		UI::pause();
@@ -630,7 +620,8 @@ public:
 		}
 
 		ifstream f("benhnhan.xml");
-		ofstream o("benhnhan.csv");
+		ofstream o("benhnhan.csv", ios::binary);
+		o << "\xEF\xBB\xBF";
 
 		string line;
 		BenhNhan bn;

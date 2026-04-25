@@ -3,14 +3,13 @@
 #include "Helper.h"
 #include "SystemMethod.h"
 
-
 class CanLamSang {
 private:
 	string ma, ten, gia, ghiChu;
 
 public:
 
-	#pragma region getter_&_setter
+#pragma region getter_&_setter
 
 	string getMa() const { return ma; }
 	void setMa(const string& val) { ma = val; }
@@ -24,7 +23,7 @@ public:
 	string getGhiChu() const { return ghiChu; }
 	void setGhiChu(const string& val) { ghiChu = val; }
 
-	#pragma endregion
+#pragma endregion
 
 	void nhap() {
 
@@ -59,7 +58,7 @@ public:
 		f << "<CLS>\n";
 		f << "<Ma>" << ma << "</Ma>\n";
 		f << "<Ten>" << ten << "</Ten>\n";
-		f << "<Gia>" << gia << "</Gia>\n";
+		f << "<Gia>" << Helper::formatTien(gia) << "</Gia>\n";
 		f << "<GhiChu>" << ghiChu << "</GhiChu>\n";
 		f << "</CLS>\n\n";
 
@@ -102,28 +101,27 @@ public:
 
 		f.close();
 
-		cout << "\n-------------------------------------------------------------\n";
+		cout << string(120, '-') << endl;
+		Helper::inCot(cout, "Mã DV", 10);
+		Helper::inCot(cout, "Tên DV", 40);
+		Helper::inCot(cout, "Đơn giá", 15);
+		Helper::inCot(cout, "Ghi chú", 25);
+		cout << endl;
 
-		cout << left
-			<< setw(15) << "Mã DV"
-			<< setw(25) << "Tên Dịch Vụ"
-			<< setw(10) << "Đơn Giá"
-			<< setw(20) << "Ghi Chú"
-			<< endl;
 
-		cout << "-------------------------------------------------------------\n";
+		cout << string(120, '-') << endl;
 
 		for (auto& c : ds) {
 
-			cout << left
-				<< setw(15) << c.ma
-				<< setw(25) << c.ten
-				<< setw(10) << c.gia
-				<< setw(20) << c.ghiChu
-				<< endl;
+			Helper::inCot(cout, c.ma, 10);
+			Helper::inCot(cout, c.ten, 40);
+			Helper::inCot(cout, c.gia, 15);
+			Helper::inCot(cout, c.ghiChu, 25);
+			cout << endl;
+
 		}
 
-		cout << "-------------------------------------------------------------\n";
+		cout << string(120, '-') << endl;
 
 		UI::pause();
 	}
@@ -203,28 +201,26 @@ public:
 			return;
 		}
 
-		cout << "\n-------------------------------------------------------------\n";
+		cout << string(120, '-') << endl;
 
-		cout << left
-			<< setw(15) << "Mã DV"
-			<< setw(25) << "Tên Dịch Vụ"
-			<< setw(10) << "Đơn Giá"
-			<< setw(20) << "Ghi Chú"
-			<< endl;
+		Helper::inCot(cout, "Mã DV", 10);
+		Helper::inCot(cout, "Tên DV", 40);
+		Helper::inCot(cout, "Đơn giá", 15);
+		Helper::inCot(cout, "Ghi chú", 25);
+		cout << endl;
 
-		cout << "-------------------------------------------------------------\n";
+		cout << string(120, '-') << endl;
 
 		for (auto& c : ds) {
 
-			cout << left
-				<< setw(15) << c.ma
-				<< setw(25) << c.ten
-				<< setw(10) << c.gia
-				<< setw(20) << c.ghiChu
-				<< endl;
+			Helper::inCot(cout, c.ma, 10);
+			Helper::inCot(cout, c.ten, 40);
+			Helper::inCot(cout, c.gia, 15);
+			Helper::inCot(cout, c.ghiChu, 25);
+			cout << endl;
 		}
 
-		cout << "-------------------------------------------------------------\n";
+		cout << string(120, '-') << endl;
 
 		UI::pause();
 	}
@@ -238,7 +234,8 @@ public:
 		}
 
 		ifstream f("canlamsang.xml");
-		ofstream o("canlamsang.csv");
+		ofstream o("canlamsang.csv", ios::binary);
+		o << "\xEF\xBB\xBF";
 
 		string line;
 		CanLamSang cls;
@@ -262,7 +259,7 @@ public:
 
 				o << cls.ma << ","
 					<< cls.ten << ","
-					<< cls.gia << ","
+					<< Helper::csvTextExcel(cls.gia) << ","
 					<< cls.ghiChu << "\n";
 			}
 		}

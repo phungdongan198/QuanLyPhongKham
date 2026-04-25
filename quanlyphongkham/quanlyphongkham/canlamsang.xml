@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CLS>
-<Ma>435</Ma>
-<Ten>Khám tổng quát gói PK01</Ten>
-<Gia>2000000</Gia>
-<GhiChu>Khám tổng quát gói rẻ</GhiChu>
+<Ma>dv1</Ma>
+<Ten>chụp x quang</Ten>
+<Gia>12.000</Gia>
+<GhiChu>ko</GhiChu>
 </CLS>
 
 <CLS>
-<Ma>433</Ma>
-<Ten>Khám răng</Ten>
-<Gia>200000</Gia>
-<GhiChu>khám răng </GhiChu>
+<Ma>dv2</Ma>
+<Ten>siêu âm bụng</Ten>
+<Gia>50.000</Gia>
+<GhiChu></GhiChu>
+</CLS>
+
+<CLS>
+<Ma>dv3</Ma>
+<Ten>khám bệnh</Ten>
+<Gia>50.000</Gia>
+<GhiChu>ghi chú</GhiChu>
 </CLS>
 

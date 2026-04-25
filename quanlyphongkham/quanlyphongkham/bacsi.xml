@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <BacSi>
-<Ma>435</Ma>
-<Ten>Phạm Văn Phong</Ten>
-<Sinh>06/09/2004</Sinh>
-<ChungChi>Cử Nhân</ChungChi>
-<ChuyenMon>Khoa Nội</ChuyenMon>
+<Ma>nv1</Ma>
+<Ten>phùng đông an</Ten>
+<Sinh>18/10/1998</Sinh>
+<ChungChi>chứng chỉ 1</ChungChi>
+<ChuyenMon>bs ck I</ChuyenMon>
 </BacSi>
 
 <BacSi>
-<Ma>001</Ma>
-<Ten>Lê thanh An</Ten>
-<Sinh>06/05/2002</Sinh>
-<ChungChi>cử nhân</ChungChi>
-<ChuyenMon>răng hàm mặt</ChuyenMon>
+<Ma>nv2</Ma>
+<Ten>phạm phong</Ten>
+<Sinh>18/11/2000</Sinh>
+<ChungChi>cchn</ChungChi>
+<ChuyenMon>BS CK II</ChuyenMon>
 </BacSi>
 
