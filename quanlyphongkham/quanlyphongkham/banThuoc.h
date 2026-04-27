@@ -10,8 +10,9 @@ class banThuoc {
 private:
 	string ma, ten, nguoimua, diachi, dienthoai, benh, soluong, dongia, thanhtien, lo, date, ghichu, ngay;
 public:
+	vector<string> thongTinThuoc;
 
-#pragma region các getter và setter
+	#pragma region các getter và setter
 	string getMa() const { return ma; }
 	void setMa(const string& val) { ma = val; }
 
@@ -50,10 +51,9 @@ public:
 
 	string getNgay() const { return ngay; }
 	void setNgay(const string& val) { ngay = val; }
-#pragma endregion
+	#pragma endregion
 
-	vector<string> thongTinThuoc;
-
+	#pragma region các hàm xử lý menu
 	long long laySoLuongConLaiTheoMa(string maCanTim) {
 		long long tongNhap = 0;
 		long long tongXuat = 0;
@@ -718,8 +718,10 @@ public:
 
 		UI::pause();
 	}
+	#pragma endregion
 
-	//=========================== CÁC HÀM KIỂM TRA CHO Bán THUỐC ===========================
+	#pragma region các hàm tiện ích
+
 	template <typename T>
 	T nhapSo(string thongBao) {
 		T value;
@@ -749,4 +751,6 @@ public:
 
 		return regex_match(sdt, pattern);
 	}
+
+	#pragma endregion
 };

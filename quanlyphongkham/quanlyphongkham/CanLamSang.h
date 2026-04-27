@@ -9,7 +9,7 @@ private:
 
 public:
 
-#pragma region getter_&_setter
+	#pragma region getter_&_setter
 
 	string getMa() const { return ma; }
 	void setMa(const string& val) { ma = val; }
@@ -23,7 +23,9 @@ public:
 	string getGhiChu() const { return ghiChu; }
 	void setGhiChu(const string& val) { ghiChu = val; }
 
-#pragma endregion
+	#pragma endregion
+
+	#pragma region các hàm xử lý menu
 
 	void nhap() {
 
@@ -280,6 +282,9 @@ public:
 		UI::pause();
 	}
 
+	#pragma endregion
+
+	#pragma region các hàm tiện ích
 	template <typename T>
 	static T nhapSo(string thongBao) {
 		T value;
@@ -298,4 +303,5 @@ public:
 			}
 		}
 	}
+	#pragma endregion
 };

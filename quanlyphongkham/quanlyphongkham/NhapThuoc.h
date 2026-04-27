@@ -9,7 +9,7 @@ private:
 
 public:
 
-#pragma region getter_&_setter
+	#pragma region getter_&_setter
 
 	string getMa() const { return ma; }
 	void setMa(const string& val) { ma = val; }
@@ -32,9 +32,9 @@ public:
 	string getGhiChu() const { return ghiChu; }
 	void setGhiChu(const string& val) { ghiChu = val; }
 
-#pragma endregion
+	#pragma endregion
 
-
+	#pragma region các hàm xử lý menu
 	void nhap() {
 
 		cin.ignore();
@@ -98,8 +98,9 @@ public:
 
 		f.close();
 	}
+	#pragma endregion
 
-	//=========================== CÁC HÀM KIỂM TRA CHO NHẬP THUỐC ===========================
+	#pragma region các hàm tiện ích
 
 	string NhapVaKiemTraDateThuocNhap() {
 		int dd, mm, yyyy;
@@ -199,5 +200,7 @@ public:
 			}
 		}
 	}
+
+	#pragma endregion
 
 };

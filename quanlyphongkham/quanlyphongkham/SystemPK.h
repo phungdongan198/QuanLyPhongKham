@@ -22,7 +22,7 @@ public:
 		bool coDuLieu;
 	};
 
-#pragma region menu Chức Năng
+	#pragma region menu Chức Năng
 
 	void menuBenhNhan() {
 
@@ -462,7 +462,8 @@ public:
 
 			if (role == "employee" && (c >= 2 && c <= 7))
 			{
-				c = 9;
+				//cout << "vui lòng chọn lại các chức năng phù hợp với vai trò Employee\n";
+				c = 0;
 			}
 
 			switch (c)
@@ -511,9 +512,9 @@ public:
 		UI::pause();
 	}
 
-#pragma endregion
+	#pragma endregion
 
-#pragma region các chức năng phụ
+	#pragma region các hàm tiện ích
 
 	bool fileCoDuLieu(const string& tenFile) {
 		ifstream f(tenFile, ios::binary);
@@ -970,5 +971,5 @@ public:
 		UI::pause();
 	}
 
-#pragma endregion
+	#pragma endregion
 };

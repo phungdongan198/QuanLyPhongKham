@@ -8,8 +8,7 @@ private:
 	string ma, ten, loai;
 
 public:
-
-#pragma	region getter_&_setter
+	#pragma	region getter_&_setter
 
 	string getMa() const { return ma; }
 	void setMa(const string& val) { ma = val; }
@@ -20,7 +19,9 @@ public:
 	string getLoai() const { return loai; }
 	void setLoai(const string& val) { loai = val; }
 
-#pragma endregion
+	#pragma endregion
+
+	#pragma region các hàm xử lý menu
 
 	void nhap() {
 
@@ -255,4 +256,6 @@ public:
 
 		UI::pause();
 	}
+
+	#pragma endregion
 };

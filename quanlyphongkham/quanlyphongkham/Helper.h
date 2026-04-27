@@ -127,7 +127,8 @@ public:
 		const string& tenTheCanLay,
 		const string& tenTheLayKem,
 		string& giaTriLayKem
-	) {
+							) 
+	{
 		ifstream file(tenFile);
 
 		vector<string> dsHienThi;
@@ -527,4 +528,5 @@ public:
 		double giay = difftime(hetHan, hienTai);
 		return (long long)(giay / (60 * 60 * 24));
 	}
+
 };

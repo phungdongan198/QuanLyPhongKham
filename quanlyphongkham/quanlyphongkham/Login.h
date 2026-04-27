@@ -7,22 +7,10 @@ class Login
 private:
 	string username;
 	string password;
-	string role; //employee or admin
+	string role; 
 
 public:
-	Login() {
-		username = "Unknow User";
-		password = "123456";
-		role = "patient";
-	}
-
-	//cách khai báo chỉ gán giá trị
-	Login(string u, string p, string r) :username(u), password(p), role(r) {}
-	/*	username = u;
-		password = p;
-		role = r;
-	}*/
-
+	#pragma region getter_&_setter
 	string getUsername() {
 		return username;
 	}
@@ -46,6 +34,22 @@ public:
 	void SetRole(string r) {
 		role = r;
 	}
+	#pragma endregion
+
+	#pragma region các hàm xử lý menu
+
+	Login() {
+		username = "Unknow User";
+		password = "123456";
+		role = "patient";
+	}
+
+	//cách khai báo chỉ gán giá trị
+	Login(string u, string p, string r) :username(u), password(p), role(r) {}
+	/*	username = u;
+		password = p;
+		role = r;
+	}*/
 
 	static string CheckLogin(string userName, string password) // trả về "NULL", "employee" hoặc "admin"
 	{
@@ -196,4 +200,6 @@ public:
 			login.AddHardAccount();
 		}
 	}
+
+	#pragma endregion
 };

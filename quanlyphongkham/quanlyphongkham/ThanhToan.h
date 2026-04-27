@@ -1,13 +1,14 @@
 ﻿#pragma once
 #include "LiblaryHeader.h"
 #include "Helper.h"
+#include "SystemMethod.h"
 
 class ThuTien {
 private:
 	string ma, ten, soTien, nguoiThu, lyDo, ngay;
 
 public:
-#pragma region các getter và setter
+	#pragma region các getter và setter
 	// Getter và Setter cho Ma
 	string getMa() const { return ma; }
 	void setMa(const string& val) { ma = val; }
@@ -31,7 +32,9 @@ public:
 	// Getter và Setter cho Ngay
 	string getNgay() const { return ngay; }
 	void setNgay(const string& val) { ngay = val; }
-#pragma endregion
+	#pragma endregion
+
+	#pragma region các hàm xử lý menu
 
 	void nhapThu() {
 		cin.ignore();
@@ -49,7 +52,7 @@ public:
 		//Nhập số tiền
 		while (true)
 		{
-			int tienThu = nhapSo<int>("Nhập Số tiền: ");
+			int tienThu = SystemMethod::nhapSo<int>("Nhập Số tiền: ");
 			if (tienThu > 100)
 			{
 				soTien = std::to_string(tienThu);
@@ -99,7 +102,7 @@ public:
 		//Nhập số tiền hoàn
 		while (true)
 		{
-			int tienHoan = nhapSo<int>("Nhập Số tiền hoàn: ");
+			int tienHoan = SystemMethod::nhapSo<int>("Nhập Số tiền hoàn: ");
 			if (tienHoan >= 100)
 			{
 				soTien = std::to_string(tienHoan);
@@ -445,22 +448,6 @@ public:
 		UI::pause();
 	}
 
-	template <typename T>
-	T nhapSo(string thongBao) {
-		T value;
-		while (true) {
-			cout << thongBao;
-			if (cin >> value) {
-				// Nhập thành công, dọn dẹp bộ đệm đến hết dòng để tránh trôi lệnh sau
-				cin.clear();
-				cin.ignore((numeric_limits<streamsize>::max)(), '\n');
-				return value;
-			}
-			else {
-				cout << "Lỗi! Vui lòng nhập số.\n";
-				cin.clear();
-				cin.ignore((numeric_limits<streamsize>::max)(), '\n');
-			}
-		}
-	}
+	#pragma endregion
+
 };

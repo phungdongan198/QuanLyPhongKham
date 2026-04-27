@@ -21,7 +21,7 @@ private:
 
 
 public:
-#pragma region các getter và setter
+	#pragma region các getter và setter
 	string getMa() const { return ma; }
 	void setMa(const string& val) { ma = val; }
 
@@ -57,58 +57,9 @@ public:
 
 	string getCls() const { return cls; }
 	void setCls(const string& val) { cls = val; }
-#pragma endregion
+	#pragma endregion
 
-	string NhapVaKiemTraNamSinh() {
-		int dd, mm, yyyy;
-		char slash1, slash2;
-
-		while (true) {
-			cout << "Nhập ngày sinh (Với định dạng dd / mm / yyyy): ";
-
-			// Đọc dữ liệu theo định dạng dd / mm / yyyy
-			if (cin >> dd >> slash1 >> mm >> slash2 >> yyyy && slash1 == '/' && slash2 == '/') {
-
-				// Kiểm tra tính hợp lệ của ngày tháng (logic cơ bản)
-				if (mm >= 1 && mm <= 12 && dd >= 1 && dd <= 31 && yyyy >= 1920 && yyyy <= 2026) {
-					char buffer[11];
-					sprintf_s(buffer, "%02d/%02d/%04d", dd, mm, yyyy);
-					return string(buffer); // Thoát hàm và trả về kết quả
-				}
-			}
-
-			// Nếu nhập sai định dạng hoặc sai logic ngày tháng
-			cout << "Ngày tháng năm sinh bạn nhập không hợp lệ! Vui lòng nhập lại.\n";
-			cin.clear(); // Xóa trạng thái lỗi
-			cin.ignore((numeric_limits<streamsize>::max)(), '\n'); // Xóa sạch bộ đệm cho đến khi gặp dòng mới
-		}
-	}
-
-	bool KiemTraSoDienThoai(const string& sdt) {
-		// Regex này kiểm tra:
-		// ^0: Bắt đầu bằng số 0
-		// [35789]: Chữ số thứ hai thường là 3, 5, 7, 8, 9 (các đầu số nhà mạng VN)
-		// [0-9]{8}: 8 chữ số tiếp theo là bất kỳ số nào từ 0-9
-		// $: Kết thúc chuỗi
-		const regex pattern("^0[35789][0-9]{8}$");
-
-		return regex_match(sdt, pattern);
-	}
-
-	string layGiaTriTag(const string& block, const string& tag) {
-		string openTag = "<" + tag + ">";
-		string closeTag = "</" + tag + ">";
-
-		size_t start = block.find(openTag);
-		size_t end = block.find(closeTag);
-
-		if (start == string::npos || end == string::npos) {
-			return "";
-		}
-
-		start += openTag.length();
-		return block.substr(start, end - start);
-	}
+	#pragma region các hàm xử lý menu
 
 	void capNhatTinhTrangBenhNhan(const string& maCanTim) {
 		ifstream fileIn("benhnhan.xml");
@@ -425,18 +376,7 @@ public:
 
 		UI::pause();
 	}
-	// nạp chồng toán tử
-	friend ostream& operator<<(ostream& out, const BenhNhan& bn) {
-		Helper::inCot(out, bn.ma, 10);
-		Helper::inCot(out, bn.ten, 40);
-		Helper::inCot(out, bn.sinh, 15);
-		Helper::inCot(out, bn.phong, 25);
-		Helper::inCot(out, bn.ngay, 15);
-		Helper::inCot(out, bn.trangthai, 15);
-
-		return out;
-	}
-
+	
 	static void showBenhNhan() {
 
 		if (!SystemMethod::fileExist("benhnhan.xml")) {
@@ -686,4 +626,73 @@ public:
 
 		UI::pause();
 	}
+
+	#pragma endregion
+
+	#pragma region các hàm tiện ích
+
+	// nạp chồng toán tử
+	friend ostream& operator<<(ostream& out, const BenhNhan& bn) {
+		Helper::inCot(out, bn.ma, 10);
+		Helper::inCot(out, bn.ten, 40);
+		Helper::inCot(out, bn.sinh, 15);
+		Helper::inCot(out, bn.phong, 25);
+		Helper::inCot(out, bn.ngay, 15);
+		Helper::inCot(out, bn.trangthai, 15);
+
+		return out;
+	}
+
+	string NhapVaKiemTraNamSinh() {
+		int dd, mm, yyyy;
+		char slash1, slash2;
+
+		while (true) {
+			cout << "Nhập ngày sinh (Với định dạng dd / mm / yyyy): ";
+
+			// Đọc dữ liệu theo định dạng dd / mm / yyyy
+			if (cin >> dd >> slash1 >> mm >> slash2 >> yyyy && slash1 == '/' && slash2 == '/') {
+
+				// Kiểm tra tính hợp lệ của ngày tháng (logic cơ bản)
+				if (mm >= 1 && mm <= 12 && dd >= 1 && dd <= 31 && yyyy >= 1920 && yyyy <= 2026) {
+					char buffer[11];
+					sprintf_s(buffer, "%02d/%02d/%04d", dd, mm, yyyy);
+					return string(buffer); // Thoát hàm và trả về kết quả
+				}
+			}
+
+			// Nếu nhập sai định dạng hoặc sai logic ngày tháng
+			cout << "Ngày tháng năm sinh bạn nhập không hợp lệ! Vui lòng nhập lại.\n";
+			cin.clear(); // Xóa trạng thái lỗi
+			cin.ignore((numeric_limits<streamsize>::max)(), '\n'); // Xóa sạch bộ đệm cho đến khi gặp dòng mới
+		}
+	}
+
+	bool KiemTraSoDienThoai(const string& sdt) {
+		// Regex này kiểm tra:
+		// ^0: Bắt đầu bằng số 0
+		// [35789]: Chữ số thứ hai thường là 3, 5, 7, 8, 9 (các đầu số nhà mạng VN)
+		// [0-9]{8}: 8 chữ số tiếp theo là bất kỳ số nào từ 0-9
+		// $: Kết thúc chuỗi
+		const regex pattern("^0[35789][0-9]{8}$");
+
+		return regex_match(sdt, pattern);
+	}
+
+	string layGiaTriTag(const string& block, const string& tag) {
+		string openTag = "<" + tag + ">";
+		string closeTag = "</" + tag + ">";
+
+		size_t start = block.find(openTag);
+		size_t end = block.find(closeTag);
+
+		if (start == string::npos || end == string::npos) {
+			return "";
+		}
+
+		start += openTag.length();
+		return block.substr(start, end - start);
+	}
+
+	#pragma endregion
 };

@@ -11,7 +11,7 @@ private:
 	string ma, ten, sinh, chungChi, chuyenMon;
 
 public:
-#pragma region các getter và setter
+	#pragma region các getter và setter
 	string getMa() const { return ma; }
 	void setMa(const string& val) { ma = val; }
 
@@ -26,9 +26,24 @@ public:
 
 	string getChuyenMon() const { return chuyenMon; }
 	void setChuyenMon(const string& val) { chuyenMon = val; }
-#pragma endregion
+	#pragma endregion
 
-	// đa hình
+	#pragma region các constructor
+	BacSi() {
+		ma = ten = sinh = chungChi = chuyenMon = "";
+	}
+
+	BacSi(string ma, string ten, string sinh, string chungChi, string chuyenMon) {
+		this->ma = ma;
+		this->ten = ten;
+		this->sinh = sinh;
+		this->chungChi = chungChi;
+		this->chuyenMon = chuyenMon;
+	}
+	#pragma endregion
+
+	#pragma region các hàm xử lý menu
+
 	void nhap() override {
 
 		cin.ignore();
@@ -69,30 +84,6 @@ public:
 		f << "</BacSi>\n\n";
 
 		f.close();
-	}
-
-	// nạp chồng toán tử
-	friend ostream& operator<<(ostream& out, const BacSi& bs) {
-		Helper::inCot(out, bs.ma, 10);
-		Helper::inCot(out, bs.ten, 40);
-		Helper::inCot(out, bs.sinh, 15);
-		Helper::inCot(out, bs.chungChi, 25);
-		Helper::inCot(out, bs.chuyenMon, 25);
-
-		return out;
-	}
-
-public:
-	BacSi() {
-		ma = ten = sinh = chungChi = chuyenMon = "";
-	}
-
-	BacSi(string ma, string ten, string sinh, string chungChi, string chuyenMon) {
-		this->ma = ma;
-		this->ten = ten;
-		this->sinh = sinh;
-		this->chungChi = chungChi;
-		this->chuyenMon = chuyenMon;
 	}
 
 	static void showBacSi() {
@@ -325,6 +316,20 @@ public:
 		UI::pause();
 	}
 
+	#pragma endregion
+
+	#pragma region các hàm tiện ích
+
+	// nạp chồng toán tử
+	friend ostream& operator<<(ostream& out, const BacSi& bs) {
+		Helper::inCot(out, bs.ma, 10);
+		Helper::inCot(out, bs.ten, 40);
+		Helper::inCot(out, bs.sinh, 15);
+		Helper::inCot(out, bs.chungChi, 25);
+		Helper::inCot(out, bs.chuyenMon, 25);
+		return out;
+	}
+
 	string NhapVaKiemTraNamSinh() {
 		int dd, mm, yyyy;
 		char slash1, slash2;
@@ -351,4 +356,6 @@ public:
 			cin.ignore((numeric_limits<streamsize>::max)(), '\n'); // Xóa sạch bộ đệm cho đến khi gặp dòng mới
 		}
 	}
+
+	#pragma endregion
 };

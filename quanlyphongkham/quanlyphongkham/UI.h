@@ -7,9 +7,12 @@
 class UI {
 public:
 
-	static void setColor(int c) {
+	#pragma region các hàm tiện ích
+	static void setColor(int c) 
+	{
 		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), c);
 	}
+
 	static void printColor(string text, int color) {
 
 		setColor(color);
@@ -41,6 +44,5 @@ public:
 
 		setColor(7);
 	}
-
-
+	#pragma endregion
 };
