@@ -509,7 +509,6 @@ public:
 
 		} while (c != 9);
 		cout << "\nXin cam on ban da su dung he thong!\n";
-		UI::pause();
 	}
 
 	#pragma endregion

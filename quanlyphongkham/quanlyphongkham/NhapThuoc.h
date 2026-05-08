@@ -9,7 +9,7 @@ private:
 
 public:
 
-	#pragma region getter_&_setter
+#pragma region getter_&_setter
 
 	string getMa() const { return ma; }
 	void setMa(const string& val) { ma = val; }
@@ -32,9 +32,9 @@ public:
 	string getGhiChu() const { return ghiChu; }
 	void setGhiChu(const string& val) { ghiChu = val; }
 
-	#pragma endregion
+#pragma endregion
 
-	#pragma region các hàm xử lý menu
+#pragma region các hàm xử lý menu
 	void nhap() {
 
 		cin.ignore();
@@ -71,7 +71,19 @@ public:
 		date = NhapVaKiemTraDateThuocNhap();
 
 		//So Luong
-		soLuong = std::to_string(nhapSo<int>("Nhập số lượng: "));
+		//soLuong = std::to_string(nhapSo<int>("Nhập số lượng: "));
+
+		while (true) {
+
+			int slNhap = nhapSo<int>("Nhập số lượng: ");
+
+			if (slNhap <= 0) {
+				cout << "Số lượng xuất phải lớn hơn 0. Vui lòng nhập lại!\n";
+				continue;
+			}
+			soLuong = std::to_string(slNhap);
+			break;
+		}
 
 
 		cout << "Ghi chú: ";
@@ -98,9 +110,9 @@ public:
 
 		f.close();
 	}
-	#pragma endregion
+#pragma endregion
 
-	#pragma region các hàm tiện ích
+#pragma region các hàm tiện ích
 
 	string NhapVaKiemTraDateThuocNhap() {
 		int dd, mm, yyyy;
@@ -201,6 +213,6 @@ public:
 		}
 	}
 
-	#pragma endregion
+#pragma endregion
 
 };

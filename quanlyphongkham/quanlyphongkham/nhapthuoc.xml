@@ -29,3 +29,23 @@
 <GhiChu>ds</GhiChu>
 </Thuoc>
 
+<Thuoc>
+<Ma>thuoc10</Ma>
+<Ten>vitamin a</Ten>
+<Gia>30.000</Gia>
+<Lo>lo123</Lo>
+<Date>10/05/2027</Date>
+<SoLuong>100</SoLuong>
+<GhiChu>ghi chú</GhiChu>
+</Thuoc>
+
+<Thuoc>
+<Ma>123</Ma>
+<Ten>213</Ten>
+<Gia>123</Gia>
+<Lo>213</Lo>
+<Date>12/12/2222</Date>
+<SoLuong>121212</SoLuong>
+<GhiChu>12</GhiChu>
+</Thuoc>
+

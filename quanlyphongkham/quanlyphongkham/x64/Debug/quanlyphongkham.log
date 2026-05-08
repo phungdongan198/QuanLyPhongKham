@@ -1,8 +1,8 @@
 ﻿  quanlyphongkham.cpp
-E:\DTTX\OOP\QuanLyPhongKham\quanlyphongkham\quanlyphongkham\Helper.h(376,14): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\Data\GIT\QuanLyPhongKham\quanlyphongkham\quanlyphongkham\Helper.h(376,14): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'quanlyphongkham.cpp')
   
-E:\DTTX\OOP\QuanLyPhongKham\quanlyphongkham\quanlyphongkham\Helper.h(463,14): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\Data\GIT\QuanLyPhongKham\quanlyphongkham\quanlyphongkham\Helper.h(463,14): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'quanlyphongkham.cpp')
   
-  quanlyphongkham.vcxproj -> E:\DTTX\OOP\QuanLyPhongKham\quanlyphongkham\x64\Debug\quanlyphongkham.exe
+  quanlyphongkham.vcxproj -> D:\Data\GIT\QuanLyPhongKham\quanlyphongkham\x64\Debug\quanlyphongkham.exe

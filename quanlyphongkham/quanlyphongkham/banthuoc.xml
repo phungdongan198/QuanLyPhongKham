@@ -63,3 +63,35 @@
 <Ngay>25/04/2026</Ngay>
 </BanThuoc>
 
+<BanThuoc>
+<Ma>thuoc10</Ma>
+<TenThuoc>vitamin a</TenThuoc>
+<NguoiMua>họ tên người mua lẻ</NguoiMua>
+<DiaChi>hồ chí minh</DiaChi>
+<DienThoai>0987654321</DienThoai>
+<Benh>đau họng</Benh>
+<SoLuong>10</SoLuong>
+<DonGia>30.000</DonGia>
+<ThanhTien>300.000</ThanhTien>
+<Lo>lo123</Lo>
+<Date>10/05/2027</Date>
+<GhiChu>uống ngày 2 viên</GhiChu>
+<Ngay>08/05/2026</Ngay>
+</BanThuoc>
+
+<BanThuoc>
+<Ma>thuoc10</Ma>
+<TenThuoc>vitamin a</TenThuoc>
+<NguoiMua>vũ thanh phúc</NguoiMua>
+<DiaChi>địa chỉ</DiaChi>
+<DienThoai>0987654321</DienThoai>
+<Benh>tên bệnh</Benh>
+<SoLuong>88</SoLuong>
+<DonGia>30.000</DonGia>
+<ThanhTien>2.640.000</ThanhTien>
+<Lo>lo123</Lo>
+<Date>10/05/2027</Date>
+<GhiChu>ghi chú</GhiChu>
+<Ngay>08/05/2026</Ngay>
+</BanThuoc>
+

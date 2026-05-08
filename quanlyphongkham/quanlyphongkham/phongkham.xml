@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Phong>
 <Ma>pk1</Ma>
-<Ten>phong khám 1</Ten>
-<Loai>phong thường</Loai>
+<Ten>phòng khám 1</Ten>
+<Loai>phòng thường</Loai>
 </Phong>
 
 <Phong>
 <Ma>pk2</Ma>
-<Ten>phong khám 2</Ten>
+<Ten>phòng khám 2</Ten>
 <Loai>phòng vip</Loai>
 </Phong>
 
